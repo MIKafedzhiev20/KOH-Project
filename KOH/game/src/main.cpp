@@ -2,7 +2,7 @@
 
 int main()
 {
-	Game game(600, 600, 60, "Project");
+	Game game(1920, 1080, 60, "Project");
 
 	while (!game.GameShouldClose())
 	{

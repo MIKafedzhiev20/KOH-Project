@@ -1,7 +1,7 @@
 #pragma once
+#include <iostream>
 #include <raylib.h>
 #include <assert.h>
-#include <iostream>
 
 using namespace std;
 
@@ -26,3 +26,12 @@ private:
 
 	bool gameShouldClose = false;
 };
+
+class MainMenu
+{
+public:
+	bool isMenuOpen = true;
+private:
+};
+
+Vector2 MousePos();
