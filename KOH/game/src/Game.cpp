@@ -39,9 +39,23 @@ void Game::Update()
 void Game::Draw()
 {
 	ClearBackground(BLACK);
-	
-	/*static MainMenu mainMenu;
 
+	static MainMenu mainMenu;
+	mainMenu.DrawMainMenu(mainMenu, gameShouldClose);
+}
+
+Vector2 MousePos()
+{
+	Vector2 pos;
+
+	pos.x = GetMouseX();
+	pos.y = GetMouseY();
+
+	return pos;
+}
+
+void MainMenu::DrawMainMenu(MainMenu& mainMenu, bool& gameShouldClose)
+{
 	if (mainMenu.isMenuOpen)
 	{
 		Rectangle newGameB = { 100, 200, 480, 100 };
@@ -56,6 +70,7 @@ void Game::Draw()
 			if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
 			{
 				mainMenu.isMenuOpen = false;
+				mainMenu.isGameStarted = true;
 			}
 		}
 
@@ -66,6 +81,7 @@ void Game::Draw()
 			if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
 			{
 				mainMenu.isMenuOpen = false;
+				mainMenu.isGameStarted = true;
 			}
 		}
 
@@ -88,15 +104,25 @@ void Game::Draw()
 				gameShouldClose = true;
 			}
 		}
-	}*/
+	}
+	else
+	{
+		StartGame(mainMenu);
+	}
 }
 
-Vector2 MousePos()
+void StartGame(MainMenu& mainMenu)
 {
-	Vector2 pos;
+	Rectangle backB = { 0, 0, 100, 100 };
 
-	pos.x = GetMouseX();
-	pos.y = GetMouseY();
-
-	return pos;
+	DrawRectangle(0, 0, 100, 100, WHITE);
+	if (CheckCollisionPointRec(MousePos(), backB))
+	{
+		DrawRectangle(0, 0, 100, 100, YELLOW);
+		if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+		{
+			mainMenu.isMenuOpen = true;
+			mainMenu.isGameStarted = false;
+		}
+	}
 }

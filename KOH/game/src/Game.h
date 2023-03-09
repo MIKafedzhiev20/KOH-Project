@@ -36,7 +36,11 @@ class MainMenu
 {
 public:
 	bool isMenuOpen = true;
+	bool isGameStarted = false;
+	void DrawMainMenu(MainMenu& mainMenu, bool& gameShouldClose);
 private:
 };
 
 Vector2 MousePos();
+
+void StartGame(MainMenu& mainMenu);
