@@ -3,7 +3,10 @@
 #include <raylib.h>
 #include <assert.h>
 
+#include "Player.h"
+
 using namespace std;
+
 
 class Game
 {
@@ -18,6 +21,8 @@ public:
 	bool GameShouldClose() const;
 
 	void Tick();
+
+	Player player;
 
 private:
 	void Update();

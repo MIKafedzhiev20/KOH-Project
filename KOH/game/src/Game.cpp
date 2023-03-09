@@ -33,16 +33,16 @@ void Game::Tick()
 
 void Game::Update()
 {
-
+	player.move();
 }
 
 void Game::Draw()
 {
 	ClearBackground(BLACK);
-
-	static MainMenu menu;
 	
-	if (menu.isMenuOpen)
+	/*static MainMenu mainMenu;
+
+	if (mainMenu.isMenuOpen)
 	{
 		Rectangle newGameB = { 100, 200, 480, 100 };
 		Rectangle countinueB = { 100, 400, 440, 100 };
@@ -55,7 +55,7 @@ void Game::Draw()
 			DrawText("New Game", 100, 200, 100, YELLOW);
 			if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
 			{
-				menu.isMenuOpen = false;
+				mainMenu.isMenuOpen = false;
 			}
 		}
 
@@ -65,7 +65,7 @@ void Game::Draw()
 			DrawText("Continue", 100, 400, 100, YELLOW);
 			if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
 			{
-				menu.isMenuOpen = false;
+				mainMenu.isMenuOpen = false;
 			}
 		}
 
@@ -75,7 +75,7 @@ void Game::Draw()
 			DrawText("Settings", 100, 600, 100, YELLOW);
 			if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
 			{
-				menu.isMenuOpen = false;
+				mainMenu.isMenuOpen = false;
 			}
 		}
 
@@ -88,7 +88,7 @@ void Game::Draw()
 				gameShouldClose = true;
 			}
 		}
-	}
+	}*/
 }
 
 Vector2 MousePos()
