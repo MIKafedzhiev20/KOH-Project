@@ -31,7 +31,7 @@ private:
 	int width = 0;
 	int height = 0;
 
-	Camera2D camera = { {(float)width/2, (float)height/2}, {0,0}, 0, 1 };
+	Camera2D camera = { {(float)width/2, (float)height/2}, {0,0}, 0, 2};
 };
 
 class MainMenu
@@ -43,7 +43,8 @@ public:
 private:
 };
 
-Vector2 MousePos();
+Vector2 vPos(int x, int y);
 
+bool DrawButtonText(Vector2 pos, int width, int height, int fontSize, const char* name, Font font);
 
-void StartGame(MainMenu& mainMenu);
+bool DrawButtonTexture(int x, int y, int width, int height, Texture2D texture);

@@ -16,7 +16,7 @@ public:
 
 	bool isOnMap = false;
 
-	Vector2 position = { 0,0 };
+	Vector2 position = {200, 200};
 
 private:
 

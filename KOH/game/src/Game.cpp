@@ -39,7 +39,11 @@ void Game::Tick()
 
 	Draw();
 
-	EndMode2D();
+	if (!player.isOnMap)
+	{
+		EndMode2D();
+	}
+
 	EndDrawing();
 }
 
@@ -50,7 +54,7 @@ void Game::Update()
 		player.move();
 		camera.target = player.position;
 
-		mouse = GetScreenToWorld2D(MousePos(), camera);
+		mouse = GetScreenToWorld2D(vPos(GetMouseX(), GetMouseY()), camera);
 	}
 }
 
@@ -67,12 +71,12 @@ void Game::Draw()
 	mainMenu.DrawMainMenu(mainMenu, gameShouldClose);
 }
 
-Vector2 MousePos()
+Vector2 vPos(int x, int y)
 {
 	Vector2 pos;
 
-	pos.x = GetMouseX();
-	pos.y = GetMouseY();
+	pos.x = x;
+	pos.y = y;
 
 	return pos;
 }
@@ -81,75 +85,75 @@ void MainMenu::DrawMainMenu(MainMenu& mainMenu, bool& gameShouldClose)
 {
 	if (mainMenu.isMenuOpen)
 	{
-		Rectangle newGameB = { 100, 200, 480, 100 };
-		Rectangle countinueB = { 100, 400, 440, 100 };
-		Rectangle settingsB = { 100, 600, 440, 100 };
-		Rectangle exitB = { 100, 800, 200, 100 };
+		static Font font = LoadFont("../assets/pixantiqua.png");
 
-		DrawText("New Game", 100, 200, 100, WHITE);
-		if (CheckCollisionPointRec(MousePos(), newGameB))
+		if (DrawButtonText(vPos(100, 200), 560, 100, 100, "New Game", font))
 		{
-			DrawText("New Game", 100, 200, 100, YELLOW);
-			if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
-			{
-				mainMenu.isMenuOpen = false;
-				mainMenu.isGameStarted = true;
-				player.isOnMap = true;
-			}
+			mainMenu.isMenuOpen = false;
+			mainMenu.isGameStarted = true;
+			player.isOnMap = true;
 		}
 
-		DrawText("Continue", 100, 400, 100, WHITE);
-		if (CheckCollisionPointRec(MousePos(), countinueB))
+		if (DrawButtonText(vPos(100, 400), 456, 100, 100, "Continue", font))
 		{
-			DrawText("Continue", 100, 400, 100, YELLOW);
-			if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
-			{
-				mainMenu.isMenuOpen = false;
-				mainMenu.isGameStarted = true;
-				player.isOnMap = true;
-			}
+			mainMenu.isMenuOpen = false;
+			mainMenu.isGameStarted = true;
+			player.isOnMap = true;
 		}
 
-		DrawText("Settings", 100, 600, 100, WHITE);
-		if (CheckCollisionPointRec(MousePos(), settingsB))
+		if (DrawButtonText(vPos(100, 600), 450, 100, 100, "Settings", font))
 		{
-			DrawText("Settings", 100, 600, 100, YELLOW);
-			if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
-			{
-				mainMenu.isMenuOpen = false;
-				player.isOnMap = true;
-			}
+			mainMenu.isMenuOpen = false;
+			mainMenu.isGameStarted = true;
+			player.isOnMap = true;
 		}
 
-		DrawText("Exit", 100, 800, 100, WHITE);
-		if (CheckCollisionPointRec(MousePos(), exitB))
+		if (DrawButtonText(vPos(100, 800), 200, 100, 100, "Exit", font))
 		{
-			DrawText("Exit", 100, 800, 100, YELLOW);
-			if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
-			{
-				gameShouldClose = true;
-			}
+			gameShouldClose = true;
 		}
 	}
 	else
 	{
-		StartGame(mainMenu);
-	}
-}
-
-void StartGame(MainMenu& mainMenu)
-{
-	Rectangle backB = { 0, 0, 100, 100 };
-
-	DrawRectangleRec(backB, WHITE);
-	if (CheckCollisionPointRec(mouse, backB))
-	{
-		DrawRectangleRec(backB, YELLOW);
-		if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+		static Texture2D button = LoadTexture("../assets/button.png");
+		if (DrawButtonTexture(0, 0, 100, 100, button))
 		{
 			mainMenu.isMenuOpen = true;
 			mainMenu.isGameStarted = false;
 			player.isOnMap = false;
 		}
 	}
+}
+
+bool DrawButtonTexture(int x, int y, int width, int height, Texture2D texture)
+{
+	Rectangle rec = { x, y, width, height};
+
+	DrawTexture(texture, rec.x, rec.y, WHITE);
+	if (CheckCollisionPointRec(mouse, rec))
+	{
+		DrawTexture(texture, rec.x, rec.y, DARKGRAY);
+		if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+		{
+			return 1;
+		}
+	}
+		
+	return 0;
+}
+
+bool DrawButtonText(Vector2 pos, int width, int height, int fontSize, const char* name, Font font)
+{
+	Rectangle rec = { pos.x, pos.y, width, height};
+
+	DrawTextEx(font, name, pos, fontSize, fontSize / 5 - fontSize / 20, WHITE);
+	if (CheckCollisionPointRec(vPos(GetMouseX(), GetMouseY()), rec))
+	{
+		DrawTextEx(font, name, pos, fontSize, fontSize / 5 - fontSize / 20, YELLOW);
+		if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+		{
+			return 1;
+		}
+	}
+	return 0;
 }
