@@ -7,7 +7,6 @@
 
 using namespace std;
 
-
 class Game
 {
 public:
@@ -22,14 +21,17 @@ public:
 
 	void Tick();
 
-	Player player;
-
 private:
 	void Update();
 
 	void Draw();
 
 	bool gameShouldClose = false;
+
+	int width = 0;
+	int height = 0;
+
+	Camera2D camera = { {(float)width/2, (float)height/2}, {0,0}, 0, 1 };
 };
 
 class MainMenu
@@ -42,5 +44,6 @@ private:
 };
 
 Vector2 MousePos();
+
 
 void StartGame(MainMenu& mainMenu);

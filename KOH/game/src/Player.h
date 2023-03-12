@@ -6,12 +6,19 @@ class Player
 public:
 	Player();
 
-	void move();
+	Player(Player const&) = delete;
+	void operator=(Player const&) = delete;
 
-	bool isOnMap = true;
-private:
+	static Player& getInstance();
+
+	void move();
+	void drawPlayer();
+
+	bool isOnMap = false;
 
 	Vector2 position = { 0,0 };
+
+private:
 
 	float speed = 1.0f;
 };

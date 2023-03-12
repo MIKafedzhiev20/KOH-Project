@@ -1,6 +1,13 @@
 #include "game.h"
 
-Game::Game(int width, int height, int fps, string title)
+Player& player = Player::getInstance();
+
+Vector2 mouse = { 0,0 };
+
+Game::Game(int widthIn, int heightIn, int fps, string title)
+	:
+	width(widthIn),
+	height(heightIn)
 {
 	assert(!GetWindowHandle());	//If assertion triggers : Window is already opened
 	SetTargetFPS(fps);
@@ -23,22 +30,38 @@ bool Game::GameShouldClose() const
 void Game::Tick()
 {
 	BeginDrawing();
+	if (player.isOnMap)
+	{
+		BeginMode2D(camera);
+	}
 
 	Update();
 
 	Draw();
 
+	EndMode2D();
 	EndDrawing();
 }
 
 void Game::Update()
 {
-	player.move();
+	if (player.isOnMap)
+	{
+		player.move();
+		camera.target = player.position;
+
+		mouse = GetScreenToWorld2D(MousePos(), camera);
+	}
 }
 
 void Game::Draw()
 {
 	ClearBackground(BLACK);
+
+	if (player.isOnMap)
+	{
+		player.drawPlayer();
+	}
 
 	static MainMenu mainMenu;
 	mainMenu.DrawMainMenu(mainMenu, gameShouldClose);
@@ -71,6 +94,7 @@ void MainMenu::DrawMainMenu(MainMenu& mainMenu, bool& gameShouldClose)
 			{
 				mainMenu.isMenuOpen = false;
 				mainMenu.isGameStarted = true;
+				player.isOnMap = true;
 			}
 		}
 
@@ -82,6 +106,7 @@ void MainMenu::DrawMainMenu(MainMenu& mainMenu, bool& gameShouldClose)
 			{
 				mainMenu.isMenuOpen = false;
 				mainMenu.isGameStarted = true;
+				player.isOnMap = true;
 			}
 		}
 
@@ -92,6 +117,7 @@ void MainMenu::DrawMainMenu(MainMenu& mainMenu, bool& gameShouldClose)
 			if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
 			{
 				mainMenu.isMenuOpen = false;
+				player.isOnMap = true;
 			}
 		}
 
@@ -115,14 +141,15 @@ void StartGame(MainMenu& mainMenu)
 {
 	Rectangle backB = { 0, 0, 100, 100 };
 
-	DrawRectangle(0, 0, 100, 100, WHITE);
-	if (CheckCollisionPointRec(MousePos(), backB))
+	DrawRectangleRec(backB, WHITE);
+	if (CheckCollisionPointRec(mouse, backB))
 	{
-		DrawRectangle(0, 0, 100, 100, YELLOW);
+		DrawRectangleRec(backB, YELLOW);
 		if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
 		{
 			mainMenu.isMenuOpen = true;
 			mainMenu.isGameStarted = false;
+			player.isOnMap = false;
 		}
 	}
 }
