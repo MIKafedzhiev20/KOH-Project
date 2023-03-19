@@ -17,19 +17,19 @@ void Player::move()
 	{
 		if (IsKeyDown(KEY_W))
 		{
-			position.y -= 2.0f;
+			position.y -= speed;
 		}
 		if (IsKeyDown(KEY_S))
 		{
-			position.y += 2.0f;
+			position.y += speed;
 		}
 		if (IsKeyDown(KEY_A))
 		{
-			position.x -= 2.0f;
+			position.x -= speed;
 		}
 		if (IsKeyDown(KEY_D))
 		{
-			position.x += 2.0f;
+			position.x += speed;
 		}
 	}
 }

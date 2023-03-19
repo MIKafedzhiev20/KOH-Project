@@ -2,6 +2,7 @@
 #include <iostream>
 #include <raylib.h>
 #include <assert.h>
+#include <cmath>
 
 #include "Player.h"
 
@@ -20,7 +21,6 @@ public:
 	bool GameShouldClose() const;
 
 	void Tick();
-
 private:
 	void Update();
 

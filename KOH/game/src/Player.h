@@ -18,7 +18,5 @@ public:
 
 	Vector2 position = {200, 200};
 
-private:
-
-	float speed = 1.0f;
+	float speed = 2.0f;
 };
