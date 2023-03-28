@@ -5,6 +5,7 @@
 #include <cmath>
 
 #include "Player.h"
+#include "Map.h"
 
 using namespace std;
 
@@ -26,25 +27,14 @@ private:
 
 	void Draw();
 
-	bool gameShouldClose = false;
-
 	int width = 0;
 	int height = 0;
 
-	Camera2D camera = { {(float)width/2, (float)height/2}, {0,0}, 0, 2};
+	Camera2D camera = { {(float)width / 2, (float)height / 2}, {0,0}, 0, 2 };
 };
 
-class MainMenu
-{
-public:
-	bool isMenuOpen = true;
-	bool isGameStarted = false;
-	void DrawMainMenu(MainMenu& mainMenu, bool& gameShouldClose);
-private:
-};
+static Vector2 mouse = { 0,0 };
+static Player& player = Player::getInstance();
 
-Vector2 vPos(int x, int y);
-
-bool DrawButtonText(Vector2 pos, int width, int height, int fontSize, const char* name, Font font);
-
-bool DrawButtonTexture(int x, int y, int width, int height, Texture2D texture);
+static Map map;
+static MainMenu mainMenu;
