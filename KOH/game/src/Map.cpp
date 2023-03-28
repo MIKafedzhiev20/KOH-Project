@@ -1,6 +1,11 @@
 #include "Map.h"
 #include "Player.h"
 
+Map::Map()
+{
+
+}
+
 Map& Map::getInstance()
 {
 	static Map map;
@@ -35,7 +40,7 @@ void Map::DrawMap()
 	if (isOutdoor == true)
 	{
 		Rectangle LabWarp = { 100, 100, 30, 30 };
-		Rectangle shopWarp = { 100, 100, 30, 30 };
+		Rectangle shopWarp = { 400, 400, 30, 30 };
 
 		DrawRectangleRec(LabWarp, BLUE);
 
@@ -58,9 +63,9 @@ void Map::DrawMap()
 	{
 	}
 
-	if (isOutdoor)
+	if (isInLab == true)
 	{
-
+		//laboratory.DrawLaboratory();
 	}
 }
 
@@ -71,7 +76,7 @@ void MainMenu::DrawMainMenu()
 
 	if (isMenuOpen)
 	{
-		static Font font = LoadFont("../assets/pixantiqua.png");
+		static Font font = LoadFont("assets/pixantiqua.png");
 
 		if (DrawButtonText({ 100, 200 }, 560, 100, 100, "New Game", font))
 		{

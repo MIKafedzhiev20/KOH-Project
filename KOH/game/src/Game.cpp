@@ -1,13 +1,11 @@
 #include "game.h"
 
-Game::Game(int widthIn, int heightIn, int fps, string title)
+Game::Game(int widthIn, int heightIn, int fps)
 	:
 	width(widthIn),
 	height(heightIn)
 {
-	assert(!GetWindowHandle());	//If assertion triggers : Window is already opened
 	SetTargetFPS(fps);
-	InitWindow(width, height, title.c_str());
 	SetExitKey(KEY_BACKSPACE);
 	ToggleFullscreen();
 }

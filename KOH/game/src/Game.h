@@ -13,7 +13,7 @@ class Game
 {
 public:
 	// Creates the game window
-	Game(int width, int height, int fps, string title);
+	Game(int width, int height, int fps);
 
 	// Closes the game window
 	~Game() noexcept;
@@ -31,10 +31,10 @@ private:
 	int height = 0;
 
 	Camera2D camera = { {(float)width / 2, (float)height / 2}, {0,0}, 0, 2 };
+
+	Vector2 mouse = { 0,0 };
+	Player& player = Player::getInstance();
+
+	Map& map = Map::getInstance();
+	MainMenu mainMenu;
 };
-
-static Vector2 mouse = { 0,0 };
-static Player& player = Player::getInstance();
-
-static Map& map = Map::getInstance();
-static MainMenu mainMenu;

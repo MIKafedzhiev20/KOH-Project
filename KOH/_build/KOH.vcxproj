@@ -178,12 +178,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game\src\Game.cpp" />
+    <ClCompile Include="..\game\src\Laboratory.cpp" />
     <ClCompile Include="..\game\src\main.cpp" />
     <ClCompile Include="..\game\src\Map.cpp" />
     <ClCompile Include="..\game\src\Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\game\src\Game.h" />
+    <ClInclude Include="..\game\src\Laboratory.h" />
     <ClInclude Include="..\game\src\Map.h" />
     <ClInclude Include="..\game\src\Player.h" />
   </ItemGroup>

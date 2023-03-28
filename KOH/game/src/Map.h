@@ -1,10 +1,17 @@
 #pragma once
 #include <raylib.h>
+#include "Laboratory.h"
 
 class Map
 {
 public:
+	Map();
+
+	Map(Map const&) = delete;
+	void operator=(Map const&) = delete;
+
 	static Map& getInstance();
+
 	void DrawMap();
 
 	bool isOutdoor = false;
@@ -14,6 +21,8 @@ private:
 	void goOutdoors();
 	void goInLab();
 	void goOutShop();
+
+	Laboratory laboratory;
 };
 
 class MainMenu
