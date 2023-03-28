@@ -35,6 +35,8 @@ void Map::DrawMap()
 	if (isOutdoor == true)
 	{
 		Rectangle LabWarp = { 100, 100, 30, 30 };
+		Rectangle shopWarp = { 100, 100, 30, 30 };
+
 		DrawRectangleRec(LabWarp, BLUE);
 
 		if (CheckCollisionRecs({ player.position.x, player.position.y, 20, 20 }, LabWarp))
@@ -42,11 +44,18 @@ void Map::DrawMap()
 			isOutdoor = false;
 			isInLab = true;
 		}
+
+		DrawRectangleRec(shopWarp, BLUE);
+
+		if (CheckCollisionRecs({ player.position.x, player.position.y, 20, 20 }, shopWarp))
+		{
+			isOutdoor = false;
+			isInShop = true;
+		}
 	}
 
 	if (isInShop)
 	{
-
 	}
 
 	if (isOutdoor)
