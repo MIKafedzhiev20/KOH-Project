@@ -72,7 +72,6 @@ void Game::Draw()
 	{
 		map.DrawMap();
 
-
 		if (player.isOnMap)
 		{
 			player.drawPlayer();

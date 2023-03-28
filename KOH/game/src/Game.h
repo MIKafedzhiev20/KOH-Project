@@ -36,5 +36,5 @@ private:
 static Vector2 mouse = { 0,0 };
 static Player& player = Player::getInstance();
 
-static Map map;
+static Map& map = Map::getInstance();
 static MainMenu mainMenu;

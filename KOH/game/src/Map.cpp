@@ -1,6 +1,12 @@
 #include "Map.h"
 #include "Player.h"
 
+Map& Map::getInstance()
+{
+	static Map map;
+	return map;
+}
+
 void Map::goOutdoors()
 {
 	isOutdoor = true;
@@ -24,9 +30,18 @@ void Map::goOutShop()
 
 void Map::DrawMap()
 {
-	if (isOutdoor)
-	{
+	Player& player = Player::getInstance();
 
+	if (isOutdoor == true)
+	{
+		Rectangle LabWarp = { 100, 100, 30, 30 };
+		DrawRectangleRec(LabWarp, BLUE);
+
+		if (CheckCollisionRecs({ player.position.x, player.position.y, 20, 20 }, LabWarp))
+		{
+			isOutdoor = false;
+			isInLab = true;
+		}
 	}
 
 	if (isInShop)
@@ -43,6 +58,7 @@ void Map::DrawMap()
 void MainMenu::DrawMainMenu()
 {
 	Player& player = Player::getInstance();
+	Map& map = Map::getInstance();
 
 	if (isMenuOpen)
 	{
@@ -53,6 +69,7 @@ void MainMenu::DrawMainMenu()
 			isMenuOpen = false;
 			isGameStarted = true;
 			player.isOnMap = true;
+			map.isOutdoor = true;
 		}
 
 		if (DrawButtonText({ 100, 400 }, 456, 100, 100, "Continue", font))
@@ -60,6 +77,7 @@ void MainMenu::DrawMainMenu()
 			isMenuOpen = false;
 			isGameStarted = true;
 			player.isOnMap = true;
+			map.isOutdoor = true;
 		}
 
 		if (DrawButtonText({ 100, 600 }, 450, 100, 100, "Settings", font))

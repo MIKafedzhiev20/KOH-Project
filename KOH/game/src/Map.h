@@ -3,17 +3,17 @@
 
 class Map
 {
-private:
+public:
+	static Map& getInstance();
+	void DrawMap();
+
 	bool isOutdoor = false;
 	bool isInLab = false;
 	bool isInShop = false;
-
-public:
+private:
 	void goOutdoors();
 	void goInLab();
 	void goOutShop();
-
-	void DrawMap();
 };
 
 class MainMenu
