@@ -1,5 +1,7 @@
 #pragma once
 #include <raylib.h>
+#include "Item.h"
+#include <vector>
 
 class Player
 {
@@ -19,4 +21,6 @@ public:
 	Vector2 position = {200, 200};
 
 	float speed = 2.0f;
+
+	std::vector<Item> items = createItem();
 };
