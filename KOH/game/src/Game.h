@@ -36,5 +36,6 @@ private:
 	Player& player = Player::getInstance();
 
 	Map& map = Map::getInstance();
-	MainMenu mainMenu;
+
+	MainMenu& mainMenu = MainMenu::getInstance();
 };

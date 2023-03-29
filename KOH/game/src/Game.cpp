@@ -68,15 +68,15 @@ void Game::Draw()
 
 	if (mainMenu.isGameStarted)
 	{
-		map.DrawMap();
+		if (!mainMenu.isMenuOpen)
+		{
+			map.DrawMap();
+		}
 
 		if (player.isOnMap)
 		{
 			player.drawPlayer();
 		}
 	}
-	else
-	{
-		mainMenu.DrawMainMenu();
-	}
+	mainMenu.DrawMainMenu();
 }

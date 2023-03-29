@@ -1,7 +1,15 @@
 #include "Map.h"
 #include "Player.h"
 
+#include <iostream>
+using namespace std;
+
 Map::Map()
+{
+
+}
+
+MainMenu::MainMenu()
 {
 
 }
@@ -12,73 +20,124 @@ Map& Map::getInstance()
 	return map;
 }
 
+MainMenu& MainMenu::getInstance()
+{
+	static MainMenu mainMenu;
+	return mainMenu;
+}
+
 void Map::goOutdoors()
 {
-	isOutdoor = true;
-	isInLab = false;
 	isInShop = false;
+	isInLab = false;
+	isOutdoor = true;
 }
 
 void Map::goInLab()
 {
 	isOutdoor = false;
-	isInLab = true;
 	isInShop = false;
+	isInLab = true;
 }
 
 void Map::goOutShop()
 {
-	isOutdoor = true;
 	isInLab = false;
 	isInShop = false;
+	isOutdoor = true;
 }
 
 void Map::DrawMap()
 {
 	Player& player = Player::getInstance();
 
-	if (isOutdoor == true)
+	if (isOutdoor)
 	{
 		Rectangle LabWarp = { 100, 100, 30, 30 };
 		Rectangle shopWarp = { 400, 400, 30, 30 };
 
 		DrawRectangleRec(LabWarp, BLUE);
 
-		if (CheckCollisionRecs({ player.position.x, player.position.y, 20, 20 }, LabWarp))
+		if (CheckCollisionRecs({ player.position.x, player.position.y, 20, 20 }, LabWarp) && IsKeyPressed(KEY_F))
 		{
-			isOutdoor = false;
 			isInLab = true;
+			isOutdoor = false;
 		}
 
-		DrawRectangleRec(shopWarp, BLUE);
+		DrawRectangleRec(shopWarp, GREEN);
 
-		if (CheckCollisionRecs({ player.position.x, player.position.y, 20, 20 }, shopWarp))
+		if (CheckCollisionRecs({ player.position.x, player.position.y, 20, 20 }, shopWarp) && IsKeyPressed(KEY_F))
 		{
 			isOutdoor = false;
 			isInShop = true;
 		}
+
+		OpenMapMenu();
 	}
 
 	if (isInShop)
 	{
 	}
 
-	if (isInLab == true)
+	if (isInLab)
 	{
-		//laboratory.DrawLaboratory();
+		if (!laboratory.isOnTable)
+		{
+			//laboratory.DrawLaboratory();
+
+			Rectangle goOutdoor = { 100, 150, 30, 30 };
+
+			DrawRectangleRec(goOutdoor, BLUE);
+
+			if (CheckCollisionRecs({ player.position.x, player.position.y, 20, 20 }, goOutdoor) && IsKeyPressed(KEY_F))
+			{
+				isInLab = false;
+				isOutdoor = true;
+			}
+
+			Rectangle onTable = { 200, 150, 30, 30 };
+
+			DrawRectangleRec(onTable, YELLOW);
+
+			if (CheckCollisionRecs({ player.position.x, player.position.y, 20, 20 }, onTable) && IsKeyPressed(KEY_F))
+			{
+				player.isOnMap = false;
+				laboratory.isOnTable = true;
+			}
+
+			OpenMapMenu();
+		}
+
+		if (laboratory.isOnTable)
+		{
+			if (DrawButtonText({ 0, 0 }, 150, 44, 50, "BACK"))
+			{
+				laboratory.isOnTable = false;
+				player.isOnMap = true;
+			}
+		}
 	}
 }
 
 void MainMenu::DrawMainMenu()
 {
-	Player& player = Player::getInstance();
-	Map& map = Map::getInstance();
-
 	if (isMenuOpen)
 	{
-		static Font font = LoadFont("assets/pixantiqua.png");
+		Player& player = Player::getInstance();
+		Map& map = Map::getInstance();
 
-		if (DrawButtonText({ 100, 200 }, 560, 100, 100, "New Game", font))
+		if (DrawButtonText({ 100, 200 }, 560, 100, 100, "New Game"))
+		{
+			isMenuOpen = false;
+			isGameStarted = true;
+
+			player.isOnMap = true;
+			player.position = { 200, 200 };
+
+			map.isOutdoor = true;
+		}
+
+		if (DrawButtonText({ 100, 400 }, 456, 100, 100, "Continue"))
 		{
 			isMenuOpen = false;
 			isGameStarted = true;
@@ -86,24 +145,23 @@ void MainMenu::DrawMainMenu()
 			map.isOutdoor = true;
 		}
 
-		if (DrawButtonText({ 100, 400 }, 456, 100, 100, "Continue", font))
-		{
-			isMenuOpen = false;
-			isGameStarted = true;
-			player.isOnMap = true;
-			map.isOutdoor = true;
-		}
-
-		if (DrawButtonText({ 100, 600 }, 450, 100, 100, "Settings", font))
+		if (DrawButtonText({ 100, 600 }, 450, 100, 100, "Settings"))
 		{
 			isMenuOpen = false;
 			isGameStarted = true;
 			player.isOnMap = true;
 		}
 
-		if (DrawButtonText({ 100, 800 }, 200, 100, 100, "Exit", font))
+		if (DrawButtonText({ 100, 800 }, 200, 100, 100, "Exit"))
 		{
-			gameShouldClose = true;
+			if (!isExitPressed)
+			{
+				gameShouldClose = true;
+			}
+			else
+			{
+				isExitPressed = false;
+			}
 		}
 	}
 }
@@ -125,8 +183,9 @@ bool DrawButtonTexture(int x, int y, int width, int height, Texture2D texture)
 	return 0;
 }
 
-bool DrawButtonText(Vector2 pos,int width, int height, int fontSize, const char* name, Font font)
+bool DrawButtonText(Vector2 pos,int width, int height, int fontSize, const char* name)
 {
+	static Font font = LoadFont("assets/pixantiqua.png");
 	Rectangle rec = { pos.x, pos.y, width, height };
 
 	DrawTextEx(font, name, pos, fontSize, fontSize / 5 - fontSize / 20, WHITE);
@@ -141,3 +200,49 @@ bool DrawButtonText(Vector2 pos,int width, int height, int fontSize, const char*
 	return 0;
 }
 
+void Map::OpenMapMenu()
+{
+	Player& player = Player::getInstance();
+
+	MainMenu& mainMenu = MainMenu::getInstance();
+
+	if (IsKeyPressed(KEY_ESCAPE))
+	{
+		player.isOnMap = false;
+		isMapMenuOpen = true;
+	}
+
+	if (isMapMenuOpen)
+	{
+		DrawRectangle(0, 0, 950, 1080, GRAY);
+
+		if (DrawButtonText({ 100, 200 }, 560, 100, 100, "Resume"))
+		{
+			isMapMenuOpen = false;
+			player.isOnMap = true;
+		}
+
+		if (DrawButtonText({ 100, 400 }, 450, 100, 100, "Settings"))
+		{
+
+		}
+
+		if (DrawButtonText({ 100, 600 }, 200, 100, 100, "Save"))
+		{
+
+		}
+
+		if (DrawButtonText({ 100, 800 }, 200, 100, 100, "Exit"))
+		{
+			isOutdoor = false;
+			isInLab = false;
+			isInShop = false;
+
+			isMapMenuOpen = false;
+			player.isOnMap = false;
+			mainMenu.isMenuOpen = true;
+
+			mainMenu.isExitPressed = true;
+		}
+	}
+}

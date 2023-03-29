@@ -9,6 +9,8 @@ public:
 
 	void DrawLaboratory();
 
+	bool isOnTable = false;
+
 private:
 
 	Texture2D laboratoryTexture;
