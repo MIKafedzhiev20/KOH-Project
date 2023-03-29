@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
 class Item
 {
@@ -27,3 +28,5 @@ private:
 
 	int amount = 0;
 };
+
+std::vector<Item> createItem();
