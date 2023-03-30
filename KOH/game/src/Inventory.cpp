@@ -40,28 +40,20 @@ void Inventory::drawInventory()
 
 	if (IsKeyDown(KEY_TAB))
 	{
-		DrawRectangle(player.position.x - 300, player.position.y - 150, 600, 270, Color	{103,102,90,100});
-
-		int xDraw = 10;
-		int yDraw = 10;
+		int drawSpace = 40;
 		int element = 0;
 
 		for (auto i = 0; i < 3; i++)
 		{
-			for (auto j = 0; j < 8; j++)
-			{
-				DrawRectangle(player.position.x - (300-xDraw), player.position.y - (150-yDraw), 50, 50, RAYWHITE);
-				xDraw += 75;
+			DrawRectangle(player.position.x + 420, player.position.y + drawSpace, 50, 50, RAYWHITE);
+			drawSpace += 75;
 
-				if (element < 21)
-				{
-					DrawText(elements[element].getName().c_str(), player.position.x - (300 - xDraw + 60.5), player.position.y - (150 - yDraw - 15), 20, RED);
-					DrawText(TextFormat("%i", elements[element].getAmount()), player.position.x - (300 - xDraw + 35), player.position.y - (150 - yDraw - 40), 5, RED);
-					element++;
-				}
+			if (element < 3)
+			{
+				DrawText(elements[element].getName().c_str(), player.position.x + 432, player.position.y + drawSpace - 60, 20, RED);
+				DrawText(TextFormat("%i", elements[element].getAmount()), player.position.x + 460, player.position.y + drawSpace - 38, 5, RED);
+				element++;
 			}
-			yDraw += 100;
-			xDraw = 10;
 		}
 	}
 }

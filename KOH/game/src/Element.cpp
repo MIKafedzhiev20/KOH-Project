@@ -13,7 +13,7 @@ std::vector<Element> createItem()
 {
 	std::vector<Element> elements;
 
-	io::CSVReader<2> in("assets/Elements.txt");
+	io::CSVReader<2> in("../assets/Elements.txt");
 	in.read_header(io::ignore_extra_column, "name", "price");
 
 	std::string name;
