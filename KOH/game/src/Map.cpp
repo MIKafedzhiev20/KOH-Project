@@ -55,6 +55,7 @@ void Map::DrawMap()
 	{
 		Rectangle LabWarp = { 100, 100, 30, 30 };
 		Rectangle shopWarp = { 400, 400, 30, 30 };
+		Rectangle houseWarp = { 200, 300, 30, 30 };
 
 		DrawRectangleRec(LabWarp, BLUE);
 
@@ -74,6 +75,14 @@ void Map::DrawMap()
 			player.isOnMap = false;
 		}
 
+		DrawRectangleRec(houseWarp, YELLOW);
+
+		if (CheckCollisionRecs({ player.position.x, player.position.y, 20, 20 }, houseWarp) && IsKeyPressed(KEY_F))
+		{
+			isOutdoor = false;
+			isInHouse = true;
+		}
+
 		OpenMapMenu();
 	}
 
@@ -84,6 +93,41 @@ void Map::DrawMap()
 			isOutdoor = true;
 			isInShop = false;
 			player.isOnMap = true;
+		}
+	}
+
+	if (isInHouse)
+	{
+		if (!isOnLaptop)
+		{
+			Rectangle goOutdoor = { 200, 350, 30, 30 };
+
+			DrawRectangleRec(goOutdoor, BLUE);
+
+			if (CheckCollisionRecs({ player.position.x, player.position.y, 20, 20 }, goOutdoor) && IsKeyPressed(KEY_F))
+			{
+				isInHouse = false;
+				isOutdoor = true;
+			}
+
+			Rectangle onLaptop = { 200, 150, 30, 30 };
+
+			DrawRectangleRec(onLaptop, YELLOW);
+
+			if (CheckCollisionRecs({ player.position.x, player.position.y, 20, 20 }, onLaptop) && IsKeyPressed(KEY_F))
+			{
+				isOnLaptop = true;
+				player.isOnMap = false;
+			}
+			OpenMapMenu();
+		}
+		else
+		{
+			if (DrawButtonText({ 0, 0 }, 150, 44, 50, "BACK"))
+			{
+				isOnLaptop = false;
+				player.isOnMap = true;
+			}
 		}
 	}
 
@@ -115,8 +159,7 @@ void Map::DrawMap()
 
 			OpenMapMenu();
 		}
-
-		if (laboratory.isOnTable)
+		else
 		{
 			if (DrawButtonText({ 0, 0 }, 150, 44, 50, "BACK"))
 			{

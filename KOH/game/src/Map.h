@@ -18,8 +18,11 @@ public:
 	bool isOutdoor = false;
 	bool isInLab = false;
 	bool isInShop = false;
+	bool isInHouse = false;
 
 	bool isMapMenuOpen = false;
+
+	bool isOnLaptop = false;
 
 private:
 	void goOutdoors();
