@@ -7,7 +7,7 @@ Game::Game(int widthIn, int heightIn, int fps)
 {
 	SetTargetFPS(fps);
 	SetExitKey(KEY_BACKSPACE);
-	ToggleFullscreen();
+	//ToggleFullscreen();
 }
 
 Game::~Game() noexcept
@@ -78,6 +78,8 @@ void Game::Draw()
 		{
 			player.drawPlayer();
 		}
+
+		inventory.drawInventory();
 	}
 	mainMenu.DrawMainMenu();
 }

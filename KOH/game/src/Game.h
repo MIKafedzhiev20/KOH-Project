@@ -6,6 +6,7 @@
 
 #include "Player.h"
 #include "Map.h"
+#include "Inventory.h"
 
 using namespace std;
 
@@ -39,4 +40,6 @@ private:
 	Map& map = Map::getInstance();
 
 	MainMenu& mainMenu = MainMenu::getInstance();
+
+	Inventory& inventory = Inventory::getInstance();
 };
