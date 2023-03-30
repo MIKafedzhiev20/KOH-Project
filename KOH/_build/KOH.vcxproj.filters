@@ -24,7 +24,7 @@
     <ClCompile Include="..\game\src\Laboratory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\game\src\Item.cpp">
+    <ClCompile Include="..\game\src\Element.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,7 +41,7 @@
     <ClInclude Include="..\game\src\Laboratory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\game\src\Item.h">
+    <ClInclude Include="..\game\src\Element.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\game\src\csv.h">

@@ -178,7 +178,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\game\src\Game.cpp" />
-    <ClCompile Include="..\game\src\Item.cpp" />
+    <ClCompile Include="..\game\src\Element.cpp" />
     <ClCompile Include="..\game\src\Laboratory.cpp" />
     <ClCompile Include="..\game\src\main.cpp" />
     <ClCompile Include="..\game\src\Map.cpp" />
@@ -187,7 +187,7 @@
   <ItemGroup>
     <ClInclude Include="..\game\src\csv.h" />
     <ClInclude Include="..\game\src\Game.h" />
-    <ClInclude Include="..\game\src\Item.h" />
+    <ClInclude Include="..\game\src\Element.h" />
     <ClInclude Include="..\game\src\Laboratory.h" />
     <ClInclude Include="..\game\src\Map.h" />
     <ClInclude Include="..\game\src\Player.h" />

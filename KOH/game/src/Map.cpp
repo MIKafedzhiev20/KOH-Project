@@ -70,6 +70,8 @@ void Map::DrawMap()
 		{
 			isOutdoor = false;
 			isInShop = true;
+
+			player.isOnMap = false;
 		}
 
 		OpenMapMenu();
@@ -77,6 +79,12 @@ void Map::DrawMap()
 
 	if (isInShop)
 	{
+		if (DrawButtonText({ 0, 0 }, 150, 44, 50, "BACK"))
+		{
+			isOutdoor = true;
+			isInShop = false;
+			player.isOnMap = true;
+		}
 	}
 
 	if (isInLab)

@@ -24,6 +24,7 @@ bool Game::GameShouldClose() const
 void Game::Tick()
 {
 	BeginDrawing();
+
 	if (player.isOnMap)
 	{
 		BeginMode2D(camera);
@@ -43,7 +44,7 @@ void Game::Tick()
 
 void Game::Update()
 {
-	if (player.isOnMap == true)
+	if (player.isOnMap)
 	{
 		mouse = GetScreenToWorld2D(GetMousePosition(), camera);
 	}
