@@ -36,7 +36,8 @@ private:
 	int type = 0;
 	int amount = 0;
 
-	int x, y;
+	float x = 0;
+	float y = 0;
 	Rectangle hitbox = {x,y,20,20};
 
 	bool isSelected = false;
@@ -44,4 +45,4 @@ private:
 	Texture itemTexture;
 };
 
-//std::list<Item> createItem();
+//std::vector<Item> createItem();

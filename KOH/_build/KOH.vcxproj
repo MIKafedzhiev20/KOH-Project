@@ -177,6 +177,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\game\src\Element.cpp" />
     <ClCompile Include="..\game\src\Game.cpp" />
     <ClCompile Include="..\game\src\Inventory.cpp" />
     <ClCompile Include="..\game\src\Item.cpp" />
@@ -187,6 +188,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\game\src\csv.h" />
+    <ClInclude Include="..\game\src\Element.h" />
     <ClInclude Include="..\game\src\Game.h" />
     <ClInclude Include="..\game\src\Inventory.h" />
     <ClInclude Include="..\game\src\Item.h" />

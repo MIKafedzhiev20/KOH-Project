@@ -64,7 +64,7 @@ void Game::Update()
 
 	if (IsKeyPressed(KEY_ONE))
 	{
-		inventory.addItem(Item("L", 200, 0));
+		inventory.addItem(Element("O", 200, 0, 20, 20, {"H,K,Mg"}));
 	}
 
 }
