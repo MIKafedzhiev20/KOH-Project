@@ -7,7 +7,7 @@ Game::Game(int widthIn, int heightIn, int fps)
 {
 	SetTargetFPS(fps);
 	SetExitKey(KEY_BACKSPACE);
-	ToggleFullscreen();
+	//ToggleFullscreen();
 }
 
 Game::~Game() noexcept
@@ -61,6 +61,12 @@ void Game::Update()
 		player.move();
 		camera.target = player.position;
 	}
+
+	if (IsKeyPressed(KEY_ONE))
+	{
+		inventory.addItem(Item("L", 200, 0));
+	}
+
 }
 
 void Game::Draw()

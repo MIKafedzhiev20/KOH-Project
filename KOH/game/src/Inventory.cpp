@@ -3,6 +3,8 @@
 
 #include "Player.h"
 
+#include <iostream>
+
 Inventory::Inventory()
 {
 
@@ -12,16 +14,6 @@ Inventory& Inventory::getInstance()
 {
 	static Inventory inventory;
 	return inventory;
-}
-
-void Inventory::setElement(std::vector<Element> elements)
-{
-	this->elements = elements;
-}
-
-std::vector<Element> Inventory::getElement()
-{
-	return this->elements;
 }
 
 void Inventory::setBalance(float balance)
@@ -34,26 +26,44 @@ float Inventory::getBalance()
 	return this->balance;
 }
 
+void Inventory::addItem(const Item& item)
+{
+	if (this->filledSlots < this->slots)
+	{
+		items.push_back(item);
+		filledSlots++;
+		std::cout << "Add";
+	}
+	else
+	{
+		DrawText("Inventory Full", 100, 100, 20, RED);
+	}
+}
+
+void Inventory::removeItem(const unsigned index)
+{
+	items.erase(items.begin() + index);
+}
+
 void Inventory::drawInventory()
 {
 	Player& player = Player::getInstance();
 
-	if (IsKeyDown(KEY_TAB))
+	int drawX = 275;
+	int drawY = 200;
+
+	for (auto i = 0; i < 3; i++)
 	{
-		int drawSpace = 40;
-		int element = 0;
+		DrawRectangle(player.position.x + drawX , player.position.y + drawY, 50, 50, RAYWHITE);
+		drawX += 65;
+	}
 
-		for (auto i = 0; i < 3; i++)
-		{
-			DrawRectangle(player.position.x + 420, player.position.y + drawSpace, 50, 50, RAYWHITE);
-			drawSpace += 75;
+	drawX = 275;
 
-			if (element < 3)
-			{
-				DrawText(elements[element].getName().c_str(), player.position.x + 432, player.position.y + drawSpace - 60, 20, RED);
-				DrawText(TextFormat("%i", elements[element].getAmount()), player.position.x + 460, player.position.y + drawSpace - 38, 5, RED);
-				element++;
-			}
-		}
+	for (auto i = 0; i < filledSlots; i++)
+	{
+		DrawText(items[i].getName().c_str(), player.position.x + drawX + 20, player.position.y + drawY + 15, 20, RED);
+		DrawText(TextFormat("%i", items[i].getAmount()), player.position.x + drawX + 40, player.position.y + drawY + 40, 5, RED);
+		drawX += 65;
 	}
 }

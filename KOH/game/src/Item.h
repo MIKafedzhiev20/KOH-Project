@@ -2,17 +2,28 @@
 
 #include <string>
 #include <vector>
+#include <raylib.h>
 
-class Element
+enum item_types
+{
+	ELEMENT = 0,
+	JUNK,
+	COMBINATIONS
+};
+
+class Item
 {
 public:
-	Element(std::string name, float buyPrice);
+	Item(std::string name, float buyPrice, int type, int x, int y);
 
 	void setName(std::string name);
 	std::string getName();
 
 	void setBuyPrice(float buyPrice);
 	float getBuyPrice();
+
+	void setType(int type);
+	int getType();
 
 	void setAmount(int amount);
 	int getAmount();
@@ -22,9 +33,15 @@ private:
 
 	std::string name;
 
+	int type = 0;
 	int amount = 0;
 
+	int x, y;
+	Rectangle hitbox = {x,y,20,20};
+
 	bool isSelected = false;
+
+	Texture itemTexture;
 };
 
-std::vector<Element> createItem();
+//std::list<Item> createItem();

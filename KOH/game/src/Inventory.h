@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Element.h"
+#include "Item.h"
 
 class Inventory
 {
@@ -12,15 +12,18 @@ public:
 
 	static Inventory& getInstance();
 
-	void setElement(std::vector<Element> elements);
-	std::vector<Element> getElement();
-
 	void setBalance(float balance);
 	float getBalance();
 
 	void drawInventory();
+
+	void addItem(const Item& item);
+	void removeItem(const unsigned index);
 private:
-	std::vector<Element> elements = createItem();
+	std::vector<Item> items;
+	unsigned slots = 3;
+	unsigned filledSlots = 0;
+
 
 	float balance = 500.0f;
 };
