@@ -54,7 +54,7 @@ void Inventory::drawInventory()
 
 	for (auto i = 0; i < 3; i++)
 	{
-		DrawRectangle(player.position.x + drawX , player.position.y + drawY, 50, 50, RAYWHITE);
+		DrawRectangle(player.cameraPos.x + drawX , player.cameraPos.y + drawY, 50, 50, RAYWHITE);
 		drawX += 65;
 	}
 
@@ -62,8 +62,8 @@ void Inventory::drawInventory()
 
 	for (auto i = 0; i < filledSlots; i++)
 	{
-		DrawText(items[i].getName().c_str(), player.position.x + drawX + 20, player.position.y + drawY + 15, 20, RED);
-		DrawText(TextFormat("%i", items[i].getAmount()), player.position.x + drawX + 40, player.position.y + drawY + 40, 5, RED);
+		DrawText(items[i].getName().c_str(), player.cameraPos.x + drawX + 20, player.cameraPos.y + drawY + 15, 20, RED);
+		DrawText(TextFormat("%i", items[i].getAmount()), player.cameraPos.x + drawX + 40, player.cameraPos.y + drawY + 40, 5, RED);
 		drawX += 65;
 	}
 }

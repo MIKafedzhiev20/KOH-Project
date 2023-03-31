@@ -28,6 +28,9 @@ void Game::Tick()
 	if (player.isOnMap)
 	{
 		BeginMode2D(camera);
+
+		player.cameraPos.x = camera.target.x;
+		player.cameraPos.y = camera.target.y;
 	}
 
 	Update();

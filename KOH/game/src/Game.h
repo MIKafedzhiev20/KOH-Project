@@ -31,7 +31,7 @@ private:
 	int width = 0;
 	int height = 0;
 
-	Camera2D camera = { {(float)width / 2, (float)height / 2}, {0,0}, 0, 2 };
+	Camera2D camera = { {(float)width / 2, (float)height / 2}, {200, 200}, 0, 2 };
 
 	Vector2 mouse = { 0,0 };
 
