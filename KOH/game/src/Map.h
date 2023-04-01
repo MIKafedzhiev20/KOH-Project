@@ -3,6 +3,7 @@
 #include "Laboratory.h"
 #include "Outside.h"
 #include "Shop.h"
+#include "House.h"
 
 class Map
 {
@@ -24,8 +25,6 @@ public:
 
 	bool isMapMenuOpen = false;
 
-	bool isOnLaptop = false;
-
 private:
 	void goOutdoors();
 	void goInLab();
@@ -34,6 +33,7 @@ private:
 	Laboratory laboratory;
 	Outside outside;
 	Shop shop;
+	House house;
 };
 
 class MainMenu

@@ -63,37 +63,7 @@ void Map::DrawMap()
 
 	if (isInHouse)
 	{
-		if (!isOnLaptop)
-		{
-			Rectangle goOutdoor = { 200, 350, 30, 30 };
-
-			DrawRectangleRec(goOutdoor, BLUE);
-
-			if (CheckCollisionRecs({ player.position.x, player.position.y, 20, 20 }, goOutdoor) && IsKeyPressed(KEY_F))
-			{
-				isInHouse = false;
-				isOutdoor = true;
-			}
-
-			Rectangle onLaptop = { 200, 150, 30, 30 };
-
-			DrawRectangleRec(onLaptop, YELLOW);
-
-			if (CheckCollisionRecs({ player.position.x, player.position.y, 20, 20 }, onLaptop) && IsKeyPressed(KEY_F))
-			{
-				isOnLaptop = true;
-				player.isOnMap = false;
-			}
-			OpenMapMenu();
-		}
-		else
-		{
-			if (DrawButtonText({ 0, 0 }, 150, 44, 50, "BACK"))
-			{
-				isOnLaptop = false;
-				player.isOnMap = true;
-			}
-		}
+		house.drawHouse();
 	}
 
 	if (isInLab)

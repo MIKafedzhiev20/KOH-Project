@@ -8,10 +8,8 @@ public:
 	~Laboratory();
 
 	void DrawLaboratory();
+private:
+	Texture2D laboratoryTexture;
 
 	bool isOnTable = false;
-
-private:
-
-	Texture2D laboratoryTexture;
 };
