@@ -53,37 +53,7 @@ void Map::DrawMap()
 
 	if (isOutdoor)
 	{
-		Rectangle LabWarp = { 100, 100, 30, 30 };
-		Rectangle shopWarp = { 400, 400, 30, 30 };
-		Rectangle houseWarp = { 200, 300, 30, 30 };
-
-		DrawRectangleRec(LabWarp, BLUE);
-
-		if (CheckCollisionRecs({ player.position.x, player.position.y, 20, 20 }, LabWarp) && IsKeyPressed(KEY_F))
-		{
-			isInLab = true;
-			isOutdoor = false;
-		}
-
-		DrawRectangleRec(shopWarp, GREEN);
-
-		if (CheckCollisionRecs({ player.position.x, player.position.y, 20, 20 }, shopWarp) && IsKeyPressed(KEY_F))
-		{
-			isOutdoor = false;
-			isInShop = true;
-
-			player.isOnMap = false;
-		}
-
-		DrawRectangleRec(houseWarp, YELLOW);
-
-		if (CheckCollisionRecs({ player.position.x, player.position.y, 20, 20 }, houseWarp) && IsKeyPressed(KEY_F))
-		{
-			isOutdoor = false;
-			isInHouse = true;
-		}
-
-		OpenMapMenu();
+		outside.DrawOutside();
 	}
 
 	if (isInShop)
@@ -133,40 +103,7 @@ void Map::DrawMap()
 
 	if (isInLab)
 	{
-		if (!laboratory.isOnTable)
-		{
-			//laboratory.DrawLaboratory();
-
-			Rectangle goOutdoor = { 100, 150, 30, 30 };
-
-			DrawRectangleRec(goOutdoor, BLUE);
-
-			if (CheckCollisionRecs({ player.position.x, player.position.y, 20, 20 }, goOutdoor) && IsKeyPressed(KEY_F))
-			{
-				isInLab = false;
-				isOutdoor = true;
-			}
-
-			Rectangle onTable = { 200, 150, 30, 30 };
-
-			DrawRectangleRec(onTable, YELLOW);
-
-			if (CheckCollisionRecs({ player.position.x, player.position.y, 20, 20 }, onTable) && IsKeyPressed(KEY_F))
-			{
-				player.isOnMap = false;
-				laboratory.isOnTable = true;
-			}
-
-			OpenMapMenu();
-		}
-		else
-		{
-			if (DrawButtonText({ 0, 0 }, 150, 44, 50, "BACK"))
-			{
-				laboratory.isOnTable = false;
-				player.isOnMap = true;
-			}
-		}
+		laboratory.DrawLaboratory();
 	}
 }
 

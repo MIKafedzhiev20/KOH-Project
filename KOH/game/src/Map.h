@@ -1,6 +1,7 @@
 #pragma once
 #include <raylib.h>
 #include "Laboratory.h"
+#include "Outside.h"
 
 class Map
 {
@@ -30,6 +31,7 @@ private:
 	void goOutShop();
 
 	Laboratory laboratory;
+	Outside outside;
 };
 
 class MainMenu
