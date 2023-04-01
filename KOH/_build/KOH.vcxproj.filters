@@ -36,6 +36,9 @@
     <ClCompile Include="..\game\src\Outside.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\game\src\Shop.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\game\src\Game.h">
@@ -63,6 +66,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\game\src\Outside.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\game\src\Shop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

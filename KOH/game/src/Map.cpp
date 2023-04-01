@@ -58,12 +58,7 @@ void Map::DrawMap()
 
 	if (isInShop)
 	{
-		if (DrawButtonText({ 0, 0 }, 150, 44, 50, "BACK"))
-		{
-			isOutdoor = true;
-			isInShop = false;
-			player.isOnMap = true;
-		}
+		shop.drawTexture();
 	}
 
 	if (isInHouse)

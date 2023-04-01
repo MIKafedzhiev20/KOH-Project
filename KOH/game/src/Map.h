@@ -2,6 +2,7 @@
 #include <raylib.h>
 #include "Laboratory.h"
 #include "Outside.h"
+#include "Shop.h"
 
 class Map
 {
@@ -32,6 +33,7 @@ private:
 
 	Laboratory laboratory;
 	Outside outside;
+	Shop shop;
 };
 
 class MainMenu
