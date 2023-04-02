@@ -29,7 +29,7 @@ std::vector<Junk> createJunk()
 
 void Junk::DrawJunk()
 {
-	if (this->isPickedUp == false && this->junkLifetime >= 0)
+	if (this->getIsPickedUp() == false && this->junkLifetime >= 0)
 	{
 		DrawRectangleRec(this->getHitbox(), GRAY);
 		this->junkLifetime--;
@@ -39,16 +39,6 @@ void Junk::DrawJunk()
 std::string Junk::getContains()
 {
 	return this->contains;
-}
-
-void Junk::setIsPickedUp(bool isPickedUp)
-{
-	this->isPickedUp = isPickedUp;
-}
-
-bool Junk::getIsPickedUp()
-{
-	return this->isPickedUp;
 }
 
 void Junk::setSpawnTimer(float spawnTimer)

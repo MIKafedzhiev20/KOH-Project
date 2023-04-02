@@ -8,9 +8,6 @@ public:
 
 	std::string getContains();
 
-	void setIsPickedUp(bool isPickedUp);
-	bool getIsPickedUp();
-
 	void setSpawnTimer(float spawnTimer);
 	float getSpawnTimer();
 	
@@ -20,8 +17,6 @@ public:
 	void DrawJunk();
 private:
 	std::string contains = "";
-
-	bool isPickedUp = false;
 
 	float junkSpawnTimer = GetRandomValue(300, 700);
 	float junkLifetime = GetRandomValue(100, 400);

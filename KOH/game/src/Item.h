@@ -25,6 +25,9 @@ public:
 	void setAmount(int amount);
 	int getAmount();
 
+	void setIsPickedUp(bool isPickedUp);
+	bool getIsPickedUp();
+
 	void setHitbox(float x, float y);
 	Rectangle getHitbox();
 
@@ -39,6 +42,8 @@ private:
 	Rectangle hitbox = { x,y,20,20 };
 
 	bool isSelected = false;
+
+	bool isPickedUp = false;
 
 	Texture itemTexture;
 };

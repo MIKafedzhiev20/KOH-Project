@@ -3,7 +3,6 @@
 
 #include "Player.h"
 
-#include <iostream>
 
 Inventory::Inventory()
 {
@@ -26,13 +25,13 @@ float Inventory::getBalance()
 	return this->balance;
 }
 
-void Inventory::addItem(const Item& item)
+void Inventory::addItem(Item& item)
 {
 	if (this->filledSlots < this->slots)
 	{
 		items.push_back(item);
 		filledSlots++;
-		std::cout << "Add";
+		item.setIsPickedUp(true);
 	}
 	else
 	{

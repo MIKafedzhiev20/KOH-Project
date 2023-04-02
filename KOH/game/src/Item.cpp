@@ -37,6 +37,16 @@ int Item::getAmount()
 	return this->amount;
 }
 
+void Item::setIsPickedUp(bool isPickedUp)
+{
+	this->isPickedUp = isPickedUp;
+}
+
+bool Item::getIsPickedUp()
+{
+	return this->isPickedUp;
+}
+
 void Item::setHitbox(float x, float y)
 {
 	this->hitbox = { x,y,20,20 };

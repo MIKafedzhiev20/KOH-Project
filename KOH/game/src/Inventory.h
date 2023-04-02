@@ -17,7 +17,7 @@ public:
 
 	void drawInventory();
 
-	void addItem(const Item& item);
+	void addItem(Item& item);
 	void removeItem(const unsigned index);
 private:
 	std::vector<Item> items;
