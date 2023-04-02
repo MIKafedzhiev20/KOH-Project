@@ -1,5 +1,7 @@
 #pragma once
 #include <raylib.h>
+#include "Element.h"
+#include "Inventory.h"
 
 class Laboratory
 {
@@ -12,4 +14,5 @@ private:
 	Texture2D laboratoryTexture;
 
 	bool isOnTable = false;
+	bool isInStorage = false;
 };

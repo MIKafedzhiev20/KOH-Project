@@ -27,7 +27,7 @@ void Game::Tick()
 
 	if (player.isOnMap)
 	{
-		//BeginMode2D(camera);
+		BeginMode2D(camera);
 
 		player.cameraPos.x = camera.target.x;
 		player.cameraPos.y = camera.target.y;
@@ -50,20 +50,16 @@ void Game::Update()
 	if (player.isOnMap)
 	{
 		mouse = GetScreenToWorld2D(GetMousePosition(), camera);
+		player.move();
+		camera.target = player.position;
+		inventory.manageInvetory();
 	}
 	else
 	{
 		mouse = GetMousePosition();
 	}
 
-
 	Rectangle playerRect = { player.position.x, player.position.y, 20, 20 };
-
-	if (player.isOnMap)
-	{
-		player.move();
-		camera.target = player.position;
-	}
 }
 
 void Game::Draw()

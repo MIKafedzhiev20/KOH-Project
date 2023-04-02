@@ -27,16 +27,6 @@ int Item::getType()
 	return this->type;
 }
 
-void Item::setAmount(int amount)
-{
-	this->amount = amount;
-}
-
-int Item::getAmount()
-{
-	return this->amount;
-}
-
 void Item::setIsPickedUp(bool isPickedUp)
 {
 	this->isPickedUp = isPickedUp;

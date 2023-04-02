@@ -4,9 +4,13 @@
 class Element : public Item
 {
 public:
-	Element(std::string name, int type, std::vector<std::string> reactions);
+	Element(std::string name, int type);
 
-	std::vector<std::string> getReactions();
+	void setIsUnlocked(bool isUnlocked);
+	bool getIsUnlocked();
 private:
-	std::vector<std::string> reactions;
+	bool isUnlocked = false;
 };
+
+std::vector<Element> createElement();
+static std::vector<Element> elements = createElement();

@@ -22,9 +22,6 @@ public:
 	void setType(int type);
 	int getType();
 
-	void setAmount(int amount);
-	int getAmount();
-
 	void setIsPickedUp(bool isPickedUp);
 	bool getIsPickedUp();
 
@@ -35,7 +32,6 @@ private:
 	std::string name;
 
 	int type = 0;
-	int amount = 0;
 
 	float x = 0;
 	float y = 0;
