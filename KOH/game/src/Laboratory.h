@@ -10,9 +10,11 @@ public:
 	~Laboratory();
 
 	void DrawLaboratory();
+
 private:
 	Texture2D laboratoryTexture;
 
 	bool isOnTable = false;
 	bool isInStorage = false;
+	bool isOnExtractor = false;
 };

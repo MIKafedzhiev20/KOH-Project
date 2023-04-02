@@ -36,6 +36,11 @@ unsigned Inventory::getSelectedSlot()
 	return this->selectedSlot;
 }
 
+std::vector<Item> Inventory::getItems()
+{
+	return this->items;
+}
+
 void Inventory::addItem(Item& item)
 {
 	items[selectedSlot] = (item);
@@ -73,7 +78,7 @@ void Inventory::drawInventory()
 	}
 }
 
-void Inventory::DrawInStorage()
+void Inventory::DrawOutzoomed()
 {
 	int drawX = 1700;
 	int drawY = 1000;

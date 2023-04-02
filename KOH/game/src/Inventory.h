@@ -18,8 +18,10 @@ public:
 	void setSelectedSlot(unsigned slot);
 	unsigned getSelectedSlot();
 
+	std::vector<Item> getItems();
+
 	void drawInventory();
-	void DrawInStorage();
+	void DrawOutzoomed();
 
 	void manageInvetory();
 

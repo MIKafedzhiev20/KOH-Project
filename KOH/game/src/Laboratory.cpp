@@ -19,7 +19,7 @@ void Laboratory::DrawLaboratory()
 	Player& player = Player::getInstance();
 	Inventory& inventory = Inventory::getInstance();
 
-	if (!isOnTable && !isInStorage)
+	if (!isOnTable && !isInStorage && !isOnExtractor)
 	{
 		DrawTexture(laboratoryTexture, 0, 0, WHITE);
 
@@ -53,6 +53,16 @@ void Laboratory::DrawLaboratory()
 			isInStorage = true;
 		}
 
+		Rectangle onExtraxtor = { 300, 250, 30, 30 };
+
+		DrawRectangleRec(onExtraxtor, DARKBROWN);
+
+		if (CheckCollisionRecs({ player.position.x, player.position.y, 20, 20 }, onExtraxtor) && IsKeyPressed(KEY_F))
+		{
+			player.isOnMap = false;
+			isOnExtractor = true;
+		}
+
 		map.OpenMapMenu();
 	}
 
@@ -65,6 +75,48 @@ void Laboratory::DrawLaboratory()
 		}
 	}
 
+	if (isOnExtractor)
+	{
+		if (DrawButtonText({ 0, 0 }, 150, 44, 50, "BACK"))
+		{
+			isOnExtractor = false;
+			player.isOnMap = true;
+		}
+
+		inventory.DrawOutzoomed();
+		inventory.manageInvetory();
+
+		std::vector<Item> items = inventory.getItems();
+		unsigned selectedSlot = inventory.getSelectedSlot();
+
+		if (DrawButtonText({1600, 50}, 240, 44, 50, "EXTRACT"))
+		{
+			if (items[selectedSlot].getType() == 1)
+			{
+				if(items[selectedSlot].getName() == "IronSpring")
+				{
+					inventory.addItem(elements[6]);
+				}
+				else if (items[selectedSlot].getName() == "AluminumCan")
+				{
+					inventory.addItem(elements[11]);
+				}
+				else if (items[selectedSlot].getName() == "ZinkWire")
+				{
+					inventory.addItem(elements[10]);
+				}
+				else
+				{
+
+				}
+			}
+			else
+			{
+
+			}
+		}
+	}
+
 	if (isInStorage)
 	{
 		if (DrawButtonText({ 0, 0 }, 150, 44, 50, "BACK"))
@@ -73,7 +125,7 @@ void Laboratory::DrawLaboratory()
 			player.isOnMap = true;
 		}
 
-		inventory.DrawInStorage();
+		inventory.DrawOutzoomed();
 		inventory.manageInvetory();
 
 		DrawRectangle((float)GetScreenWidth() / 3, (float)GetScreenHeight() / 3, 600, 470, Color{ 103,102,90,100 });
