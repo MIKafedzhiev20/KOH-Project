@@ -24,14 +24,12 @@ public:
 	void manageInvetory();
 
 	void addItem(Item& item);
-	void removeItem(const unsigned index);
+	void removeItem();
 
 private:
 	std::vector<Item> items = {Item("", 0),Item("", 0),Item("", 0) };
 	unsigned slots = 3;
-	unsigned filledSlots = 0;
 	unsigned selectedSlot = 0;
-
 
 	float balance = 500.0f;
 };

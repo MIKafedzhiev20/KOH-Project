@@ -7,7 +7,7 @@ Game::Game(int widthIn, int heightIn, int fps)
 {
 	SetTargetFPS(fps);
 	SetExitKey(KEY_BACKSPACE);
-	//ToggleFullscreen();
+	ToggleFullscreen();
 }
 
 Game::~Game() noexcept
@@ -28,9 +28,6 @@ void Game::Tick()
 	if (player.isOnMap)
 	{
 		BeginMode2D(camera);
-
-		player.cameraPos.x = camera.target.x;
-		player.cameraPos.y = camera.target.y;
 	}
 
 	Update();
@@ -50,8 +47,12 @@ void Game::Update()
 	if (player.isOnMap)
 	{
 		mouse = GetScreenToWorld2D(GetMousePosition(), camera);
+
+		player.cameraPos.x = camera.target.x;
+		player.cameraPos.y = camera.target.y;
 		player.move();
 		camera.target = player.position;
+
 		inventory.manageInvetory();
 	}
 	else

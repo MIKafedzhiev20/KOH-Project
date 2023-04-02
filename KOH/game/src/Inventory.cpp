@@ -42,9 +42,9 @@ void Inventory::addItem(Item& item)
 	item.setIsPickedUp(true);
 }
 
-void Inventory::removeItem(const unsigned index)
+void Inventory::removeItem()
 {
-	items.erase(items.begin() + index);
+	items[selectedSlot] = Item("", 0);
 }
 
 void Inventory::drawInventory()

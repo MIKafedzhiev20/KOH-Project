@@ -139,7 +139,7 @@ bool DrawButtonTexture(int x, int y, int width, int height, Texture2D texture)
 
 bool DrawButtonText(Vector2 pos,int width, int height, int fontSize, const char* name)
 {
-	static Font font = LoadFont("assets/pixantiqua.png");
+	static Font font = LoadFont("../assets/pixantiqua.png");
 	Rectangle rec = { pos.x, pos.y, width, height };
 
 	DrawTextEx(font, name, pos, fontSize, fontSize / 5 - fontSize / 20, WHITE);

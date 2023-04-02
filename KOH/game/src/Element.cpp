@@ -24,7 +24,7 @@ std::vector<Element> createElement()
 {
 	std::vector<Element> element;
 
-	io::CSVReader<1> in("assets/Element.txt");
+	io::CSVReader<1> in("../assets/Element.txt");
 	in.read_header(io::ignore_extra_column, "name");
 
 	std::string name;

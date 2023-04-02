@@ -4,7 +4,7 @@
 
 House::House()
 {
-	houseTexture = LoadTexture("assets/DevHouse.png");
+	houseTexture = LoadTexture("../assets/DevHouse.png");
 }
 
 House::~House()

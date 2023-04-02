@@ -13,7 +13,7 @@ std::vector<Junk> createJunk()
 {
 	std::vector<Junk> junk;
 
-	io::CSVReader<2> in("assets/Junk.txt");
+	io::CSVReader<2> in("../assets/Junk.txt");
 	in.read_header(io::ignore_extra_column, "name", "contains");
 
 	std::string name;
@@ -32,6 +32,7 @@ void Junk::DrawJunk()
 	if (this->getIsPickedUp() == false && this->junkLifetime >= 0)
 	{
 		DrawRectangleRec(this->getHitbox(), GRAY);
+
 		this->junkLifetime--;
 	}
 }

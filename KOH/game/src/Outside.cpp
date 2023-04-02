@@ -5,7 +5,7 @@
 
 Outside::Outside()
 {
-	outsideTexture = LoadTexture("assets/DevOutdoor.png");
+	outsideTexture = LoadTexture("../assets/DevOutdoor.png");
 }
 
 Outside::~Outside()
@@ -17,10 +17,13 @@ void Outside::DrawOutside()
 {
 	Map& map = Map::getInstance();
 	Player& player = Player::getInstance();
+	Inventory& inventory = Inventory::getInstance();
 
 	Rectangle LabWarp = { 100, 100, 30, 30 };
 	Rectangle shopWarp = { 400, 400, 30, 30 };
 	Rectangle houseWarp = { 200, 300, 30, 30 };
+
+	Rectangle trashBin = { 200, 500, 30, 30 };
 
 	DrawTexture(outsideTexture, 0, 0, WHITE);
 
@@ -48,6 +51,13 @@ void Outside::DrawOutside()
 	{
 		map.isOutdoor = false;
 		map.isInHouse = true;
+	}
+
+	DrawRectangleRec(trashBin, ORANGE);
+
+	if (CheckCollisionRecs({ player.position.x, player.position.y, 20, 20 }, trashBin) && IsKeyPressed(KEY_Q))
+	{
+		inventory.removeItem();
 	}
 
 	map.OpenMapMenu();

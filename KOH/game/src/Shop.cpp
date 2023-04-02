@@ -4,7 +4,7 @@
 
 Shop::Shop()
 {
-	shopTexture = LoadTexture("assets/DevShop.png");
+	shopTexture = LoadTexture("../assets/DevShop.png");
 }
 
 Shop::~Shop()
