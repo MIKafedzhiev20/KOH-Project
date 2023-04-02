@@ -1,0 +1,4 @@
+name,contains
+IronSpring,Fe
+AluminumCan,Al
+ZinkWire,Zn

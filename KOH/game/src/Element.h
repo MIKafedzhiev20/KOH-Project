@@ -4,7 +4,7 @@
 class Element : public Item
 {
 public:
-	Element(std::string name, float buyPrice, int type, int x, int y, std::vector<std::string> reactions);
+	Element(std::string name, int type, std::vector<std::string> reactions);
 
 	std::vector<std::string> getReactions();
 private:

@@ -1,5 +1,6 @@
 #pragma once
 #include "raylib.h"
+#include "Junk.h"
 
 class Outside
 {
@@ -8,8 +9,12 @@ public:
 	~Outside();
 
 	void DrawOutside();
+
+	void generateJunk();
 private:
 
 	Texture2D outsideTexture;
+
+	std::vector<Junk> types = createJunk();
 };
 

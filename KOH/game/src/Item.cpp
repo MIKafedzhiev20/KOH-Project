@@ -1,34 +1,11 @@
 #include "Item.h"
-#include <csv.h>
 
-Item::Item(std::string name, float buyPrice, int type, int x, int y)
+Item::Item(std::string name, int type)
 	:
 	name(name),
-	buyPrice(buyPrice),
-	type(type),
-	x(x),
-	y(y)
+	type(type)
 {
-
 }
-
-//std::list<Item> createItem()
-//{
-//	std::list<Item> elements;
-//
-//	io::CSVReader<2> in("assets/Elements.txt");
-//	in.read_header(io::ignore_extra_column, "name", "price");
-//
-//	std::string name;
-//	float price;
-//		
-//	while (in.read_row(name, price))
-//	{
-//		elements.push_back(Item(name, price, 0));
-//	}
-//
-//	return elements;
-//}
 
 void Item::setName(std::string name)
 {
@@ -38,16 +15,6 @@ void Item::setName(std::string name)
 std::string Item::getName()
 {
 	return this->name;
-}
-
-void Item::setBuyPrice(float buyPrice)
-{
-	this->buyPrice = buyPrice;
-}
-
-float Item::getBuyPrice()
-{
-	return this->buyPrice;
 }
 
 void Item::setType(int type)
@@ -68,4 +35,14 @@ void Item::setAmount(int amount)
 int Item::getAmount()
 {
 	return this->amount;
+}
+
+void Item::setHitbox(float x, float y)
+{
+	this->hitbox = { x,y,20,20 };
+}
+
+Rectangle Item::getHitbox()
+{
+	return this->hitbox;
 }

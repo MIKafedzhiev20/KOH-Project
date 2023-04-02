@@ -64,12 +64,6 @@ void Game::Update()
 		player.move();
 		camera.target = player.position;
 	}
-
-	if (IsKeyPressed(KEY_ONE))
-	{
-		inventory.addItem(Element("O", 200, 0, 20, 20, {"H,K,Mg"}));
-	}
-
 }
 
 void Game::Draw()
@@ -86,9 +80,8 @@ void Game::Draw()
 		if (player.isOnMap)
 		{
 			player.drawPlayer();
+			inventory.drawInventory();
 		}
-
-		inventory.drawInventory();
 	}
 	mainMenu.DrawMainMenu();
 }

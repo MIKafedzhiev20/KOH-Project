@@ -54,6 +54,7 @@ void Map::DrawMap()
 	if (isOutdoor)
 	{
 		outside.DrawOutside();
+		outside.generateJunk();
 	}
 
 	if (isInShop)
