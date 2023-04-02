@@ -96,14 +96,17 @@ void Laboratory::DrawLaboratory()
 				if(items[selectedSlot].getName() == "IronSpring")
 				{
 					inventory.addItem(elements[6]);
+					elements[6].setIsUnlocked(true);
 				}
 				else if (items[selectedSlot].getName() == "AluminumCan")
 				{
 					inventory.addItem(elements[11]);
+					elements[11].setIsUnlocked(true);
 				}
 				else if (items[selectedSlot].getName() == "ZinkWire")
 				{
 					inventory.addItem(elements[10]);
+					elements[10].setIsUnlocked(true);
 				}
 				else
 				{
@@ -143,7 +146,7 @@ void Laboratory::DrawLaboratory()
 
 				if (element < 21)
 				{
-					if (elements[element].getIsUnlocked())
+					if (elements[element].getIsUnlocked() == false)
 					{
 						DrawRectangle((float)GetScreenWidth() / 3 - (-xDraw + 75), (float)GetScreenHeight() / 3 - (-yDraw), 50, 50, { 30,30,30,150 });
 					}
