@@ -16,12 +16,12 @@ Inventory& Inventory::getInstance()
 	return inventory;
 }
 
-void Inventory::setBalance(float balance)
+void Inventory::setBalance(int balance)
 {
 	this->balance = balance;
 }
 
-float Inventory::getBalance()
+int Inventory::getBalance()
 {
 	return this->balance;
 }
@@ -76,6 +76,8 @@ void Inventory::drawInventory()
 		DrawText(items[i].getName().c_str(), player.cameraPos.x + drawX + 20, player.cameraPos.y + drawY + 15, 20, RED);
 		drawX += 65;
 	}
+
+	DrawText(TextFormat("%i", balance), player.cameraPos.x + 420, player.cameraPos.y - 260, 20, WHITE);
 }
 
 void Inventory::DrawOutzoomed()
@@ -100,6 +102,8 @@ void Inventory::DrawOutzoomed()
 		DrawText(items[i].getName().c_str(), drawX + 20, drawY + 15, 20, RED);
 		drawX += 65;
 	}
+
+	DrawText(TextFormat("%i", balance), 1800, 30, 40, WHITE);
 }
 
 void Inventory::manageInvetory()

@@ -41,8 +41,6 @@ void Outside::DrawOutside()
 	{
 		map.isOutdoor = false;
 		map.isInShop = true;
-
-		player.isOnMap = false;
 	}
 
 	DrawRectangleRec(houseWarp, YELLOW);

@@ -12,8 +12,8 @@ public:
 
 	static Inventory& getInstance();
 
-	void setBalance(float balance);
-	float getBalance();
+	void setBalance(int balance);
+	int getBalance();
 
 	void setSelectedSlot(unsigned slot);
 	unsigned getSelectedSlot();
@@ -33,5 +33,5 @@ private:
 	unsigned slots = 3;
 	unsigned selectedSlot = 0;
 
-	float balance = 500.0f;
+	int balance = 500;
 };
