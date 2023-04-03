@@ -3,55 +3,100 @@
 
 #include "Player.h"
 
-#include <iostream>
-
+/**
+ * .Create instance of the inventory
+ * 
+ */
 Inventory::Inventory()
 {
 
 }
 
+/**
+ * .Create static instance of the inventory
+ * 
+ * \return static instance of Inventory
+ */
 Inventory& Inventory::getInstance()
 {
 	static Inventory inventory;
 	return inventory;
 }
 
+/**
+ * .Sets the balance to a new one
+ * 
+ * \param balance the new balance
+ */
 void Inventory::setBalance(int balance)
 {
 	this->balance = balance;
 }
 
+/**
+ * .Return the balance
+ * 
+ * \return balance
+ */
 int Inventory::getBalance()
 {
 	return this->balance;
 }
 
+/**
+ * .Sets the selected slot to a new one
+ * 
+ * \param slot the new selected slot
+ */
 void Inventory::setSelectedSlot(unsigned slot)
 {
 	this->selectedSlot = slot;
 }
 
+/**
+ * .Returns the selected slot
+ * 
+ * \return selected slot 
+ */
 unsigned Inventory::getSelectedSlot()
 {
 	return this->selectedSlot;
 }
 
+/**
+ * .Return the items which are in the inventory
+ * 
+ * \return items vector
+ */
 std::vector<Item> Inventory::getItems()
 {
 	return this->items;
 }
 
+/**
+ * .Add item to the inventory
+ * 
+ * \param item Item which is being added to the inventory
+ */
 void Inventory::addItem(Item& item)
 {
 	items[selectedSlot] = (item);
 	item.setIsPickedUp(true);
 }
 
+/**
+ * .Remove item from the inventory
+ * 
+ */
 void Inventory::removeItem()
 {
 	items[selectedSlot] = Item("", 0);
 }
 
+/**
+ * .Draws the inventory in zoomed state
+ * 
+ */
 void Inventory::drawInventory()
 {
 	Player& player = Player::getInstance();
@@ -80,6 +125,10 @@ void Inventory::drawInventory()
 	DrawText(TextFormat("%i", balance), player.cameraPos.x + 420, player.cameraPos.y - 260, 20, WHITE);
 }
 
+/**
+ * .Draws the inventory in zoomed out state
+ * 
+ */
 void Inventory::DrawOutzoomed()
 {
 	int drawX = 1700;
@@ -106,6 +155,10 @@ void Inventory::DrawOutzoomed()
 	DrawText(TextFormat("%i", balance), 1800, 30, 40, WHITE);
 }
 
+/**
+ * .Manage the inventory slots
+ * 
+ */
 void Inventory::manageInvetory()
 {
 	if (IsKeyPressed(KEY_ONE))

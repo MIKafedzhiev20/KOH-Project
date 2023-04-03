@@ -3,16 +3,28 @@
 #include "Player.h"
 #include "Inventory.h"
 
+/**
+ * .Load the laboratory texture(s)
+ * 
+ */
 Laboratory::Laboratory()
 {
 	laboratoryTexture = LoadTexture("../assets/DevLab.png");
 }
 
+/**
+ * .Unload the laboratory texture(s)
+ * 
+ */
 Laboratory::~Laboratory()
 {
 	UnloadTexture(laboratoryTexture);
 }
 
+/**
+ * .Draws the laboratory
+ * 
+ */
 void Laboratory::DrawLaboratory()
 {
 	Map& map = Map::getInstance();

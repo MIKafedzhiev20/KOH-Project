@@ -13,19 +13,17 @@ using namespace std;
 class Game
 {
 public:
-	// Creates the game window
+	// Constructor / Destructor 
 	Game(int width, int height, int fps);
-
-	// Closes the game window
 	~Game() noexcept;
 
-	// Checks if the window should close
+	// Public functions
 	bool GameShouldClose() const;
-
 	void Tick();
 private:
+	
+	// Private functions
 	void Update();
-
 	void Draw();
 
 	int width = 0;

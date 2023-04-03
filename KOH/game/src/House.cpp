@@ -2,16 +2,28 @@
 #include "Player.h"
 #include "Map.h"
 
+/**
+ * .Load the house texture(s)
+ * 
+ */
 House::House()
 {
 	houseTexture = LoadTexture("../assets/DevHouse.png");
 }
 
+/**
+ * .Unload the house texture(s)
+ * 
+ */
 House::~House()
 {
 	UnloadTexture(houseTexture);
 }
 
+/**
+ * .Draws the house insidies
+ * 
+ */
 void House::drawHouse()
 {
 	Map& map = Map::getInstance();

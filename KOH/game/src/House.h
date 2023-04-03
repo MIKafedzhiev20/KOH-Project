@@ -4,9 +4,11 @@
 class House
 {
 public:
+	// Constructor / Destructor 
 	House();
 	~House();
 
+	// Public
 	void drawHouse();
 private:
 	Texture2D houseTexture;

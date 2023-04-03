@@ -5,13 +5,11 @@
 class Inventory
 {
 public:
-	Inventory();
-
+	// Operators
 	Inventory(Inventory const&) = delete;
 	void operator=(Inventory const&) = delete;
 
-	static Inventory& getInstance();
-
+	// Setters and getters
 	void setBalance(int balance);
 	int getBalance();
 
@@ -20,6 +18,8 @@ public:
 
 	std::vector<Item> getItems();
 
+	// Public functions
+	static Inventory& getInstance();
 	void drawInventory();
 	void DrawOutzoomed();
 
@@ -29,6 +29,9 @@ public:
 	void removeItem();
 
 private:
+	// Constructors
+	Inventory();
+
 	std::vector<Item> items = {Item("", 0),Item("", 0),Item("", 0) };
 	unsigned slots = 3;
 	unsigned selectedSlot = 0;

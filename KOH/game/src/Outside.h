@@ -6,11 +6,12 @@
 class Outside
 {
 public:
+	// Constructor / Destructor
 	Outside();
 	~Outside();
 
+	// Public functions
 	void DrawOutside();
-
 	void generateJunk();
 private:
 

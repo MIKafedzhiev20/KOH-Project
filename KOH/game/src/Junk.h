@@ -4,8 +4,10 @@
 class Junk : public Item
 {
 public:
+	// Constructor
 	Junk(std::string name, int type, std::string contains);
 
+	// Setters and getters
 	std::string getContains();
 
 	void setSpawnTimer(float spawnTimer);
@@ -14,6 +16,7 @@ public:
 	void setLifeTimer(float lifeTimer);
 	float getLifetimer();
 
+	// Public functions
 	void DrawJunk();
 private:
 	std::string contains = "";

@@ -8,13 +8,12 @@
 class Map
 {
 public:
-	Map();
-
+	// Operators
 	Map(Map const&) = delete;
 	void operator=(Map const&) = delete;
 
+	// Public functions
 	static Map& getInstance();
-
 	void DrawMap();
 	void OpenMapMenu();
 
@@ -26,9 +25,8 @@ public:
 	bool isMapMenuOpen = false;
 
 private:
-	void goOutdoors();
-	void goInLab();
-	void goOutShop();
+	// Constructor
+	Map();
 
 	Laboratory laboratory;
 	Outside outside;
@@ -39,20 +37,23 @@ private:
 class MainMenu
 {
 public:
-	MainMenu();
-
-	void DrawMainMenu();
-
+	// Operators
 	MainMenu(MainMenu const&) = delete;
 	void operator=(MainMenu const&) = delete;
 
+	// Public functions
 	static MainMenu& getInstance();
+	void DrawMainMenu();
 
 	bool isMenuOpen = true;
 	bool isGameStarted = false;
 	bool gameShouldClose = false;
 
 	bool isExitPressed = false;
+
+private:
+	// Constructor
+	MainMenu();
 };
 
 bool DrawButtonText(Vector2 pos, int width, int height, int fontSize, const char* name);

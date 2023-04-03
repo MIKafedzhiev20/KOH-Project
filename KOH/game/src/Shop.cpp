@@ -3,18 +3,28 @@
 #include "Element.h"
 #include "Map.h"
 
-#include <iostream>
-
+/**
+ * .Loads the shop texture(s)
+ * 
+ */
 Shop::Shop()
 {
 	shopTexture = LoadTexture("../assets/DevShop.png");
 }
 
+/**
+ * .Unloads the shop texture(s)
+ * 
+ */
 Shop::~Shop()
 {
 	UnloadTexture(shopTexture);
 }
 
+/**
+ * .Draws the shop
+ * 
+ */
 void Shop::drawTexture()
 {
 	Map& map = Map::getInstance();

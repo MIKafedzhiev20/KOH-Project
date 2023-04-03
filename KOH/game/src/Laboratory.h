@@ -6,9 +6,11 @@
 class Laboratory
 {
 public:
+	// Constructor / Destructor
 	Laboratory();
 	~Laboratory();
 
+	// Public functions
 	void DrawLaboratory();
 
 private:

@@ -5,13 +5,15 @@
 class Player
 {
 public:
+	// Constructor
 	Player();
 
+	// Operators
 	Player(Player const&) = delete;
 	void operator=(Player const&) = delete;
 
+	// Public functions
 	static Player& getInstance();
-
 	void move();
 	void drawPlayer();
 

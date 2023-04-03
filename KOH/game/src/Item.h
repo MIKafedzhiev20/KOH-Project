@@ -14,8 +14,10 @@ enum item_types
 class Item
 {
 public:
+	// Constructors
 	Item(std::string name, int type);
 
+	// Setters and getters
 	void setName(std::string name);
 	std::string getName();
 

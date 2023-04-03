@@ -1,16 +1,29 @@
 #include "Player.h"
 
+/**
+ * .Create instance of Player
+ * 
+ */
 Player::Player()
 {
 
 }
 
+/**
+ * .Create static instance of Player
+ * 
+ * \return static instance of Player
+ */
 Player& Player::getInstance()
 {
 	static Player player;
 	return player;
 }
 
+/**
+ * .Move the player base on user input
+ * 
+ */
 void Player::move()
 {
 	if (isOnMap == true)
@@ -34,6 +47,10 @@ void Player::move()
 	}
 }
 
+/**
+ * .Draws the player
+ * 
+ */
 void Player::drawPlayer()
 {
 	DrawRectangle(position.x, position.y, 20, 20, RED);

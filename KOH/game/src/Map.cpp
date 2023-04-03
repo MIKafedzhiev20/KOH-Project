@@ -1,52 +1,50 @@
 #include "Map.h"
 #include "Player.h"
 
-#include <iostream>
-using namespace std;
-
+/**
+ * .Create instance of Map
+ * 
+ */
 Map::Map()
 {
 
 }
 
+/**
+ * .Create instance of MainMenu
+ * 
+ */
 MainMenu::MainMenu()
 {
 
 }
 
+/**
+ * .Create static instance of Map
+ * 
+ * \return static instance of Map
+ */
 Map& Map::getInstance()
 {
 	static Map map;
 	return map;
 }
 
+/**
+ * .Create static instance of MainMenu
+ *
+ * \return static instance of MainMenu
+ */
 MainMenu& MainMenu::getInstance()
 {
 	static MainMenu mainMenu;
 	return mainMenu;
 }
 
-void Map::goOutdoors()
-{
-	isInShop = false;
-	isInLab = false;
-	isOutdoor = true;
-}
-
-void Map::goInLab()
-{
-	isOutdoor = false;
-	isInShop = false;
-	isInLab = true;
-}
-
-void Map::goOutShop()
-{
-	isInLab = false;
-	isInShop = false;
-	isOutdoor = true;
-}
-
+/**
+ * .Draw the coresponding fragment of the map
+ * 
+ */
 void Map::DrawMap()
 {
 	Player& player = Player::getInstance();
@@ -73,6 +71,9 @@ void Map::DrawMap()
 	}
 }
 
+/**
+ * .Draws the main menu 
+ */
 void MainMenu::DrawMainMenu()
 {
 	if (isMenuOpen)
@@ -120,6 +121,16 @@ void MainMenu::DrawMainMenu()
 	}
 }
 
+/**
+ * .Draw texture which acts as a button
+ * 
+ * \param x the x coordinate of the texture
+ * \param y the y coordinate of the texture
+ * \param width the width of the texture
+ * \param height the height of the texture
+ * \param texture the texture file
+ * \return true/false if the texture is clicked
+ */
 bool DrawButtonTexture(int x, int y, int width, int height, Texture2D texture)
 {
 	Rectangle rec = { x, y, width, height };
@@ -137,6 +148,16 @@ bool DrawButtonTexture(int x, int y, int width, int height, Texture2D texture)
 	return 0;
 }
 
+/**
+ * .Draw text which acts as a button
+ * 
+ * \param pos the position of the text
+ * \param width the with of the text
+ * \param height the height of the text
+ * \param fontSize the font size
+ * \param name the displayed text
+ * \return true/false if the text is clicked
+ */
 bool DrawButtonText(Vector2 pos,int width, int height, int fontSize, const char* name)
 {
 	static Font font = LoadFont("../assets/pixantiqua.png");
@@ -154,6 +175,10 @@ bool DrawButtonText(Vector2 pos,int width, int height, int fontSize, const char*
 	return 0;
 }
 
+/**
+ * .Open the ingame menu
+ * 
+ */
 void Map::OpenMapMenu()
 {
 	Player& player = Player::getInstance();

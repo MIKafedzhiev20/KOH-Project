@@ -3,16 +3,28 @@
 #include "Player.h"
 #include "Inventory.h"
 
+/**
+ * .Load the map texture(s)
+ * 
+ */
 Outside::Outside()
 {
 	outsideTexture = LoadTexture("../assets/DevOutdoor.png");
 }
 
+/**
+ * .Unload the map texture(s)
+ * 
+ */
 Outside::~Outside()
 {
 	UnloadTexture(outsideTexture);
 }
 
+/**
+ * .Draws the map
+ * 
+ */
 void Outside::DrawOutside()
 {
 	Map& map = Map::getInstance();
@@ -61,6 +73,10 @@ void Outside::DrawOutside()
 	map.OpenMapMenu();
 }
 
+/**
+ * .Generate junk aroundd the map
+ * 
+ */
 void Outside::generateJunk()
 {
 	static std::vector<Junk> junk;
