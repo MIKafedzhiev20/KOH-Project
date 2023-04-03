@@ -84,6 +84,13 @@ void Inventory::addItem(Item& item)
 	item.setIsPickedUp(true);
 }
 
+void Inventory::resetItems()
+{
+	items[0] = Item("", 3);
+	items[1] = Item("", 3);
+	items[2] = Item("", 3);
+}
+
 /**
  * .Remove item from the inventory
  * 

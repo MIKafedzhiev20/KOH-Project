@@ -115,4 +115,5 @@ void Shop::drawTexture()
 			xDraw = 10;
 		}
 	}
+	map.OpenMapMenu();
 }

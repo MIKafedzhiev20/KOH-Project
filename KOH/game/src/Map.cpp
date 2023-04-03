@@ -1,4 +1,5 @@
 #include "Map.h"
+#include "Item.h"
 #include "Player.h"
 
 /**
@@ -83,28 +84,23 @@ void MainMenu::DrawMainMenu()
 
 		if (DrawButtonText({ 100, 200 }, 560, 100, 100, "New Game"))
 		{
-			isMenuOpen = false;
-			isGameStarted = true;
-
-			player.setIsOnMap(true);
-			player.setPosition({ 200, 200 });
-
-			map.isOutdoor = true;
+			newGame();
 		}
 
-		if (DrawButtonText({ 100, 400 }, 456, 100, 100, "Continue"))
+		if (isGameGoing == true)
 		{
-			isMenuOpen = false;
-			isGameStarted = true;
-			player.setIsOnMap(true);
-			map.isOutdoor = true;
+			if (DrawButtonText({ 100, 500 }, 456, 100, 100, "Continue"))
+			{
+				isMenuOpen = false;
+				isGameStarted = true;
+				player.setIsOnMap(true);
+				map.isOutdoor = true;
+			}
 		}
-
-		if (DrawButtonText({ 100, 600 }, 450, 100, 100, "Settings"))
+		else
 		{
-			isMenuOpen = false;
-			isGameStarted = true;
-			player.setIsOnMap(true);
+			static Font font = LoadFont("../assets/pixantiqua.png");
+			DrawTextEx(font, "Continue", { 100, 500 }, 100, 100 / 5 - 100 / 20, GRAY);
 		}
 
 		if (DrawButtonText({ 100, 800 }, 200, 100, 100, "Exit"))
@@ -201,12 +197,7 @@ void Map::OpenMapMenu()
 			player.setIsOnMap(true);
 		}
 
-		if (DrawButtonText({ 100, 400 }, 450, 100, 100, "Settings"))
-		{
-
-		}
-
-		if (DrawButtonText({ 100, 600 }, 200, 100, 100, "Save"))
+		if (DrawButtonText({ 100, 500 }, 200, 100, 100, "Save"))
 		{
 
 		}
@@ -224,4 +215,33 @@ void Map::OpenMapMenu()
 			mainMenu.isExitPressed = true;
 		}
 	}
+}
+
+void MainMenu::newGame()
+{
+	Map& map = Map::getInstance();
+	Player& player = Player::getInstance();
+	Inventory& inventory = Inventory::getInstance();
+
+	isMenuOpen = false;
+	isGameStarted = true;
+
+	player.setIsOnMap(true);
+	player.setPosition({ 200, 200 });
+
+	map.isOutdoor = true;
+
+	elements[0].setIsUnlocked(true);
+	elements[1].setIsUnlocked(true);
+
+	for (int i = 2; i < 22; i++)
+	{
+		elements[i].setIsUnlocked(false);
+	}
+
+	inventory.setBalance(500);
+	inventory.resetItems();
+	
+
+	isGameGoing = true;
 }
