@@ -236,10 +236,10 @@ void MainMenu::newGame()
 
 	for (int i = 2; i < 22; i++)
 	{
-		elements[i].setIsUnlocked(false);
+		elements[i].setIsUnlocked(true);
 	}
 
-	inventory.setBalance(500);
+	inventory.setBalance(0);
 	inventory.resetItems();
 	
 

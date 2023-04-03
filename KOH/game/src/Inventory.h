@@ -37,5 +37,5 @@ private:
 	unsigned slots = 3;
 	unsigned selectedSlot = 0;
 
-	int balance = 500;
+	int balance = 0;
 };

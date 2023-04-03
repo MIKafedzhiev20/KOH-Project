@@ -123,14 +123,25 @@ void Laboratory::DrawTable()
 		index++;
 	}
 
-	if (DrawButtonText({ 1600, 50 }, 240, 44, 50, "COMBINE"))
+	int taskIndex = 0;
+	for (int i = 0; i < 17; i++)
 	{
-		for (int i = 0; i < reactions.size(); i++)
+		if (reactions[i].getIsObtained() == true)
+		{
+			taskIndex++;
+		}
+	}
+
+	DrawText(("Current task. Obtain: " + reactions[taskIndex].getName()).c_str(), 600, 100, 50, RED);
+
+	if (DrawButtonText({ 1650, 100 }, 240, 44, 50, "COMBINE"))
+	{
+		for (int i = 0; i < 17; i++)
 		{
 			if ((slots[0].getName() == reactions[i].getRequired1() || slots[0].getName() == reactions[i].getRequired2()) && (slots[1].getName() == reactions[i].getRequired2() || slots[1].getName() == reactions[i].getRequired1()))
 			{
 				inventory.addItem(Item(reactions[i].getName(), 2));
-				if (reactions[i].getIsObtained() == false)
+				if (reactions[i].getIsObtained() == false && taskIndex == i)
 				{
 					inventory.setBalance(inventory.getBalance() + reactions[i].getPrice());
 				}
@@ -140,13 +151,14 @@ void Laboratory::DrawTable()
 				slots[1] = Item("", 3);
 				index = 0;
 			}
-			else
-			{
-				slots[0] = Item("", 3);
-				slots[1] = Item("", 3);
-				index = 0;
-			}
 		}
+	}
+
+	if (DrawButtonText({ 1650, 150 }, 240, 44, 50, "RESET"))
+	{
+		slots[0] = Item("", 3);
+		slots[1] = Item("", 3);
+		index = 0;
 	}
 }
 
@@ -228,7 +240,7 @@ void Laboratory::DrawExtractor()
 	std::vector<Item> items = inventory.getItems();
 	unsigned selectedSlot = inventory.getSelectedSlot();
 
-	if (DrawButtonText({ 1600, 50 }, 240, 44, 50, "EXTRACT"))
+	if (DrawButtonText({ 1650, 100 }, 240, 44, 50, "EXTRACT"))
 	{
 		if (items[selectedSlot].getType() == 1)
 		{

@@ -18,7 +18,7 @@ public:
 	static std::vector<Element>& createElement();
 
 private:
-	bool isUnlocked = true;
+	bool isUnlocked = false;
 
 	int price = 0;
 };
