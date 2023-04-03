@@ -79,7 +79,7 @@ void Shop::drawTexture()
 					DrawRectangle((float)GetScreenWidth() / 3 - (-xDraw), (float)GetScreenHeight() / 3 - (-yDraw), 50, 50, RAYWHITE);
 					xDraw += 75;
 
-					if (element < 21)
+					if (element < 22)
 					{
 						if (elements[element].getIsUnlocked() == false)
 						{

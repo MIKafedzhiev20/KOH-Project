@@ -83,7 +83,7 @@ void Outside::generateJunk()
 	Player& player = Player::getInstance();
 	Inventory& inventory = Inventory::getInstance();
 
-	int junkType = GetRandomValue(0, 2);
+	int junkType = GetRandomValue(0, 3);
 
 	Junk NewJunk = types[junkType];
 

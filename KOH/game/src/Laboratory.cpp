@@ -120,6 +120,11 @@ void Laboratory::DrawLaboratory()
 					inventory.addItem(elements[20]);
 					elements[20].setIsUnlocked(true);
 				}
+				else if (items[selectedSlot].getName() == "dirtyWater")
+				{
+					inventory.addItem(elements[21]);
+					elements[21].setIsUnlocked(true);
+				}
 				else
 				{
 
@@ -156,7 +161,7 @@ void Laboratory::DrawLaboratory()
 				DrawRectangle((float)GetScreenWidth() / 3 - (-xDraw), (float)GetScreenHeight() / 3 - (-yDraw), 50, 50, RAYWHITE);
 				xDraw += 75;
 
-				if (element < 21)
+				if (element < 22)
 				{
 					if (elements[element].getIsUnlocked() == false)
 					{
