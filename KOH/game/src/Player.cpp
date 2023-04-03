@@ -21,6 +21,66 @@ Player& Player::getInstance()
 }
 
 /**
+ * .Set if the player is on the map
+ * 
+ * \param isOnMap true/false if the player is on the map
+ */
+void Player::setIsOnMap(bool isOnMap)
+{
+	this->isOnMap = isOnMap;
+}
+
+/**
+ * .Returns if the player is on the map
+ * 
+ * \return true/false if the player is on the map
+ */
+bool Player::getIsOnMap()
+{
+	return this->isOnMap;
+}
+
+/**
+ * .Set the player's position to a new one
+ * 
+ * \param position the new position
+ */
+void Player::setPosition(Vector2 position)
+{
+	this->position = position;
+}
+
+/**
+ * .Returns the player's position
+ * 
+ * \return the player's position
+ */
+Vector2 Player::getPosition()
+{
+	return this->position;
+}
+
+/**
+ * .Set the camera position to a new one
+ * 
+ * \param cameraPos the new camera's position
+ */
+void Player::setCameraPos(Vector2 cameraPos)
+{
+	this->cameraPos = cameraPos;
+}
+
+/**
+ * .Return the camera position
+ * 
+ * \return the camera position
+ */
+Vector2 Player::getCameraPos()
+{
+	return this->cameraPos;
+}
+
+/**
  * .Move the player base on user input
  * 
  */
@@ -55,3 +115,4 @@ void Player::drawPlayer()
 {
 	DrawRectangle(position.x, position.y, 20, 20, RED);
 }
+

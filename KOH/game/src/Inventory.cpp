@@ -106,10 +106,10 @@ void Inventory::drawInventory()
 
 	for (auto i = 0; i < 3; i++)
 	{
-		DrawRectangle(player.cameraPos.x + drawX, player.cameraPos.y + drawY, 50, 50, WHITE);
+		DrawRectangle(player.getCameraPos().x + drawX, player.getCameraPos().y + drawY, 50, 50, WHITE);
 		if (i == selectedSlot)
 		{
-			DrawRectangle(player.cameraPos.x + drawX, player.cameraPos.y + drawY, 50, 50, { 70,175,240,100 });
+			DrawRectangle(player.getCameraPos().x + drawX, player.getCameraPos().y + drawY, 50, 50, { 70,175,240,100 });
 		}
 		drawX += 65;
 	}
@@ -118,11 +118,11 @@ void Inventory::drawInventory()
 
 	for (auto i = 0; i < 3; i++)
 	{
-		DrawText(items[i].getName().c_str(), player.cameraPos.x + drawX + 20, player.cameraPos.y + drawY + 15, 20, RED);
+		DrawText(items[i].getName().c_str(), player.getCameraPos().x + drawX + 20, player.getCameraPos().y + drawY + 15, 20, RED);
 		drawX += 65;
 	}
 
-	DrawText(TextFormat("%i", balance), player.cameraPos.x + 420, player.cameraPos.y - 260, 20, WHITE);
+	DrawText(TextFormat("%i", balance), player.getCameraPos().x + 420, player.getCameraPos().y - 260, 20, WHITE);
 }
 
 /**

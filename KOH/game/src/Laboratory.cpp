@@ -39,7 +39,7 @@ void Laboratory::DrawLaboratory()
 
 		DrawRectangleRec(goOutdoor, BLUE);
 
-		if (CheckCollisionRecs({ player.position.x, player.position.y, 20, 20 }, goOutdoor) && IsKeyPressed(KEY_F))
+		if (CheckCollisionRecs({ player.getPosition().x, player.getPosition().y, 20, 20}, goOutdoor) && IsKeyPressed(KEY_F))
 		{
 			map.isInLab = false;
 			map.isOutdoor = true;
@@ -49,9 +49,9 @@ void Laboratory::DrawLaboratory()
 
 		DrawRectangleRec(onTable, YELLOW);
 
-		if (CheckCollisionRecs({ player.position.x, player.position.y, 20, 20 }, onTable) && IsKeyPressed(KEY_F))
+		if (CheckCollisionRecs({ player.getPosition().x, player.getPosition().y, 20, 20 }, onTable) && IsKeyPressed(KEY_F))
 		{
-			player.isOnMap = false;
+			player.setIsOnMap(false);
 			isOnTable = true;
 		}
 
@@ -59,9 +59,9 @@ void Laboratory::DrawLaboratory()
 
 		DrawRectangleRec(inStorage, PURPLE);
 
-		if (CheckCollisionRecs({ player.position.x, player.position.y, 20, 20 }, inStorage) && IsKeyPressed(KEY_F))
+		if (CheckCollisionRecs({ player.getPosition().x, player.getPosition().y, 20, 20 }, inStorage) && IsKeyPressed(KEY_F))
 		{
-			player.isOnMap = false;
+			player.setIsOnMap(false);
 			isInStorage = true;
 		}
 
@@ -69,9 +69,9 @@ void Laboratory::DrawLaboratory()
 
 		DrawRectangleRec(onExtraxtor, DARKBROWN);
 
-		if (CheckCollisionRecs({ player.position.x, player.position.y, 20, 20 }, onExtraxtor) && IsKeyPressed(KEY_F))
+		if (CheckCollisionRecs({ player.getPosition().x, player.getPosition().y, 20, 20 }, onExtraxtor) && IsKeyPressed(KEY_F))
 		{
-			player.isOnMap = false;
+			player.setIsOnMap(false);
 			isOnExtractor = true;
 		}
 
@@ -83,7 +83,7 @@ void Laboratory::DrawLaboratory()
 		if (DrawButtonText({ 0, 0 }, 150, 44, 50, "BACK"))
 		{
 			isOnTable = false;
-			player.isOnMap = true;
+			player.setIsOnMap(true);
 		}
 	}
 
@@ -92,7 +92,7 @@ void Laboratory::DrawLaboratory()
 		if (DrawButtonText({ 0, 0 }, 150, 44, 50, "BACK"))
 		{
 			isOnExtractor = false;
-			player.isOnMap = true;
+			player.setIsOnMap(true);
 		}
 
 		inventory.DrawOutzoomed();
@@ -137,7 +137,7 @@ void Laboratory::DrawLaboratory()
 		if (DrawButtonText({ 0, 0 }, 150, 44, 50, "BACK"))
 		{
 			isInStorage = false;
-			player.isOnMap = true;
+			player.setIsOnMap(true);
 		}
 
 		inventory.DrawOutzoomed();

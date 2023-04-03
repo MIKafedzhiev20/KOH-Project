@@ -39,7 +39,7 @@ void Shop::drawTexture()
 
 		DrawRectangleRec(goOutdoor, BLUE);
 
-		if (CheckCollisionRecs({ player.position.x, player.position.y, 20, 20 }, goOutdoor) && IsKeyPressed(KEY_F))
+		if (CheckCollisionRecs({ player.getPosition().x, player.getPosition().y, 20, 20 }, goOutdoor) && IsKeyPressed(KEY_F))
 		{
 			map.isInShop = false;
 			map.isOutdoor = true;
@@ -49,10 +49,10 @@ void Shop::drawTexture()
 
 		DrawRectangleRec(onCheckout, YELLOW);
 
-		if (CheckCollisionRecs({ player.position.x, player.position.y, 20, 20 }, onCheckout) && IsKeyPressed(KEY_F))
+		if (CheckCollisionRecs({ player.getPosition().x, player.getPosition().y, 20, 20 }, onCheckout) && IsKeyPressed(KEY_F))
 		{
 			isOnCheckout = true;
-			player.isOnMap = false;
+			player.setIsOnMap(false);
 		}
 	}
 	else
@@ -60,7 +60,7 @@ void Shop::drawTexture()
 		if (DrawButtonText({ 0, 0 }, 150, 44, 50, "BACK"))
 		{
 			isOnCheckout = false;
-			player.isOnMap = true;
+			player.setIsOnMap(true);
 		}
 
 		inventory.DrawOutzoomed();

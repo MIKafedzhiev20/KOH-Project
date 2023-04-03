@@ -43,7 +43,7 @@ void Game::Tick()
 {
 	BeginDrawing();
 
-	if (player.isOnMap)
+	if (player.getIsOnMap())
 	{
 		BeginMode2D(camera);
 	}
@@ -52,7 +52,7 @@ void Game::Tick()
 
 	Draw();
 
-	if (!player.isOnMap)
+	if (!player.getIsOnMap())
 	{
 		EndMode2D();
 	}
@@ -66,14 +66,12 @@ void Game::Tick()
  */
 void Game::Update()
 {
-	if (player.isOnMap)
+	if (player.getIsOnMap())
 	{
 		mouse = GetScreenToWorld2D(GetMousePosition(), camera);
-
-		player.cameraPos.x = camera.target.x;
-		player.cameraPos.y = camera.target.y;
+		player.setCameraPos({ camera.target.x , camera.target.y });
 		player.move();
-		camera.target = player.position;
+		camera.target = player.getPosition();
 
 		inventory.manageInvetory();
 	}
@@ -82,7 +80,7 @@ void Game::Update()
 		mouse = GetMousePosition();
 	}
 
-	Rectangle playerRect = { player.position.x, player.position.y, 20, 20 };
+	Rectangle playerRect = { player.getPosition().x, player.getPosition().y, 20, 20};
 }
 
 /**
@@ -100,7 +98,7 @@ void Game::Draw()
 			map.DrawMap();
 		}
 
-		if (player.isOnMap)
+		if (player.getIsOnMap())
 		{
 			player.drawPlayer();
 			inventory.drawInventory();

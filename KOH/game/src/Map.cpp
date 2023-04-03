@@ -86,8 +86,8 @@ void MainMenu::DrawMainMenu()
 			isMenuOpen = false;
 			isGameStarted = true;
 
-			player.isOnMap = true;
-			player.position = { 200, 200 };
+			player.setIsOnMap(true);
+			player.setPosition({ 200, 200 });
 
 			map.isOutdoor = true;
 		}
@@ -96,7 +96,7 @@ void MainMenu::DrawMainMenu()
 		{
 			isMenuOpen = false;
 			isGameStarted = true;
-			player.isOnMap = true;
+			player.setIsOnMap(true);
 			map.isOutdoor = true;
 		}
 
@@ -104,7 +104,7 @@ void MainMenu::DrawMainMenu()
 		{
 			isMenuOpen = false;
 			isGameStarted = true;
-			player.isOnMap = true;
+			player.setIsOnMap(true);
 		}
 
 		if (DrawButtonText({ 100, 800 }, 200, 100, 100, "Exit"))
@@ -187,7 +187,7 @@ void Map::OpenMapMenu()
 
 	if (IsKeyPressed(KEY_ESCAPE))
 	{
-		player.isOnMap = false;
+		player.setIsOnMap(false);
 		isMapMenuOpen = true;
 	}
 
@@ -198,7 +198,7 @@ void Map::OpenMapMenu()
 		if (DrawButtonText({ 100, 200 }, 560, 100, 100, "Resume"))
 		{
 			isMapMenuOpen = false;
-			player.isOnMap = true;
+			player.setIsOnMap(true);
 		}
 
 		if (DrawButtonText({ 100, 400 }, 450, 100, 100, "Settings"))
@@ -218,7 +218,7 @@ void Map::OpenMapMenu()
 			isInShop = false;
 
 			isMapMenuOpen = false;
-			player.isOnMap = false;
+			player.setIsOnMap(false);
 			mainMenu.isMenuOpen = true;
 
 			mainMenu.isExitPressed = true;
