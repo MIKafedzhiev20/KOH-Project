@@ -18,7 +18,7 @@ public:
 private:
 	std::string contains = "";
 
-	float junkSpawnTimer = GetRandomValue(500, 3000);
+	float junkSpawnTimer = GetRandomValue(50, 300);
 
 	float junkLifetime = GetRandomValue(10000, 50000);
 };

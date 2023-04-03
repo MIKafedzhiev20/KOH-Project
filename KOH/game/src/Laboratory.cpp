@@ -93,20 +93,20 @@ void Laboratory::DrawLaboratory()
 		{
 			if (items[selectedSlot].getType() == 1)
 			{
-				if(items[selectedSlot].getName() == "IronSpring")
+				if(items[selectedSlot].getName() == "AluminumCan")
 				{
-					inventory.addItem(elements[6]);
-					elements[6].setIsUnlocked(true);
-				}
-				else if (items[selectedSlot].getName() == "AluminumCan")
-				{
-					inventory.addItem(elements[11]);
-					elements[11].setIsUnlocked(true);
+					inventory.addItem(elements[18]);
+					elements[18].setIsUnlocked(true);
 				}
 				else if (items[selectedSlot].getName() == "ZinkWire")
 				{
-					inventory.addItem(elements[10]);
-					elements[10].setIsUnlocked(true);
+					inventory.addItem(elements[19]);
+					elements[19].setIsUnlocked(true);
+				}
+				else if (items[selectedSlot].getName() == "IronSpring")
+				{
+					inventory.addItem(elements[20]);
+					elements[20].setIsUnlocked(true);
 				}
 				else
 				{
