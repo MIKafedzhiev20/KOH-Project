@@ -9,7 +9,7 @@
  */
 Outside::Outside()
 {
-	outsideTexture = LoadTexture("../assets/DevOutdoor.png");
+	outsideTexture = LoadTexture("../assets/Map.png");
 }
 
 /**
@@ -31,9 +31,9 @@ void Outside::DrawOutside()
 	Player& player = Player::getInstance();
 	Inventory& inventory = Inventory::getInstance();
 
-	Rectangle LabWarp = { 100, 100, 30, 30 };
-	Rectangle shopWarp = { 400, 400, 30, 30 };
-	Rectangle houseWarp = { 200, 300, 30, 30 };
+	Rectangle LabWarp = { 360, 360, 80, 20 };
+	Rectangle shopWarp = { 32, 700, 80, 30 };
+	Rectangle houseWarp = { 1260,240, 20, 90 };
 
 	Rectangle trashBin = { 200, 500, 30, 30 };
 
@@ -71,6 +71,9 @@ void Outside::DrawOutside()
 	}
 
 	map.OpenMapMenu();
+
+	DrawText(TextFormat("%f", GetMousePosition().x), 200, 200, 10, RED);
+	DrawText(TextFormat("%f", GetMousePosition().y), 300, 200, 10, RED);
 }
 
 /**
@@ -87,8 +90,8 @@ void Outside::generateJunk()
 
 	Junk NewJunk = types[junkType];
 
-	float DrawX = GetRandomValue(500, 700);
-	float DrawY = GetRandomValue(100, 300);
+	float DrawX = GetRandomValue(960, 1920);
+	float DrawY = GetRandomValue(340, 820);
 
 	NewJunk.setHitbox(DrawX, DrawY);
 

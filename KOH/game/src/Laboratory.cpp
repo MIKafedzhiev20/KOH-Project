@@ -11,7 +11,7 @@
  */
 Laboratory::Laboratory()
 {
-	laboratoryTexture = LoadTexture("../assets/DevLab.png");
+	laboratoryTexture = LoadTexture("../assets/lab.png");
 }
 
 /**

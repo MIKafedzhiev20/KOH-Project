@@ -34,5 +34,5 @@ private:
 
 	Vector2 cameraPos = { 0, 0 };
 
-	float speed = 2.0f;
+	float speed = 3.0f;
 };

@@ -45,7 +45,7 @@ void Game::Tick()
 
 	if (player.getIsOnMap())
 	{
-		BeginMode2D(camera);
+		//BeginMode2D(camera);
 	}
 
 	Update();
@@ -66,6 +66,7 @@ void Game::Tick()
  */
 void Game::Update()
 {
+
 	if (player.getIsOnMap())
 	{
 		mouse = GetScreenToWorld2D(GetMousePosition(), camera);
