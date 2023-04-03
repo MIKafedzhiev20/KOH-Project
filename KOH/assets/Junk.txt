@@ -1,5 +1,5 @@
-name,contains
-IronSpring,Fe
-AluminumCan,Al
-ZinkWire,Zn
-dirtyWater,H2O
+name
+IronSpring
+AluminumCan
+ZinkWire
+dirtyWater

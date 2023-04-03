@@ -90,7 +90,7 @@ void Inventory::addItem(Item& item)
  */
 void Inventory::removeItem()
 {
-	items[selectedSlot] = Item("", 0);
+	items[selectedSlot] = Item("", 3);
 }
 
 /**

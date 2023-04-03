@@ -191,6 +191,7 @@
     <ClCompile Include="..\game\src\Map.cpp" />
     <ClCompile Include="..\game\src\Outside.cpp" />
     <ClCompile Include="..\game\src\Player.cpp" />
+    <ClCompile Include="..\game\src\Reactions.cpp" />
     <ClCompile Include="..\game\src\Shop.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -204,6 +205,7 @@
     <ClInclude Include="..\game\src\Map.h" />
     <ClInclude Include="..\game\src\Outside.h" />
     <ClInclude Include="..\game\src\Player.h" />
+    <ClInclude Include="..\game\src\Reactions.h" />
     <ClInclude Include="..\game\src\Shop.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

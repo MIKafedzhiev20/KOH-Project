@@ -8,9 +8,8 @@
  * \param type the item's type
  * \param contains the element the junk contains
  */
-Junk::Junk(std::string name, int type, std::string contains)
+Junk::Junk(std::string name, int type)
 	:
-	contains(contains),
 	Item(name, type)
 {
 
@@ -25,15 +24,14 @@ std::vector<Junk> createJunk()
 {
 	std::vector<Junk> junk;
 
-	io::CSVReader<2> in("../assets/Junk.txt");
-	in.read_header(io::ignore_extra_column, "name", "contains");
+	io::CSVReader<1> in("../assets/Junk.txt");
+	in.read_header(io::ignore_extra_column, "name");
 
 	std::string name;
-	std::string contains;
 
-	while (in.read_row(name, contains))
+	while (in.read_row(name))
 	{
-		junk.push_back(Junk(name, 1, contains));
+		junk.push_back(Junk(name, 1));
 	}
 
 	return junk;
@@ -51,16 +49,6 @@ void Junk::DrawJunk()
 
 		this->junkLifetime--;
 	}
-}
-
-/**
- * .Return the element the junk contains
- * 
- * \return the element the junk contains
- */
-std::string Junk::getContains()
-{
-	return this->contains;
 }
 
 /**

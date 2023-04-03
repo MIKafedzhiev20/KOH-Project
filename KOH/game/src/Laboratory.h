@@ -14,6 +14,11 @@ public:
 	void DrawLaboratory();
 
 private:
+	// Private functions
+	void DrawTable();
+	void DrawStorage();
+	void DrawExtractor();
+
 	Texture2D laboratoryTexture;
 
 	bool isOnTable = false;

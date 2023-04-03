@@ -75,7 +75,7 @@ std::vector<Element>& Element::createElement()
 
 	while (in.read_row(name, price))
 	{
-		element.push_back(Element(name, 1, price));
+		element.push_back(Element(name, 0, price));
 	}
 
 	return element;

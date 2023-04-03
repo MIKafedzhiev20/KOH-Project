@@ -8,13 +8,14 @@ enum item_types
 {
 	ELEMENT = 0,
 	JUNK,
-	COMBINATIONS
+	COMBINATIONS,
+	NONE
 };
 
 class Item
 {
 public:
-	// Constructors
+	// Constructor
 	Item(std::string name, int type);
 
 	// Setters and getters

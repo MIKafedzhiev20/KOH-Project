@@ -2,10 +2,12 @@
 #include "Map.h"
 #include "Player.h"
 #include "Inventory.h"
+#include "Reactions.h"
 
+#include <iostream>
 /**
  * .Load the laboratory texture(s)
- * 
+ *
  */
 Laboratory::Laboratory()
 {
@@ -14,7 +16,7 @@ Laboratory::Laboratory()
 
 /**
  * .Unload the laboratory texture(s)
- * 
+ *
  */
 Laboratory::~Laboratory()
 {
@@ -23,13 +25,12 @@ Laboratory::~Laboratory()
 
 /**
  * .Draws the laboratory
- * 
+ *
  */
 void Laboratory::DrawLaboratory()
 {
 	Map& map = Map::getInstance();
 	Player& player = Player::getInstance();
-	Inventory& inventory = Inventory::getInstance();
 
 	if (!isOnTable && !isInStorage && !isOnExtractor)
 	{
@@ -39,7 +40,7 @@ void Laboratory::DrawLaboratory()
 
 		DrawRectangleRec(goOutdoor, BLUE);
 
-		if (CheckCollisionRecs({ player.getPosition().x, player.getPosition().y, 20, 20}, goOutdoor) && IsKeyPressed(KEY_F))
+		if (CheckCollisionRecs({ player.getPosition().x, player.getPosition().y, 20, 20 }, goOutdoor) && IsKeyPressed(KEY_F))
 		{
 			map.isInLab = false;
 			map.isOutdoor = true;
@@ -80,110 +81,185 @@ void Laboratory::DrawLaboratory()
 
 	if (isOnTable)
 	{
-		if (DrawButtonText({ 0, 0 }, 150, 44, 50, "BACK"))
-		{
-			isOnTable = false;
-			player.setIsOnMap(true);
-		}
+		DrawTable();
 	}
 
 	if (isOnExtractor)
 	{
-		if (DrawButtonText({ 0, 0 }, 150, 44, 50, "BACK"))
+		DrawExtractor();
+	}
+
+	if (isInStorage)
+	{
+		DrawStorage();
+	}
+}
+
+/**
+ * .Draws the table
+ *
+ */
+void Laboratory::DrawTable()
+{
+	Inventory& inventory = Inventory::getInstance();
+	Player& player = Player::getInstance();
+
+	static std::vector<Item> slots = { Item("",3),Item("",3) };
+	static unsigned index = 0;
+
+	if (DrawButtonText({ 0, 0 }, 150, 44, 50, "BACK"))
+	{
+		isOnTable = false;
+		player.setIsOnMap(true);
+	}
+
+	inventory.manageInvetory();
+	inventory.DrawOutzoomed();
+
+	if (IsKeyPressed(KEY_Q) && inventory.getItems()[inventory.getSelectedSlot()].getType() == 0)
+	{
+		slots[index] = inventory.getItems()[inventory.getSelectedSlot()];
+		inventory.removeItem();
+		index++;
+	}
+
+	if (DrawButtonText({ 1600, 50 }, 240, 44, 50, "COMBINE"))
+	{
+		for (int i = 0; i < reactions.size(); i++)
 		{
-			isOnExtractor = false;
-			player.setIsOnMap(true);
-		}
-
-		inventory.DrawOutzoomed();
-		inventory.manageInvetory();
-
-		std::vector<Item> items = inventory.getItems();
-		unsigned selectedSlot = inventory.getSelectedSlot();
-
-		if (DrawButtonText({1600, 50}, 240, 44, 50, "EXTRACT"))
-		{
-			if (items[selectedSlot].getType() == 1)
+			if ((slots[0].getName() == reactions[i].getRequired1() || slots[0].getName() == reactions[i].getRequired2()) && (slots[1].getName() == reactions[i].getRequired2() || slots[1].getName() == reactions[i].getRequired1()))
 			{
-				if(items[selectedSlot].getName() == "AluminumCan")
+				inventory.addItem(Item(reactions[i].getName(), 2));
+				if (reactions[i].getIsObtained() == false)
 				{
-					inventory.addItem(elements[18]);
-					elements[18].setIsUnlocked(true);
+					inventory.setBalance(inventory.getBalance() + reactions[i].getPrice());
 				}
-				else if (items[selectedSlot].getName() == "ZinkWire")
+				reactions[i].setIsObtained(true);
+
+				slots[0] = Item("", 3);
+				slots[1] = Item("", 3);
+				index = 0;
+			}
+			else
+			{
+				slots[0] = Item("", 3);
+				slots[1] = Item("", 3);
+				index = 0;
+			}
+		}
+	}
+}
+
+/**
+ * .Draws the storage UI
+ *
+ */
+void Laboratory::DrawStorage()
+{
+	Player& player = Player::getInstance();
+	Inventory& inventory = Inventory::getInstance();
+
+	if (DrawButtonText({ 0, 0 }, 150, 44, 50, "BACK"))
+	{
+		isInStorage = false;
+		player.setIsOnMap(true);
+	}
+
+	inventory.DrawOutzoomed();
+	inventory.manageInvetory();
+
+	DrawRectangle((float)GetScreenWidth() / 3, (float)GetScreenHeight() / 3, 600, 470, Color{ 103,102,90,100 });
+
+	int xDraw = 10;
+	int yDraw = 10;
+	int element = 0;
+
+	for (auto i = 0; i < 5; i++)
+	{
+		for (auto j = 0; j < 8; j++)
+		{
+			DrawRectangle((float)GetScreenWidth() / 3 - (-xDraw), (float)GetScreenHeight() / 3 - (-yDraw), 50, 50, RAYWHITE);
+			xDraw += 75;
+
+			if (element < 22)
+			{
+				if (elements[element].getIsUnlocked() == false)
 				{
-					inventory.addItem(elements[19]);
-					elements[19].setIsUnlocked(true);
-				}
-				else if (items[selectedSlot].getName() == "IronSpring")
-				{
-					inventory.addItem(elements[20]);
-					elements[20].setIsUnlocked(true);
-				}
-				else if (items[selectedSlot].getName() == "dirtyWater")
-				{
-					inventory.addItem(elements[21]);
-					elements[21].setIsUnlocked(true);
+					DrawRectangle((float)GetScreenWidth() / 3 - (-xDraw + 75), (float)GetScreenHeight() / 3 - (-yDraw), 50, 50, { 30,30,30,150 });
 				}
 				else
 				{
+					DrawRectangle((float)GetScreenWidth() / 3 - (-xDraw + 75), (float)GetScreenHeight() / 3 - (-yDraw), 50, 50, { 70,190,70,250 });
 
+					if (CheckCollisionPointRec(GetMousePosition(), { (float)GetScreenWidth() / 3 - (-xDraw + 75), (float)GetScreenHeight() / 3 - (-yDraw), 50, 50 }) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+					{
+						inventory.addItem(elements[element]);
+					}
 				}
+
+				DrawText(elements[element].getName().c_str(), (float)GetScreenWidth() / 3 - (-xDraw + 60.5), (float)GetScreenHeight() / 3 - (-yDraw - 15), 20, RED);
+
+				element++;
+			}
+		}
+		yDraw += 100;
+		xDraw = 10;
+	}
+}
+
+/**
+ * .Draws the extractor UI
+ *
+ */
+void Laboratory::DrawExtractor()
+{
+	Player& player = Player::getInstance();
+	Inventory& inventory = Inventory::getInstance();
+
+	if (DrawButtonText({ 0, 0 }, 150, 44, 50, "BACK"))
+	{
+		isOnExtractor = false;
+		player.setIsOnMap(true);
+	}
+
+	inventory.DrawOutzoomed();
+	inventory.manageInvetory();
+
+	std::vector<Item> items = inventory.getItems();
+	unsigned selectedSlot = inventory.getSelectedSlot();
+
+	if (DrawButtonText({ 1600, 50 }, 240, 44, 50, "EXTRACT"))
+	{
+		if (items[selectedSlot].getType() == 1)
+		{
+			if (items[selectedSlot].getName() == "AluminumCan")
+			{
+				inventory.addItem(elements[18]);
+				elements[18].setIsUnlocked(true);
+			}
+			else if (items[selectedSlot].getName() == "ZinkWire")
+			{
+				inventory.addItem(elements[19]);
+				elements[19].setIsUnlocked(true);
+			}
+			else if (items[selectedSlot].getName() == "IronSpring")
+			{
+				inventory.addItem(elements[20]);
+				elements[20].setIsUnlocked(true);
+			}
+			else if (items[selectedSlot].getName() == "dirtyWater")
+			{
+				inventory.addItem(elements[21]);
+				elements[21].setIsUnlocked(true);
 			}
 			else
 			{
 
 			}
 		}
-	}
-
-	if (isInStorage)
-	{
-		if (DrawButtonText({ 0, 0 }, 150, 44, 50, "BACK"))
+		else
 		{
-			isInStorage = false;
-			player.setIsOnMap(true);
-		}
 
-		inventory.DrawOutzoomed();
-		inventory.manageInvetory();
-
-		DrawRectangle((float)GetScreenWidth() / 3, (float)GetScreenHeight() / 3, 600, 470, Color{ 103,102,90,100 });
-
-		int xDraw = 10;
-		int yDraw = 10;
-		int element = 0;
-
-		for (auto i = 0; i < 5; i++)
-		{
-			for (auto j = 0; j < 8; j++)
-			{
-				DrawRectangle((float)GetScreenWidth() / 3 - (-xDraw), (float)GetScreenHeight() / 3 - (-yDraw), 50, 50, RAYWHITE);
-				xDraw += 75;
-
-				if (element < 22)
-				{
-					if (elements[element].getIsUnlocked() == false)
-					{
-						DrawRectangle((float)GetScreenWidth() / 3 - (-xDraw + 75), (float)GetScreenHeight() / 3 - (-yDraw), 50, 50, { 30,30,30,150 });
-					}
-					else
-					{
-						DrawRectangle((float)GetScreenWidth() / 3 - (-xDraw + 75), (float)GetScreenHeight() / 3 - (-yDraw), 50, 50, { 70,190,70,250 });
-
-						if(CheckCollisionPointRec(GetMousePosition(), { (float)GetScreenWidth() / 3 - (-xDraw + 75), (float)GetScreenHeight() / 3 - (-yDraw), 50, 50 }) && IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
-						{
-							inventory.addItem(elements[element]);
-						}
-					}
-
-					DrawText(elements[element].getName().c_str(), (float)GetScreenWidth() / 3 -  (-xDraw + 60.5), (float)GetScreenHeight() / 3 - (-yDraw - 15), 20, RED);
-
-					element++;
-				}
-			}
-			yDraw += 100;
-			xDraw = 10;
 		}
 	}
 }

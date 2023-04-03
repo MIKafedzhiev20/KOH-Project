@@ -5,11 +5,9 @@ class Junk : public Item
 {
 public:
 	// Constructor
-	Junk(std::string name, int type, std::string contains);
+	Junk(std::string name, int typ);
 
 	// Setters and getters
-	std::string getContains();
-
 	void setSpawnTimer(float spawnTimer);
 	float getSpawnTimer();
 	
@@ -19,7 +17,6 @@ public:
 	// Public functions
 	void DrawJunk();
 private:
-	std::string contains = "";
 
 	float junkSpawnTimer = GetRandomValue(50, 300);
 

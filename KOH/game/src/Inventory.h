@@ -29,10 +29,10 @@ public:
 	void removeItem();
 
 private:
-	// Constructors
+	// Constructor
 	Inventory();
 
-	std::vector<Item> items = {Item("", 0),Item("", 0),Item("", 0) };
+	std::vector<Item> items = {Item("", 3),Item("", 3),Item("", 3) };
 	unsigned slots = 3;
 	unsigned selectedSlot = 0;
 

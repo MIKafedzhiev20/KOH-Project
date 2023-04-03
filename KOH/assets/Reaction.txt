@@ -1,4 +1,4 @@
-required1,required2,combination,price
+required1,required2,name,price
 Fe,O2,Fe2O3,5
 Al,H2O,Al(OH)3,5
 Zn,O2,ZnO,5
