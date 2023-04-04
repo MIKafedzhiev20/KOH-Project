@@ -61,6 +61,8 @@ void Outside::DrawOutside()
 	{
 		map.isOutdoor = false;
 		map.isInHouse = true;
+
+		player.setPosition({ 20, 160 });
 	}
 
 	DrawRectangleRec(trashBin, ORANGE);
@@ -68,6 +70,12 @@ void Outside::DrawOutside()
 	if (CheckCollisionRecs(player.fullPosition, trashBin) && IsKeyPressed(KEY_Q))
 	{
 		inventory.removeItem();
+	}
+
+	for (int i = 0; i < 4; i++)
+	{
+		DrawRectangleRec(walls[i], RED);
+		player.checkCollision(walls[i]);
 	}
 
 	map.OpenMapMenu();

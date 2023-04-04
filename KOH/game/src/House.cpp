@@ -29,44 +29,25 @@ void House::drawHouse()
 	Map& map = Map::getInstance();
 	Player& player = Player::getInstance();
 
-	if (isOnLaptop == false)
+	DrawTexture(houseTexture, 0, 0, WHITE);
+
+	Rectangle goOutdoor = { 10, 260, 20, 50 };
+
+	DrawRectangleRec(goOutdoor, BLUE);
+
+	if (CheckCollisionRecs(player.fullPosition, goOutdoor) && IsKeyPressed(KEY_F))
 	{
-		DrawTexture(houseTexture, 0, 0, WHITE);
+		map.isInHouse = false;
+		map.isOutdoor = true;
 
-		Rectangle goOutdoor = { 200, 350, 30, 30 };
-
-		DrawRectangleRec(goOutdoor, BLUE);
-
-		if (CheckCollisionRecs(player.fullPosition, goOutdoor) && IsKeyPressed(KEY_F))
-		{
-			map.isInHouse = false;
-			map.isOutdoor = true;
-		}
-
-		Rectangle onLaptop = { 200, 150, 30, 30 };
-
-		DrawRectangleRec(onLaptop, YELLOW);
-
-		if (CheckCollisionRecs(player.fullPosition, onLaptop) && IsKeyPressed(KEY_F))
-		{
-			isOnLaptop = true;
-			player.setIsOnMap(false);
-		}
-
-		for (int i = 0; i < 4; i++)
-		{
-			DrawRectangleRec(walls[i], WHITE);
-			player.checkCollision(walls[i]);
-		}
-
-		map.OpenMapMenu();
+		player.setPosition({ 1200, 200 });
 	}
-	else
+
+
+	for (int i = 0; i < 8; i++)
 	{
-		if (DrawButtonText({ 0, 0 }, 150, 44, 50, "BACK"))
-		{
-			isOnLaptop = false;
-			player.setIsOnMap(true);
-		}
+		player.checkCollision(walls[i]);
 	}
+
+	map.OpenMapMenu();
 }

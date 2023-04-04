@@ -107,9 +107,6 @@ void Game::Draw()
 		}
 	}
 	mainMenu.DrawMainMenu();
-
-	DrawText(TextFormat("%f", GetMousePosition().x), 200, 200, 10, RED);
-	DrawText(TextFormat("%f", GetMousePosition().y), 300, 200, 10, RED);
 }
 
 void SaveData(ofstream& saveData)
