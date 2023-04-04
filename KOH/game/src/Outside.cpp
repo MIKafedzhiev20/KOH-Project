@@ -74,7 +74,7 @@ void Outside::DrawOutside()
 		inventory.removeItem();
 	}
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 10; i++)
 	{
 		player.checkCollision(walls[i]);
 	}

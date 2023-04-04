@@ -55,6 +55,11 @@ void Shop::drawTexture()
 			isOnCheckout = true;
 			player.setIsOnMap(false);
 		}
+
+		for (int i = 0; i < 4; i++)
+		{
+			player.checkCollision(walls[i]);
+		}
 	}
 	else
 	{
