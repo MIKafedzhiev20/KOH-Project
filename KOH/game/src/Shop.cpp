@@ -37,7 +37,7 @@ void Shop::drawTexture()
 
 		Rectangle goOutdoor = { 20, 30, 80, 30 };
 
-		DrawRectangleRec(goOutdoor, BLUE);
+		DrawRectangleRec(goOutdoor, BLACK);
 
 		if (CheckCollisionRecs(player.fullPosition, goOutdoor) && IsKeyPressed(KEY_F))
 		{

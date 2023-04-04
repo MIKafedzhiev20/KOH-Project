@@ -33,7 +33,7 @@ void House::drawHouse()
 
 	Rectangle goOutdoor = { 10, 260, 20, 50 };
 
-	DrawRectangleRec(goOutdoor, BLUE);
+	DrawRectangleRec(goOutdoor, BLACK);
 
 	if (CheckCollisionRecs(player.fullPosition, goOutdoor) && IsKeyPressed(KEY_F))
 	{
@@ -43,7 +43,7 @@ void House::drawHouse()
 		player.setPosition({ 1200, 200 });
 		Rectangle goOutdoor = { 200, 350, 30, 30 };
 
-		DrawRectangleRec(goOutdoor, BLUE);
+		DrawRectangleRec(goOutdoor, BLACK);
 
 		if (CheckCollisionRecs(player.fullPosition, goOutdoor) && IsKeyPressed(KEY_F))
 		{
@@ -53,8 +53,7 @@ void House::drawHouse()
 
 		for (int i = 0; i < 4; i++)
 		{
-			DrawRectangleRec(walls[i], WHITE);
-			//player.checkCollision(walls[i]);
+			player.checkCollision(walls[i]);
 		}
 
 		map.OpenMapMenu();

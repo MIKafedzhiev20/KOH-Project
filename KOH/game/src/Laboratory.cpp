@@ -40,7 +40,7 @@ void Laboratory::DrawLaboratory()
 
 		Rectangle goOutdoor = { 360, 310, 80, 20 };
 
-		DrawRectangleRec(goOutdoor, BLUE);
+		DrawRectangleRec(goOutdoor, BLACK);
 
 		if (CheckCollisionRecs(player.fullPosition, goOutdoor) && IsKeyPressed(KEY_F))
 		{
@@ -64,6 +64,11 @@ void Laboratory::DrawLaboratory()
 		{
 			player.setIsOnMap(false);
 			isInStorage = true;
+		}
+
+		for (int i = 0; i < 4; i++)
+		{
+			player.checkCollision(walls[i]);
 		}
 
 		map.OpenMapMenu();

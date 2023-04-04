@@ -39,7 +39,7 @@ void Outside::DrawOutside()
 
 	DrawTexture(outsideTexture, 0, 0, WHITE);
 
-	DrawRectangleRec(LabWarp, BLUE);
+	DrawRectangleRec(LabWarp, BLACK);
 
 	if (CheckCollisionRecs(player.fullPosition, LabWarp) && IsKeyPressed(KEY_F))
 	{
@@ -49,7 +49,7 @@ void Outside::DrawOutside()
 		player.setPosition({ 360, 200 });
 	}
 
-	DrawRectangleRec(shopWarp, GREEN);
+	DrawRectangleRec(shopWarp, BLACK);
 
 	if (CheckCollisionRecs(player.fullPosition, shopWarp) && IsKeyPressed(KEY_F))
 	{
@@ -59,7 +59,7 @@ void Outside::DrawOutside()
 		player.setPosition({ 20, 20 });
 	}
 
-	DrawRectangleRec(houseWarp, YELLOW);
+	DrawRectangleRec(houseWarp, BLACK);
 
 	if (CheckCollisionRecs(player.fullPosition, houseWarp) && IsKeyPressed(KEY_F))
 	{

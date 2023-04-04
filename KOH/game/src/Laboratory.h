@@ -10,6 +10,13 @@ public:
 	Laboratory();
 	~Laboratory();
 
+	std::vector<Rectangle> walls =
+	{   {0, 0, 640, 20},
+		{0, 0, 20, 340},
+		{0, 320, 640, 20},
+		{620, 0, 20, 340}
+	};
+
 	// Public functions
 	void DrawLaboratory();
 
