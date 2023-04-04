@@ -7,6 +7,8 @@
 #include "Player.h"
 #include "Map.h"
 #include "Inventory.h"
+#include <fstream>
+#include "Reactions.h"
 
 using namespace std;
 
@@ -41,3 +43,6 @@ private:
 
 	Inventory& inventory = Inventory::getInstance();
 };
+
+void LoadSavedData(ifstream& loadData);
+void SaveData(ofstream& saveData);

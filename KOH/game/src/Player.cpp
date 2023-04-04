@@ -86,6 +86,15 @@ Vector2 Player::getCameraPos()
  */
 void Player::move()
 {
+	if (IsKeyDown(KEY_LEFT_SHIFT))
+	{
+		speed = 2.7f;
+	}
+	else
+	{
+		speed = 2.0f;
+	}
+
 	if (isOnMap == true)
 	{
 		if (IsKeyDown(KEY_W))

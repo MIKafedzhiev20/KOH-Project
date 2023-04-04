@@ -9,6 +9,9 @@ int main()
 
 	Game game(width, height, 60);
 
+	ifstream loadData;
+	LoadSavedData(loadData);
+
 	while (!game.GameShouldClose())
 	{
 		game.Tick();

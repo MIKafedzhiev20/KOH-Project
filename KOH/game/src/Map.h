@@ -50,13 +50,13 @@ public:
 	bool gameShouldClose = false;
 
 	bool isExitPressed = false;
+	bool isGameGoing = false;
 
 private:
 	// Constructor
 	MainMenu();
 
 	void newGame();
-	bool isGameGoing = false;
 };
 
 bool DrawButtonText(Vector2 pos, int width, int height, int fontSize, const char* name);

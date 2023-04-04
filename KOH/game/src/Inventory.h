@@ -16,7 +16,7 @@ public:
 	void setSelectedSlot(unsigned slot);
 	unsigned getSelectedSlot();
 
-	void resetItems();
+	void setItems(Item item1, Item item2, Item item3);
 	std::vector<Item> getItems();
 
 	// Public functions

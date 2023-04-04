@@ -84,11 +84,11 @@ void Inventory::addItem(Item& item)
 	item.setIsPickedUp(true);
 }
 
-void Inventory::resetItems()
+void Inventory::setItems(Item item1, Item item2, Item item3)
 {
-	items[0] = Item("", 3);
-	items[1] = Item("", 3);
-	items[2] = Item("", 3);
+	items[0] = item1;
+	items[1] = item2;
+	items[2] = item3;
 }
 
 /**

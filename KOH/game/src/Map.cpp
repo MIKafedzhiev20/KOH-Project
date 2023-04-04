@@ -1,5 +1,5 @@
 #include "Map.h"
-#include "Item.h"
+#include "Game.h"
 #include "Player.h"
 
 /**
@@ -87,20 +87,15 @@ void MainMenu::DrawMainMenu()
 			newGame();
 		}
 
-		if (isGameGoing == true)
+		if (DrawButtonText({ 100, 500 }, 456, 100, 100, "Continue"))
 		{
-			if (DrawButtonText({ 100, 500 }, 456, 100, 100, "Continue"))
-			{
-				isMenuOpen = false;
-				isGameStarted = true;
-				player.setIsOnMap(true);
-				map.isOutdoor = true;
-			}
-		}
-		else
-		{
-			static Font font = LoadFont("../assets/pixantiqua.png");
-			DrawTextEx(font, "Continue", { 100, 500 }, 100, 100 / 5 - 100 / 20, GRAY);
+			elements[0].setIsUnlocked(true);
+			elements[1].setIsUnlocked(true);
+
+			isMenuOpen = false;
+			isGameStarted = true;
+			player.setIsOnMap(true);
+			map.isOutdoor = true;
 		}
 
 		if (DrawButtonText({ 100, 800 }, 200, 100, 100, "Exit"))
@@ -199,7 +194,8 @@ void Map::OpenMapMenu()
 
 		if (DrawButtonText({ 100, 500 }, 200, 100, 100, "Save"))
 		{
-
+			static ofstream saveData;
+			SaveData(saveData);
 		}
 
 		if (DrawButtonText({ 100, 800 }, 200, 100, 100, "Exit"))
@@ -236,12 +232,11 @@ void MainMenu::newGame()
 
 	for (int i = 2; i < 22; i++)
 	{
-		elements[i].setIsUnlocked(true);
+		elements[i].setIsUnlocked(false);
 	}
 
 	inventory.setBalance(0);
-	inventory.resetItems();
-	
+	inventory.setItems({ "", 3}, { "", 3 }, { "", 3 });
 
 	isGameGoing = true;
 }

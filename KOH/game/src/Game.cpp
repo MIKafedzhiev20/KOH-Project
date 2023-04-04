@@ -7,6 +7,7 @@
  * \param heightIn the window's height
  * \param fps the game's fps
  */
+
 Game::Game(int widthIn, int heightIn, int fps)
 	:
 	width(widthIn),
@@ -45,7 +46,7 @@ void Game::Tick()
 
 	if (player.getIsOnMap())
 	{
-		//BeginMode2D(camera);
+		BeginMode2D(camera);
 	}
 
 	Update();
@@ -106,4 +107,93 @@ void Game::Draw()
 		}
 	}
 	mainMenu.DrawMainMenu();
+}
+
+void SaveData(ofstream& saveData)
+{
+	MainMenu& mainMenu = MainMenu::getInstance();
+	Inventory& inventory = Inventory::getInstance();
+
+	saveData.open("../assets/Data.txt");
+
+	if (saveData.is_open())
+	{
+		saveData << mainMenu.isGameGoing << endl;
+
+		for (int i = 0; i < 22; i++)
+		{
+			saveData << elements[i].getIsUnlocked() << endl;
+		}
+
+		for (int i = 0; i < 17; i++)
+		{
+			saveData << reactions[i].getIsObtained() << endl;
+		}
+
+		std::vector<Item> items = inventory.getItems();
+
+		for (int i = 0; i < 3; i++)
+		{
+			if (items[i].getName() == "")
+			{
+				saveData << "NULL" << endl;
+			}
+			else
+			{
+				saveData << items[i].getName() << endl;
+			}
+			saveData << items[i].getType() << endl;
+		}
+
+		saveData.close();
+	}
+}
+
+void LoadSavedData(ifstream& loadData)
+{
+	MainMenu& mainMenu = MainMenu::getInstance();
+	Inventory& inventory = Inventory::getInstance(); 
+
+	loadData.open("../assets/Data.txt");
+
+	if (loadData.is_open())
+	{
+		loadData >> mainMenu.isGameGoing;
+
+		for (int i = 0; i < 22; i++)
+		{
+			bool isUnlocked = false;
+			loadData >> isUnlocked;
+			elements[i].setIsUnlocked(isUnlocked);
+		}
+
+		for (int i = 0; i < 17; i++)
+		{
+			bool isObtained = false;
+			loadData >> isObtained;
+			reactions[i].setIsObtained(isObtained);
+		}
+
+		std::vector<Item> items = inventory.getItems();
+
+		for (int i = 0; i < 3; i++)
+		{
+			string name = "";
+			int type = 3;
+
+			loadData >> name;
+			loadData >> type;
+
+			if (name == "NULL")
+			{
+				name = "";
+			}
+
+			items[i] = { name, type };
+		}
+
+		inventory.setItems(items[0], items[1], items[2]);
+
+		loadData.close();
+	}
 }
