@@ -34,11 +34,11 @@ void Laboratory::DrawLaboratory()
 	Map& map = Map::getInstance();
 	Player& player = Player::getInstance();
 
-	if (!isOnTable && !isInStorage && !isOnExtractor)
+	if (!isOnTable && !isInStorage)
 	{
 		DrawTexture(laboratoryTexture, 0, 0, WHITE);
 
-		Rectangle goOutdoor = { 100, 150, 30, 30 };
+		Rectangle goOutdoor = { 360, 310, 80, 20 };
 
 		DrawRectangleRec(goOutdoor, BLUE);
 
@@ -46,11 +46,11 @@ void Laboratory::DrawLaboratory()
 		{
 			map.isInLab = false;
 			map.isOutdoor = true;
+
+			player.setPosition({360, 380});
 		}
 
-		Rectangle onTable = { 200, 150, 30, 30 };
-
-		DrawRectangleRec(onTable, YELLOW);
+		Rectangle onTable = { 20, 40, 220, 50 };
 
 		if (CheckCollisionRecs(player.fullPosition, onTable) && IsKeyPressed(KEY_F))
 		{
@@ -58,24 +58,12 @@ void Laboratory::DrawLaboratory()
 			isOnTable = true;
 		}
 
-		Rectangle inStorage = { 300, 150, 30, 30 };
-
-		DrawRectangleRec(inStorage, PURPLE);
+		Rectangle inStorage = { 330, 50, 50, 50 };
 
 		if (CheckCollisionRecs(player.fullPosition, inStorage) && IsKeyPressed(KEY_F))
 		{
 			player.setIsOnMap(false);
 			isInStorage = true;
-		}
-
-		Rectangle onExtraxtor = { 300, 250, 30, 30 };
-
-		DrawRectangleRec(onExtraxtor, DARKBROWN);
-
-		if (CheckCollisionRecs(player.fullPosition, onExtraxtor) && IsKeyPressed(KEY_F))
-		{
-			player.setIsOnMap(false);
-			isOnExtractor = true;
 		}
 
 		map.OpenMapMenu();
@@ -86,14 +74,15 @@ void Laboratory::DrawLaboratory()
 		DrawTable();
 	}
 
-	if (isOnExtractor)
-	{
-		DrawExtractor();
-	}
-
 	if (isInStorage)
 	{
 		DrawStorage();
+	}
+
+	Rectangle onExtraxtor = { 400, 50, 60, 60 };
+	if (CheckCollisionRecs(player.fullPosition, onExtraxtor))
+	{
+		DrawExtractor();
 	}
 }
 
@@ -145,7 +134,7 @@ void Laboratory::DrawTable()
 		DrawText("COMPLETED!", 740, 100, 50, RED);
 	}
 
-	if (DrawButtonText({ 1650, 100 }, 240, 44, 50, "COMBINE"))
+	if (DrawButtonText({ 1650, 100 }, 240, 30, 50, "COMBINE"))
 	{
 		for (int i = 0; i < 17; i++)
 		{
@@ -165,7 +154,7 @@ void Laboratory::DrawTable()
 		}
 	}
 
-	if (DrawButtonText({ 1650, 150 }, 240, 44, 50, "RESET"))
+	if (DrawButtonText({ 1650, 150 }, 240, 36, 50, "RESET"))
 	{
 		slots[0] = Item("", 3);
 		slots[1] = Item("", 3);
@@ -182,7 +171,7 @@ void Laboratory::DrawStorage()
 	Player& player = Player::getInstance();
 	Inventory& inventory = Inventory::getInstance();
 
-	if (DrawButtonText({ 0, 0 }, 150, 44, 50, "BACK"))
+	if (DrawButtonText({ 30, 30 }, 150, 44, 50, "BACK"))
 	{
 		isInStorage = false;
 		player.setIsOnMap(true);
@@ -239,19 +228,10 @@ void Laboratory::DrawExtractor()
 	Player& player = Player::getInstance();
 	Inventory& inventory = Inventory::getInstance();
 
-	if (DrawButtonText({ 0, 0 }, 150, 44, 50, "BACK"))
-	{
-		isOnExtractor = false;
-		player.setIsOnMap(true);
-	}
-
-	inventory.DrawOutzoomed();
-	inventory.manageInvetory();
-
 	std::vector<Item> items = inventory.getItems();
 	unsigned selectedSlot = inventory.getSelectedSlot();
 
-	if (DrawButtonText({ 1650, 100 }, 240, 44, 50, "EXTRACT"))
+	if (IsKeyPressed(KEY_F))
 	{
 		if (items[selectedSlot].getType() == 1)
 		{
@@ -275,14 +255,6 @@ void Laboratory::DrawExtractor()
 				inventory.addItem(elements[21]);
 				elements[21].setIsUnlocked(true);
 			}
-			else
-			{
-
-			}
-		}
-		else
-		{
-
 		}
 	}
 }

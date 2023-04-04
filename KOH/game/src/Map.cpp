@@ -61,11 +61,6 @@ void Map::DrawMap()
 		outside.generateJunk();
 	}
 
-	if (isInShop)
-	{
-		shop.drawTexture();
-	}
-
 	if (isInHouse)
 	{
 		house.drawHouse();
@@ -74,6 +69,11 @@ void Map::DrawMap()
 	if (isInLab)
 	{
 		laboratory.DrawLaboratory();
+	}
+
+	if (isInShop)
+	{
+		shop.drawTexture();
 	}
 }
 
@@ -234,6 +234,11 @@ void MainMenu::newGame()
 	player.setPosition({ 200, 200 });
 
 	map.isInHouse = true;
+
+	for (int i = 0; i < 17; i++)
+	{
+		reactions[i].setIsObtained(false);
+	}
 
 	elements[0].setIsUnlocked(true);
 	elements[1].setIsUnlocked(true);

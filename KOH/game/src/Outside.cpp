@@ -35,7 +35,7 @@ void Outside::DrawOutside()
 	Rectangle shopWarp = { 32, 700, 80, 30 };
 	Rectangle houseWarp = { 1260,240, 20, 90 };
 
-	Rectangle trashBin = { 200, 500, 30, 30 };
+	Rectangle trashBin = { 486, 380, 30, 30 };
 
 	DrawTexture(outsideTexture, 0, 0, WHITE);
 
@@ -45,6 +45,8 @@ void Outside::DrawOutside()
 	{
 		map.isInLab = true;
 		map.isOutdoor = false;
+
+		player.setPosition({ 360, 200 });
 	}
 
 	DrawRectangleRec(shopWarp, GREEN);
@@ -53,6 +55,8 @@ void Outside::DrawOutside()
 	{
 		map.isOutdoor = false;
 		map.isInShop = true;
+
+		player.setPosition({ 20, 20 });
 	}
 
 	DrawRectangleRec(houseWarp, YELLOW);
@@ -64,8 +68,6 @@ void Outside::DrawOutside()
 
 		player.setPosition({ 20, 160 });
 	}
-
-	DrawRectangleRec(trashBin, ORANGE);
 
 	if (CheckCollisionRecs(player.fullPosition, trashBin) && IsKeyPressed(KEY_Q))
 	{

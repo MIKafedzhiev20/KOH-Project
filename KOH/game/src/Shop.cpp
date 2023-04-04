@@ -35,7 +35,7 @@ void Shop::drawTexture()
 	{
 		DrawTexture(shopTexture, 0, 0, WHITE);
 
-		Rectangle goOutdoor = { 350, 400, 30, 30 };
+		Rectangle goOutdoor = { 20, 30, 80, 30 };
 
 		DrawRectangleRec(goOutdoor, BLUE);
 
@@ -43,11 +43,12 @@ void Shop::drawTexture()
 		{
 			map.isInShop = false;
 			map.isOutdoor = true;
+
+			player.setPosition({ 60, 560 });
 		}
 
-		Rectangle onCheckout = { 300, 300, 30, 30 };
+		Rectangle onCheckout = { 520, 200, 80, 30 };
 
-		DrawRectangleRec(onCheckout, YELLOW);
 
 		if (CheckCollisionRecs(player.fullPosition, onCheckout) && IsKeyPressed(KEY_F))
 		{
@@ -57,7 +58,7 @@ void Shop::drawTexture()
 	}
 	else
 	{
-		if (DrawButtonText({ 0, 0 }, 150, 44, 50, "BACK"))
+		if (DrawButtonText({ 30, 30 }, 150, 44, 50, "BACK"))
 		{
 			isOnCheckout = false;
 			player.setIsOnMap(true);

@@ -24,5 +24,4 @@ private:
 
 	bool isOnTable = false;
 	bool isInStorage = false;
-	bool isOnExtractor = false;
 };
