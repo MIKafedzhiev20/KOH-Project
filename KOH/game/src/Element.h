@@ -5,7 +5,7 @@ class Element : public Item
 {
 public:
 	// Constructor
-	Element(std::string name, int type, int price);
+	Element(std::string name, int type, int price, std::string texture);
 
 	// Setters and getters
 	void setIsUnlocked(bool isUnlocked);
@@ -14,14 +14,14 @@ public:
 	void setPrice(int price);
 	int getPrice();
 
-	// Public functions
 	static std::vector<Element>& createElement();
-
 private:
 	bool isUnlocked = false;
 
 	int price = 0;
+
+	Texture2D elementTexture;
 };
 
+extern std::vector<Element> elements;
 
-static std::vector<Element>& elements = Element::createElement();

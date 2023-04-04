@@ -7,6 +7,8 @@ int main()
 
 	InitWindow(width, height, "KOH");
 
+	elements = Element::createElement();
+
 	Game game(width, height, 60);
 
 	ifstream loadData;

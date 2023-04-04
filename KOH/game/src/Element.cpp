@@ -1,7 +1,7 @@
 #include "Element.h"
 #include <csv.h>
 
-#include <iostream>
+std::vector<Element> elements{};
 
 /**
  * .Create an instance of Element
@@ -10,12 +10,13 @@
  * \param type the type of the item
  * \param price the price of the element
  */
-Element::Element(std::string name, int type, int price) 
+Element::Element(std::string name, int type, int price, std::string texture) 
 	:
 	price(price),
 	Item(name,type)
 {
-
+	elementTexture = LoadTexture(texture.c_str());
+	setTexture(elementTexture);
 }
 
 /**
@@ -67,15 +68,16 @@ std::vector<Element>& Element::createElement()
 {
 	static std::vector<Element> element;
 
-	io::CSVReader<2> in("../assets/Element.txt");
-	in.read_header(io::ignore_extra_column, "name", "price");
+	io::CSVReader<3> in("../assets/Element.txt");
+	in.read_header(io::ignore_extra_column, "name", "price", "texture");
 
 	std::string name;
 	int price;
+	std::string texture;
 
-	while (in.read_row(name, price))
+	while (in.read_row(name, price, texture))
 	{
-		element.push_back(Element(name, 0, price));
+		element.push_back(Element(name, 0, price, texture));
 	}
 
 	return element;

@@ -214,7 +214,7 @@ void Laboratory::DrawStorage()
 					}
 				}
 
-				DrawText(elements[element].getName().c_str(), (float)GetScreenWidth() / 3 - (-xDraw + 60.5), (float)GetScreenHeight() / 3 - (-yDraw - 15), 20, RED);
+				DrawTexture(elements[element].getTexture(), (float)GetScreenWidth() / 3 - (-xDraw + 60.5), (float)GetScreenHeight() / 3 - (-yDraw - 15), WHITE);
 
 				element++;
 			}

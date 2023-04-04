@@ -9,6 +9,7 @@
 #include "Inventory.h"
 #include <fstream>
 #include "Reactions.h"
+#include "Element.h"
 
 using namespace std;
 
@@ -42,6 +43,8 @@ private:
 	MainMenu& mainMenu = MainMenu::getInstance();
 
 	Inventory& inventory = Inventory::getInstance();
+
+
 };
 
 void LoadSavedData(ifstream& loadData);
