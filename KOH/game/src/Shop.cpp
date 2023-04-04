@@ -10,6 +10,7 @@
 Shop::Shop()
 {
 	shopTexture = LoadTexture("../assets/shop.png");
+	storage = LoadTexture("../assets/storage.png");
 }
 
 /**
@@ -33,6 +34,7 @@ void Shop::drawTexture()
 
 	if (!isOnCheckout)
 	{
+
 		DrawTexture(shopTexture, 0, 0, WHITE);
 
 		Rectangle goOutdoor = { 20, 30, 80, 30 };
@@ -63,6 +65,8 @@ void Shop::drawTexture()
 	}
 	else
 	{
+		DrawTexture(storage, 0, 0, WHITE);
+
 		if (DrawButtonText({ 30, 30 }, 150, 44, 50, "BACK"))
 		{
 			isOnCheckout = false;

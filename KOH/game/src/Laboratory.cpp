@@ -13,6 +13,7 @@ Laboratory::Laboratory()
 {
 	laboratoryTexture = LoadTexture("../assets/lab.png");
 	table = LoadTexture("../assets/table.png");
+	storage = LoadTexture("../assets/storage.png");
 }
 
 /**
@@ -23,6 +24,7 @@ Laboratory::~Laboratory()
 {
 	UnloadTexture(laboratoryTexture);
 	UnloadTexture(table);
+	UnloadTexture(storage);
 }
 
 /**
@@ -175,6 +177,8 @@ void Laboratory::DrawStorage()
 {
 	Player& player = Player::getInstance();
 	Inventory& inventory = Inventory::getInstance();
+	
+	DrawTexture(storage, 0, 0, WHITE);
 
 	if (DrawButtonText({ 30, 30 }, 150, 44, 50, "BACK"))
 	{

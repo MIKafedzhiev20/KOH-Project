@@ -28,6 +28,7 @@ private:
 
 	Texture2D laboratoryTexture;
 	Texture2D table;
+	Texture2D storage;
 
 	bool isOnTable = false;
 	bool isInStorage = false;

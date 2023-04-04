@@ -20,6 +20,7 @@ public:
 	void drawTexture();
 private:
 	Texture2D shopTexture;
+	Texture2D storage;
 
 	bool isOnCheckout = false;
 };
