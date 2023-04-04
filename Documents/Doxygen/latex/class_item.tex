@@ -1,0 +1,181 @@
+\hypertarget{class_item}{}\doxysection{Item Class Reference}
+\label{class_item}\index{Item@{Item}}
+Inheritance diagram for Item\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_item}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_item_ae24dbc64f021e1fa161f459623c9f43d}{Item}} (std\+::string name, int type)
+\item 
+void \mbox{\hyperlink{class_item_ad1df8af319de8f613b85d99118a1e203}{set\+Name}} (std\+::string name)
+\item 
+std\+::string \mbox{\hyperlink{class_item_a4ff297b946505e7956eae16006cada04}{get\+Name}} ()
+\item 
+void \mbox{\hyperlink{class_item_a051aa75b4283271d1909198dbcf9511f}{set\+Type}} (int type)
+\item 
+int \mbox{\hyperlink{class_item_ae6ecba9b0f87146e4062bb4ad4f712b5}{get\+Type}} ()
+\item 
+void \mbox{\hyperlink{class_item_a99342fe97913ce2874f94966cafdacdd}{set\+Is\+Picked\+Up}} (bool is\+Picked\+Up)
+\item 
+bool \mbox{\hyperlink{class_item_a7aa2d291cabcca321e763d7dafc3b485}{get\+Is\+Picked\+Up}} ()
+\item 
+void \mbox{\hyperlink{class_item_a57b313b50bc88a86029241348f374778}{set\+Hitbox}} (float x, float y)
+\item 
+Rectangle \mbox{\hyperlink{class_item_a585bebce43bc34d4e84bb6cf7c7ce63e}{get\+Hitbox}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_item_a342b7a351c9ae1c5430aa3ef65b670bd}\label{class_item_a342b7a351c9ae1c5430aa3ef65b670bd}} 
+std\+::string {\bfseries name}
+\item 
+\mbox{\Hypertarget{class_item_a22a98aed7ce8f0314b597a5739c415b7}\label{class_item_a22a98aed7ce8f0314b597a5739c415b7}} 
+int {\bfseries type} = 0
+\item 
+\mbox{\Hypertarget{class_item_a9d2e3ef73632a74d2354db3534a9b505}\label{class_item_a9d2e3ef73632a74d2354db3534a9b505}} 
+float {\bfseries x} = 0
+\item 
+\mbox{\Hypertarget{class_item_a7d915e38ae1f5e8f25f43bce1936f41a}\label{class_item_a7d915e38ae1f5e8f25f43bce1936f41a}} 
+float {\bfseries y} = 0
+\item 
+\mbox{\Hypertarget{class_item_adc53b11e3ab9382ed6f754750a5e25ba}\label{class_item_adc53b11e3ab9382ed6f754750a5e25ba}} 
+Rectangle {\bfseries hitbox} = \{ x,y,20,20 \}
+\item 
+\mbox{\Hypertarget{class_item_ab54d0466f56b97c0e97cf911b8e92abc}\label{class_item_ab54d0466f56b97c0e97cf911b8e92abc}} 
+bool {\bfseries is\+Selected} = false
+\item 
+\mbox{\Hypertarget{class_item_a620f979d659214e86dd74cae850a8b29}\label{class_item_a620f979d659214e86dd74cae850a8b29}} 
+bool {\bfseries is\+Picked\+Up} = false
+\item 
+\mbox{\Hypertarget{class_item_a0f8b9aba110ced4250c8630e79d1f03e}\label{class_item_a0f8b9aba110ced4250c8630e79d1f03e}} 
+Texture {\bfseries item\+Texture}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_item_ae24dbc64f021e1fa161f459623c9f43d}\label{class_item_ae24dbc64f021e1fa161f459623c9f43d}} 
+\index{Item@{Item}!Item@{Item}}
+\index{Item@{Item}!Item@{Item}}
+\doxysubsubsection{\texorpdfstring{Item()}{Item()}}
+{\footnotesize\ttfamily Item\+::\+Item (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{int}]{type }\end{DoxyParamCaption})}
+
+.Create instance of the item
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & the name of the item \\
+\hline
+{\em type} & the item\textquotesingle{}s type \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_item_a585bebce43bc34d4e84bb6cf7c7ce63e}\label{class_item_a585bebce43bc34d4e84bb6cf7c7ce63e}} 
+\index{Item@{Item}!getHitbox@{getHitbox}}
+\index{getHitbox@{getHitbox}!Item@{Item}}
+\doxysubsubsection{\texorpdfstring{getHitbox()}{getHitbox()}}
+{\footnotesize\ttfamily Rectangle Item\+::get\+Hitbox (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+.Return the item\textquotesingle{}s hitbox
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_item_a7aa2d291cabcca321e763d7dafc3b485}\label{class_item_a7aa2d291cabcca321e763d7dafc3b485}} 
+\index{Item@{Item}!getIsPickedUp@{getIsPickedUp}}
+\index{getIsPickedUp@{getIsPickedUp}!Item@{Item}}
+\doxysubsubsection{\texorpdfstring{getIsPickedUp()}{getIsPickedUp()}}
+{\footnotesize\ttfamily bool Item\+::get\+Is\+Picked\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+.Returns whether the items is picked up or not
+
+\begin{DoxyReturn}{Returns}
+true/false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_item_a4ff297b946505e7956eae16006cada04}\label{class_item_a4ff297b946505e7956eae16006cada04}} 
+\index{Item@{Item}!getName@{getName}}
+\index{getName@{getName}!Item@{Item}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string Item\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+.Retruns the item\textquotesingle{}s name
+
+\begin{DoxyReturn}{Returns}
+the item\textquotesingle{}s name 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_item_ae6ecba9b0f87146e4062bb4ad4f712b5}\label{class_item_ae6ecba9b0f87146e4062bb4ad4f712b5}} 
+\index{Item@{Item}!getType@{getType}}
+\index{getType@{getType}!Item@{Item}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily int Item\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+.Returns the item\textquotesingle{}s name
+
+\begin{DoxyReturn}{Returns}
+the item\textquotesingle{}s name 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_item_a57b313b50bc88a86029241348f374778}\label{class_item_a57b313b50bc88a86029241348f374778}} 
+\index{Item@{Item}!setHitbox@{setHitbox}}
+\index{setHitbox@{setHitbox}!Item@{Item}}
+\doxysubsubsection{\texorpdfstring{setHitbox()}{setHitbox()}}
+{\footnotesize\ttfamily void Item\+::set\+Hitbox (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y }\end{DoxyParamCaption})}
+
+.Set the item\textquotesingle{}s hitbox
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & the x coordinate of the item \\
+\hline
+{\em y} & the y coordinate of the item \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_item_a99342fe97913ce2874f94966cafdacdd}\label{class_item_a99342fe97913ce2874f94966cafdacdd}} 
+\index{Item@{Item}!setIsPickedUp@{setIsPickedUp}}
+\index{setIsPickedUp@{setIsPickedUp}!Item@{Item}}
+\doxysubsubsection{\texorpdfstring{setIsPickedUp()}{setIsPickedUp()}}
+{\footnotesize\ttfamily void Item\+::set\+Is\+Picked\+Up (\begin{DoxyParamCaption}\item[{bool}]{is\+Picked\+Up }\end{DoxyParamCaption})}
+
+.Set the is\+Picked up status to true/false
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Picked\+Up} & true/false \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_item_ad1df8af319de8f613b85d99118a1e203}\label{class_item_ad1df8af319de8f613b85d99118a1e203}} 
+\index{Item@{Item}!setName@{setName}}
+\index{setName@{setName}!Item@{Item}}
+\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily void Item\+::set\+Name (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+.Sets the item\textquotesingle{}s name to a give one
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & the new item name \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_item_a051aa75b4283271d1909198dbcf9511f}\label{class_item_a051aa75b4283271d1909198dbcf9511f}} 
+\index{Item@{Item}!setType@{setType}}
+\index{setType@{setType}!Item@{Item}}
+\doxysubsubsection{\texorpdfstring{setType()}{setType()}}
+{\footnotesize\ttfamily void Item\+::set\+Type (\begin{DoxyParamCaption}\item[{int}]{type }\end{DoxyParamCaption})}
+
+.Sets the items type to a given one
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & the new item type \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Mr Creeper/\+Desktop/\+KOH-\/\+Project/\+KOH/game/src/Item.\+h\item 
+C\+:/\+Users/\+Mr Creeper/\+Desktop/\+KOH-\/\+Project/\+KOH/game/src/Item.\+cpp\end{DoxyCompactItemize}

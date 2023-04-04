@@ -1,0 +1,136 @@
+\hypertarget{class_junk}{}\doxysection{Junk Class Reference}
+\label{class_junk}\index{Junk@{Junk}}
+Inheritance diagram for Junk\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_junk}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_junk_a3c2a255f6833d3356fe349d40f08ebf4}{Junk}} (std\+::string name, int typ)
+\item 
+void \mbox{\hyperlink{class_junk_a0edc4fb0faa608896a588da5109babd9}{set\+Spawn\+Timer}} (float spawn\+Timer)
+\item 
+float \mbox{\hyperlink{class_junk_af2abb02608bf10d2b8f13e43f151246f}{get\+Spawn\+Timer}} ()
+\item 
+void \mbox{\hyperlink{class_junk_ac1fc30ce23db82c829beeeb0171e5484}{set\+Life\+Timer}} (float life\+Timer)
+\item 
+float \mbox{\hyperlink{class_junk_a9383c68a7467d403a8a8fca7aa208e00}{get\+Lifetimer}} ()
+\item 
+void \mbox{\hyperlink{class_junk_aaf3c8d140d20ebdcfec49b92cf6a97ab}{Draw\+Junk}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_item}{Item}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_item_ae24dbc64f021e1fa161f459623c9f43d}{Item}} (std\+::string name, int type)
+\item 
+void \mbox{\hyperlink{class_item_ad1df8af319de8f613b85d99118a1e203}{set\+Name}} (std\+::string name)
+\item 
+std\+::string \mbox{\hyperlink{class_item_a4ff297b946505e7956eae16006cada04}{get\+Name}} ()
+\item 
+void \mbox{\hyperlink{class_item_a051aa75b4283271d1909198dbcf9511f}{set\+Type}} (int type)
+\item 
+int \mbox{\hyperlink{class_item_ae6ecba9b0f87146e4062bb4ad4f712b5}{get\+Type}} ()
+\item 
+void \mbox{\hyperlink{class_item_a99342fe97913ce2874f94966cafdacdd}{set\+Is\+Picked\+Up}} (bool is\+Picked\+Up)
+\item 
+bool \mbox{\hyperlink{class_item_a7aa2d291cabcca321e763d7dafc3b485}{get\+Is\+Picked\+Up}} ()
+\item 
+void \mbox{\hyperlink{class_item_a57b313b50bc88a86029241348f374778}{set\+Hitbox}} (float x, float y)
+\item 
+Rectangle \mbox{\hyperlink{class_item_a585bebce43bc34d4e84bb6cf7c7ce63e}{get\+Hitbox}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_junk_a134a33a119c8238f830192debf527fe7}\label{class_junk_a134a33a119c8238f830192debf527fe7}} 
+float {\bfseries junk\+Spawn\+Timer} = Get\+Random\+Value(50, 300)
+\item 
+\mbox{\Hypertarget{class_junk_a03986c26a2bc4c9df63cf02dde12981f}\label{class_junk_a03986c26a2bc4c9df63cf02dde12981f}} 
+float {\bfseries junk\+Lifetime} = Get\+Random\+Value(10000, 50000)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_junk_a3c2a255f6833d3356fe349d40f08ebf4}\label{class_junk_a3c2a255f6833d3356fe349d40f08ebf4}} 
+\index{Junk@{Junk}!Junk@{Junk}}
+\index{Junk@{Junk}!Junk@{Junk}}
+\doxysubsubsection{\texorpdfstring{Junk()}{Junk()}}
+{\footnotesize\ttfamily Junk\+::\+Junk (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{int}]{type }\end{DoxyParamCaption})}
+
+.Create instance of \mbox{\hyperlink{class_junk}{Junk}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & the name of the junk \\
+\hline
+{\em type} & the item\textquotesingle{}s type \\
+\hline
+{\em contains} & the element the junk contains \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_junk_aaf3c8d140d20ebdcfec49b92cf6a97ab}\label{class_junk_aaf3c8d140d20ebdcfec49b92cf6a97ab}} 
+\index{Junk@{Junk}!DrawJunk@{DrawJunk}}
+\index{DrawJunk@{DrawJunk}!Junk@{Junk}}
+\doxysubsubsection{\texorpdfstring{DrawJunk()}{DrawJunk()}}
+{\footnotesize\ttfamily void Junk\+::\+Draw\+Junk (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+.Draw the junk \mbox{\Hypertarget{class_junk_a9383c68a7467d403a8a8fca7aa208e00}\label{class_junk_a9383c68a7467d403a8a8fca7aa208e00}} 
+\index{Junk@{Junk}!getLifetimer@{getLifetimer}}
+\index{getLifetimer@{getLifetimer}!Junk@{Junk}}
+\doxysubsubsection{\texorpdfstring{getLifetimer()}{getLifetimer()}}
+{\footnotesize\ttfamily float Junk\+::get\+Lifetimer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+.Return the life timer
+
+\begin{DoxyReturn}{Returns}
+the life timer 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_junk_af2abb02608bf10d2b8f13e43f151246f}\label{class_junk_af2abb02608bf10d2b8f13e43f151246f}} 
+\index{Junk@{Junk}!getSpawnTimer@{getSpawnTimer}}
+\index{getSpawnTimer@{getSpawnTimer}!Junk@{Junk}}
+\doxysubsubsection{\texorpdfstring{getSpawnTimer()}{getSpawnTimer()}}
+{\footnotesize\ttfamily float Junk\+::get\+Spawn\+Timer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+.Return the spwan timer of the junk
+
+\begin{DoxyReturn}{Returns}
+the spwan timer 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_junk_ac1fc30ce23db82c829beeeb0171e5484}\label{class_junk_ac1fc30ce23db82c829beeeb0171e5484}} 
+\index{Junk@{Junk}!setLifeTimer@{setLifeTimer}}
+\index{setLifeTimer@{setLifeTimer}!Junk@{Junk}}
+\doxysubsubsection{\texorpdfstring{setLifeTimer()}{setLifeTimer()}}
+{\footnotesize\ttfamily void Junk\+::set\+Life\+Timer (\begin{DoxyParamCaption}\item[{float}]{life\+Timer }\end{DoxyParamCaption})}
+
+.Sets the life timer to a new value
+
+
+\begin{DoxyParams}{Parameters}
+{\em life\+Timer} & the new life timer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_junk_a0edc4fb0faa608896a588da5109babd9}\label{class_junk_a0edc4fb0faa608896a588da5109babd9}} 
+\index{Junk@{Junk}!setSpawnTimer@{setSpawnTimer}}
+\index{setSpawnTimer@{setSpawnTimer}!Junk@{Junk}}
+\doxysubsubsection{\texorpdfstring{setSpawnTimer()}{setSpawnTimer()}}
+{\footnotesize\ttfamily void Junk\+::set\+Spawn\+Timer (\begin{DoxyParamCaption}\item[{float}]{spawn\+Timer }\end{DoxyParamCaption})}
+
+.Set the spawn the spawn timer to a given one
+
+
+\begin{DoxyParams}{Parameters}
+{\em spawn\+Timer} & the spwan timer \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Mr Creeper/\+Desktop/\+KOH-\/\+Project/\+KOH/game/src/Junk.\+h\item 
+C\+:/\+Users/\+Mr Creeper/\+Desktop/\+KOH-\/\+Project/\+KOH/game/src/Junk.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,70 @@
+\hypertarget{_map_8h_source}{}\doxysection{Map.\+h}
+\label{_map_8h_source}\index{C:/Users/Mr Creeper/Desktop/KOH-\/Project/KOH/game/src/Map.h@{C:/Users/Mr Creeper/Desktop/KOH-\/Project/KOH/game/src/Map.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <raylib.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Laboratory.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Outside.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Shop.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}House.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_map}{Map}}}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{comment}{//\ Operators}}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{class_map_a0f5ad0fd4563497b4214038cbca8b582}{Map}}(\mbox{\hyperlink{class_map}{Map}}\ \textcolor{keyword}{const}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{void}\ operator=(\mbox{\hyperlink{class_map}{Map}}\ \textcolor{keyword}{const}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{comment}{//\ Public\ functions}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_map}{Map}}\&\ \mbox{\hyperlink{class_map_ac6c5bc6088691013bb8e53d2adf801ef}{getInstance}}();}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_map_a095fd619edb91b147cb528b8ac01d48e}{DrawMap}}();}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_map_ab694faf57179f2c174eb028de87a01a2}{OpenMapMenu}}();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ isOutdoor\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{bool}\ isInLab\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{bool}\ isInShop\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{bool}\ isInHouse\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{bool}\ isMapMenuOpen\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//\ Constructor}}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_map_a0f5ad0fd4563497b4214038cbca8b582}{Map}}();}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{class_laboratory}{Laboratory}}\ laboratory;}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{class_outside}{Outside}}\ outside;}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{class_shop}{Shop}}\ shop;}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_house}{House}}\ house;}
+\DoxyCodeLine{00035\ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_main_menu}{MainMenu}}}
+\DoxyCodeLine{00038\ \{}
+\DoxyCodeLine{00039\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{comment}{//\ Operators}}
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{class_main_menu_a53eecf9d5ffd094f54ac4193e7e57eaf}{MainMenu}}(\mbox{\hyperlink{class_main_menu}{MainMenu}}\ \textcolor{keyword}{const}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ operator=(\mbox{\hyperlink{class_main_menu}{MainMenu}}\ \textcolor{keyword}{const}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{//\ Public\ functions}}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_main_menu}{MainMenu}}\&\ \mbox{\hyperlink{class_main_menu_a32f2d41da621cf495ffc4fe8e043323d}{getInstance}}();}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_menu_adf2876ef9c618b7cc499b859523cdde9}{DrawMainMenu}}();}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{bool}\ isMenuOpen\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{bool}\ isGameStarted\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{bool}\ gameShouldClose\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{bool}\ isExitPressed\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{comment}{//\ Constructor}}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{class_main_menu_a53eecf9d5ffd094f54ac4193e7e57eaf}{MainMenu}}();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ newGame();}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{bool}\ isGameGoing\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00060\ \};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keywordtype}{bool}\ DrawButtonText(Vector2\ pos,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keywordtype}{int}\ fontSize,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ name);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{keywordtype}{bool}\ DrawButtonTexture(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ Texture2D\ texture);}
+
+\end{DoxyCode}

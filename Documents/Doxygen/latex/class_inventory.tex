@@ -1,0 +1,184 @@
+\hypertarget{class_inventory}{}\doxysection{Inventory Class Reference}
+\label{class_inventory}\index{Inventory@{Inventory}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_inventory_a21b9b47a7cbab489d99287f33a1fbfbd}\label{class_inventory_a21b9b47a7cbab489d99287f33a1fbfbd}} 
+{\bfseries Inventory} (\mbox{\hyperlink{class_inventory}{Inventory}} const \&)=delete
+\item 
+\mbox{\Hypertarget{class_inventory_ab3f3bc45f262b7aa6bea3fae5e6cb20c}\label{class_inventory_ab3f3bc45f262b7aa6bea3fae5e6cb20c}} 
+void {\bfseries operator=} (\mbox{\hyperlink{class_inventory}{Inventory}} const \&)=delete
+\item 
+void \mbox{\hyperlink{class_inventory_a7ff6c309672e3f2a66d61a59c30a4bab}{set\+Balance}} (int balance)
+\item 
+int \mbox{\hyperlink{class_inventory_a4772c92a19d3752d9a3b6c7d5b3cfd0e}{get\+Balance}} ()
+\item 
+void \mbox{\hyperlink{class_inventory_a3f93a9c10d59dcad868fd1b55e18e232}{set\+Selected\+Slot}} (unsigned slot)
+\item 
+unsigned \mbox{\hyperlink{class_inventory_ae33ec73dfc25f7588a761f7c368bdd0a}{get\+Selected\+Slot}} ()
+\item 
+\mbox{\Hypertarget{class_inventory_a1db998fb8e5520cda8d3730b8d215a32}\label{class_inventory_a1db998fb8e5520cda8d3730b8d215a32}} 
+void {\bfseries reset\+Items} ()
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_item}{Item}} $>$ \mbox{\hyperlink{class_inventory_af4544553779eab665e9a2086133ddf33}{get\+Items}} ()
+\item 
+void \mbox{\hyperlink{class_inventory_ab2ef5f15cbc1f0983827b498691d579d}{draw\+Inventory}} ()
+\item 
+void \mbox{\hyperlink{class_inventory_a39a758de7efabac93b9015f275ed4c13}{Draw\+Outzoomed}} ()
+\item 
+void \mbox{\hyperlink{class_inventory_aa7f13797715433987bb2c5cfc69f6ba6}{manage\+Invetory}} ()
+\item 
+void \mbox{\hyperlink{class_inventory_a1fc4b4128f095ed5bbd741dfd1e0206b}{add\+Item}} (\mbox{\hyperlink{class_item}{Item}} \&item)
+\item 
+void \mbox{\hyperlink{class_inventory_a61a3b131007a12cba606e18c12bf9c6d}{remove\+Item}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_inventory}{Inventory}} \& \mbox{\hyperlink{class_inventory_a00ce74493cbb45ba7da88b33fe70bf1b}{get\+Instance}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_inventory_a10485613fc8bfb32ee564d9b5110f8fb}{Inventory}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_inventory_a426b9997a0237b02c7afc5aa3ab19f4a}\label{class_inventory_a426b9997a0237b02c7afc5aa3ab19f4a}} 
+std\+::vector$<$ \mbox{\hyperlink{class_item}{Item}} $>$ {\bfseries items} = \{\mbox{\hyperlink{class_item}{Item}}(\char`\"{}\char`\"{}, 3),\mbox{\hyperlink{class_item}{Item}}(\char`\"{}\char`\"{}, 3),\mbox{\hyperlink{class_item}{Item}}(\char`\"{}\char`\"{}, 3) \}
+\item 
+\mbox{\Hypertarget{class_inventory_aa24de95073997a4fa9c47a03b425203e}\label{class_inventory_aa24de95073997a4fa9c47a03b425203e}} 
+unsigned {\bfseries slots} = 3
+\item 
+\mbox{\Hypertarget{class_inventory_a3a52c0d912cadc5ed8e096e9a65dffcb}\label{class_inventory_a3a52c0d912cadc5ed8e096e9a65dffcb}} 
+unsigned {\bfseries selected\+Slot} = 0
+\item 
+\mbox{\Hypertarget{class_inventory_ac151e391b1ac9e935db3d18878d5a4cd}\label{class_inventory_ac151e391b1ac9e935db3d18878d5a4cd}} 
+int {\bfseries balance} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_inventory_a10485613fc8bfb32ee564d9b5110f8fb}\label{class_inventory_a10485613fc8bfb32ee564d9b5110f8fb}} 
+\index{Inventory@{Inventory}!Inventory@{Inventory}}
+\index{Inventory@{Inventory}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{Inventory()}{Inventory()}}
+{\footnotesize\ttfamily Inventory\+::\+Inventory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+.Create instance of the inventory 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_inventory_a1fc4b4128f095ed5bbd741dfd1e0206b}\label{class_inventory_a1fc4b4128f095ed5bbd741dfd1e0206b}} 
+\index{Inventory@{Inventory}!addItem@{addItem}}
+\index{addItem@{addItem}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{addItem()}{addItem()}}
+{\footnotesize\ttfamily void Inventory\+::add\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_item}{Item}} \&}]{item }\end{DoxyParamCaption})}
+
+.Add item to the inventory
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & \mbox{\hyperlink{class_item}{Item}} which is being added to the inventory \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_inventory_ab2ef5f15cbc1f0983827b498691d579d}\label{class_inventory_ab2ef5f15cbc1f0983827b498691d579d}} 
+\index{Inventory@{Inventory}!drawInventory@{drawInventory}}
+\index{drawInventory@{drawInventory}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{drawInventory()}{drawInventory()}}
+{\footnotesize\ttfamily void Inventory\+::draw\+Inventory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+.Draws the inventory in zoomed state \mbox{\Hypertarget{class_inventory_a39a758de7efabac93b9015f275ed4c13}\label{class_inventory_a39a758de7efabac93b9015f275ed4c13}} 
+\index{Inventory@{Inventory}!DrawOutzoomed@{DrawOutzoomed}}
+\index{DrawOutzoomed@{DrawOutzoomed}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{DrawOutzoomed()}{DrawOutzoomed()}}
+{\footnotesize\ttfamily void Inventory\+::\+Draw\+Outzoomed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+.Draws the inventory in zoomed out state \mbox{\Hypertarget{class_inventory_a4772c92a19d3752d9a3b6c7d5b3cfd0e}\label{class_inventory_a4772c92a19d3752d9a3b6c7d5b3cfd0e}} 
+\index{Inventory@{Inventory}!getBalance@{getBalance}}
+\index{getBalance@{getBalance}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{getBalance()}{getBalance()}}
+{\footnotesize\ttfamily int Inventory\+::get\+Balance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+.Return the balance
+
+\begin{DoxyReturn}{Returns}
+balance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_inventory_a00ce74493cbb45ba7da88b33fe70bf1b}\label{class_inventory_a00ce74493cbb45ba7da88b33fe70bf1b}} 
+\index{Inventory@{Inventory}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_inventory}{Inventory}} \& Inventory\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+.Create static instance of the inventory
+
+\begin{DoxyReturn}{Returns}
+static instance of \mbox{\hyperlink{class_inventory}{Inventory}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_inventory_af4544553779eab665e9a2086133ddf33}\label{class_inventory_af4544553779eab665e9a2086133ddf33}} 
+\index{Inventory@{Inventory}!getItems@{getItems}}
+\index{getItems@{getItems}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{getItems()}{getItems()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_item}{Item}} $>$ Inventory\+::get\+Items (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+.Return the items which are in the inventory
+
+\begin{DoxyReturn}{Returns}
+items vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_inventory_ae33ec73dfc25f7588a761f7c368bdd0a}\label{class_inventory_ae33ec73dfc25f7588a761f7c368bdd0a}} 
+\index{Inventory@{Inventory}!getSelectedSlot@{getSelectedSlot}}
+\index{getSelectedSlot@{getSelectedSlot}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{getSelectedSlot()}{getSelectedSlot()}}
+{\footnotesize\ttfamily unsigned Inventory\+::get\+Selected\+Slot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+.Returns the selected slot
+
+\begin{DoxyReturn}{Returns}
+selected slot 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_inventory_aa7f13797715433987bb2c5cfc69f6ba6}\label{class_inventory_aa7f13797715433987bb2c5cfc69f6ba6}} 
+\index{Inventory@{Inventory}!manageInvetory@{manageInvetory}}
+\index{manageInvetory@{manageInvetory}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{manageInvetory()}{manageInvetory()}}
+{\footnotesize\ttfamily void Inventory\+::manage\+Invetory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+.Manage the inventory slots \mbox{\Hypertarget{class_inventory_a61a3b131007a12cba606e18c12bf9c6d}\label{class_inventory_a61a3b131007a12cba606e18c12bf9c6d}} 
+\index{Inventory@{Inventory}!removeItem@{removeItem}}
+\index{removeItem@{removeItem}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{removeItem()}{removeItem()}}
+{\footnotesize\ttfamily void Inventory\+::remove\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+.Remove item from the inventory \mbox{\Hypertarget{class_inventory_a7ff6c309672e3f2a66d61a59c30a4bab}\label{class_inventory_a7ff6c309672e3f2a66d61a59c30a4bab}} 
+\index{Inventory@{Inventory}!setBalance@{setBalance}}
+\index{setBalance@{setBalance}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{setBalance()}{setBalance()}}
+{\footnotesize\ttfamily void Inventory\+::set\+Balance (\begin{DoxyParamCaption}\item[{int}]{balance }\end{DoxyParamCaption})}
+
+.Sets the balance to a new one
+
+
+\begin{DoxyParams}{Parameters}
+{\em balance} & the new balance \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_inventory_a3f93a9c10d59dcad868fd1b55e18e232}\label{class_inventory_a3f93a9c10d59dcad868fd1b55e18e232}} 
+\index{Inventory@{Inventory}!setSelectedSlot@{setSelectedSlot}}
+\index{setSelectedSlot@{setSelectedSlot}!Inventory@{Inventory}}
+\doxysubsubsection{\texorpdfstring{setSelectedSlot()}{setSelectedSlot()}}
+{\footnotesize\ttfamily void Inventory\+::set\+Selected\+Slot (\begin{DoxyParamCaption}\item[{unsigned}]{slot }\end{DoxyParamCaption})}
+
+.Sets the selected slot to a new one
+
+
+\begin{DoxyParams}{Parameters}
+{\em slot} & the new selected slot \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Mr Creeper/\+Desktop/\+KOH-\/\+Project/\+KOH/game/src/Inventory.\+h\item 
+C\+:/\+Users/\+Mr Creeper/\+Desktop/\+KOH-\/\+Project/\+KOH/game/src/Inventory.\+cpp\end{DoxyCompactItemize}

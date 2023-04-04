@@ -1,0 +1,54 @@
+\hypertarget{_item_8h_source}{}\doxysection{Item.\+h}
+\label{_item_8h_source}\index{C:/Users/Mr Creeper/Desktop/KOH-\/Project/KOH/game/src/Item.h@{C:/Users/Mr Creeper/Desktop/KOH-\/Project/KOH/game/src/Item.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <raylib.h>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{enum}\ item\_types}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ ELEMENT\ =\ 0,}
+\DoxyCodeLine{00010\ \ \ \ \ JUNK,}
+\DoxyCodeLine{00011\ \ \ \ \ COMBINATIONS,}
+\DoxyCodeLine{00012\ \ \ \ \ NONE}
+\DoxyCodeLine{00013\ \};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_item}{Item}}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{comment}{//\ Constructor}}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_item}{Item}}(std::string\ name,\ \textcolor{keywordtype}{int}\ type);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{//\ Setters\ and\ getters}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_item_ad1df8af319de8f613b85d99118a1e203}{setName}}(std::string\ name);}
+\DoxyCodeLine{00023\ \ \ \ \ std::string\ \mbox{\hyperlink{class_item_a4ff297b946505e7956eae16006cada04}{getName}}();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_item_a051aa75b4283271d1909198dbcf9511f}{setType}}(\textcolor{keywordtype}{int}\ type);}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_item_ae6ecba9b0f87146e4062bb4ad4f712b5}{getType}}();}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_item_a99342fe97913ce2874f94966cafdacdd}{setIsPickedUp}}(\textcolor{keywordtype}{bool}\ isPickedUp);}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_item_a7aa2d291cabcca321e763d7dafc3b485}{getIsPickedUp}}();}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_item_a57b313b50bc88a86029241348f374778}{setHitbox}}(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y);}
+\DoxyCodeLine{00032\ \ \ \ \ Rectangle\ \mbox{\hyperlink{class_item_a585bebce43bc34d4e84bb6cf7c7ce63e}{getHitbox}}();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00035\ \ \ \ \ std::string\ name;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{int}\ type\ =\ 0;}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{float}\ x\ =\ 0;}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{float}\ y\ =\ 0;}
+\DoxyCodeLine{00041\ \ \ \ \ Rectangle\ hitbox\ =\ \{\ x,y,20,20\ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{bool}\ isSelected\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{bool}\ isPickedUp\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ Texture\ itemTexture;}
+\DoxyCodeLine{00048\ \};}
+
+\end{DoxyCode}

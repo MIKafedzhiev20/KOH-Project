@@ -1,0 +1,44 @@
+\hypertarget{_player_8h_source}{}\doxysection{Player.\+h}
+\label{_player_8h_source}\index{C:/Users/Mr Creeper/Desktop/KOH-\/Project/KOH/game/src/Player.h@{C:/Users/Mr Creeper/Desktop/KOH-\/Project/KOH/game/src/Player.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <raylib.h>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_player}{Player}}}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{comment}{//\ Operators}}
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{class_player_affe0cc3cb714f6deb4e62f0c0d3f1fd8}{Player}}(\mbox{\hyperlink{class_player}{Player}}\ \textcolor{keyword}{const}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{void}\ operator=(\mbox{\hyperlink{class_player}{Player}}\ \textcolor{keyword}{const}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{comment}{//\ Public\ functions}}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_player}{Player}}\&\ \mbox{\hyperlink{class_player_abc1c5e11fa4761214b3640c2ddb2adc1}{getInstance}}();}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_ae02ee46d8c20dd0697b975f935b09839}{move}}();}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a2f8ee4f71ca93f8c5546d06247794fdd}{drawPlayer}}();}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{comment}{//\ Setters\ and\ getters}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_ada2878da6ff3da0381cfc03c1df6f90f}{setIsOnMap}}(\textcolor{keywordtype}{bool}\ isOnMap);}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_player_a5ca2c6fd980a5067c9a154590c6d96f7}{getIsOnMap}}();}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a80c3c9fb36fad58f536106bd032c1ee5}{setPosition}}(Vector2\ position);}
+\DoxyCodeLine{00022\ \ \ \ \ Vector2\ \mbox{\hyperlink{class_player_ac4d11b36116592dfa1ed8c782ebd3d7b}{getPosition}}();}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_abd846925e83b7be5e15f4c13b6ec95ab}{setCameraPos}}(Vector2\ cameraPos);}
+\DoxyCodeLine{00025\ \ \ \ \ Vector2\ \mbox{\hyperlink{class_player_ae5250814a33bcc4c79efc084231e65a7}{getCameraPos}}();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//\ Constructor}}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_player_affe0cc3cb714f6deb4e62f0c0d3f1fd8}{Player}}();}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ isOnMap\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ Vector2\ position\ =\ \{\ 200,\ 200\ \};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ Vector2\ cameraPos\ =\ \{\ 0,\ 0\ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{float}\ speed\ =\ 2.0f;}
+\DoxyCodeLine{00038\ \};}
+
+\end{DoxyCode}

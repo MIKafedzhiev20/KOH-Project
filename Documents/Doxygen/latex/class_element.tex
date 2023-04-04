@@ -1,0 +1,144 @@
+\hypertarget{class_element}{}\doxysection{Element Class Reference}
+\label{class_element}\index{Element@{Element}}
+Inheritance diagram for Element\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_element}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_element_a842194217e5a29a663db8a5440cd117f}{Element}} (std\+::string name, int type, int price)
+\item 
+void \mbox{\hyperlink{class_element_a270a7e02f675573fb24f7574f01d9f25}{set\+Is\+Unlocked}} (bool is\+Unlocked)
+\item 
+bool \mbox{\hyperlink{class_element_a5302af28ff60b830e222e1102291ae3a}{get\+Is\+Unlocked}} ()
+\item 
+void \mbox{\hyperlink{class_element_a9e63db889478fbe2033bae496832dc12}{set\+Price}} (int price)
+\item 
+int \mbox{\hyperlink{class_element_af26328c0e100fadf3ed9c567dfe478da}{get\+Price}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_item}{Item}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_item_ae24dbc64f021e1fa161f459623c9f43d}{Item}} (std\+::string name, int type)
+\item 
+void \mbox{\hyperlink{class_item_ad1df8af319de8f613b85d99118a1e203}{set\+Name}} (std\+::string name)
+\item 
+std\+::string \mbox{\hyperlink{class_item_a4ff297b946505e7956eae16006cada04}{get\+Name}} ()
+\item 
+void \mbox{\hyperlink{class_item_a051aa75b4283271d1909198dbcf9511f}{set\+Type}} (int type)
+\item 
+int \mbox{\hyperlink{class_item_ae6ecba9b0f87146e4062bb4ad4f712b5}{get\+Type}} ()
+\item 
+void \mbox{\hyperlink{class_item_a99342fe97913ce2874f94966cafdacdd}{set\+Is\+Picked\+Up}} (bool is\+Picked\+Up)
+\item 
+bool \mbox{\hyperlink{class_item_a7aa2d291cabcca321e763d7dafc3b485}{get\+Is\+Picked\+Up}} ()
+\item 
+void \mbox{\hyperlink{class_item_a57b313b50bc88a86029241348f374778}{set\+Hitbox}} (float x, float y)
+\item 
+Rectangle \mbox{\hyperlink{class_item_a585bebce43bc34d4e84bb6cf7c7ce63e}{get\+Hitbox}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::vector$<$ \mbox{\hyperlink{class_element}{Element}} $>$ \& \mbox{\hyperlink{class_element_a2bb1a5a9460992ff975d59bb7990932e}{create\+Element}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_element_a3efc4caae45f35bca7e6be93d873f6e1}\label{class_element_a3efc4caae45f35bca7e6be93d873f6e1}} 
+bool {\bfseries is\+Unlocked} = false
+\item 
+\mbox{\Hypertarget{class_element_a8fa124129aa01b3b09776cdc231007c2}\label{class_element_a8fa124129aa01b3b09776cdc231007c2}} 
+int {\bfseries price} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_element_a842194217e5a29a663db8a5440cd117f}\label{class_element_a842194217e5a29a663db8a5440cd117f}} 
+\index{Element@{Element}!Element@{Element}}
+\index{Element@{Element}!Element@{Element}}
+\doxysubsubsection{\texorpdfstring{Element()}{Element()}}
+{\footnotesize\ttfamily Element\+::\+Element (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{int}]{type,  }\item[{int}]{price }\end{DoxyParamCaption})}
+
+.Create an instance of \mbox{\hyperlink{class_element}{Element}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & the name of the element \\
+\hline
+{\em type} & the type of the item \\
+\hline
+{\em price} & the price of the element \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_element_a2bb1a5a9460992ff975d59bb7990932e}\label{class_element_a2bb1a5a9460992ff975d59bb7990932e}} 
+\index{Element@{Element}!createElement@{createElement}}
+\index{createElement@{createElement}!Element@{Element}}
+\doxysubsubsection{\texorpdfstring{createElement()}{createElement()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_element}{Element}} $>$ \& Element\+::create\+Element (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+.Creates vector of elements from file
+
+\begin{DoxyReturn}{Returns}
+vector of elements 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_element_a5302af28ff60b830e222e1102291ae3a}\label{class_element_a5302af28ff60b830e222e1102291ae3a}} 
+\index{Element@{Element}!getIsUnlocked@{getIsUnlocked}}
+\index{getIsUnlocked@{getIsUnlocked}!Element@{Element}}
+\doxysubsubsection{\texorpdfstring{getIsUnlocked()}{getIsUnlocked()}}
+{\footnotesize\ttfamily bool Element\+::get\+Is\+Unlocked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+.Returns the is\+Unlocked value
+
+\begin{DoxyReturn}{Returns}
+is\+Unlocked 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_element_af26328c0e100fadf3ed9c567dfe478da}\label{class_element_af26328c0e100fadf3ed9c567dfe478da}} 
+\index{Element@{Element}!getPrice@{getPrice}}
+\index{getPrice@{getPrice}!Element@{Element}}
+\doxysubsubsection{\texorpdfstring{getPrice()}{getPrice()}}
+{\footnotesize\ttfamily int Element\+::get\+Price (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+.Returns the price
+
+\begin{DoxyReturn}{Returns}
+price 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_element_a270a7e02f675573fb24f7574f01d9f25}\label{class_element_a270a7e02f675573fb24f7574f01d9f25}} 
+\index{Element@{Element}!setIsUnlocked@{setIsUnlocked}}
+\index{setIsUnlocked@{setIsUnlocked}!Element@{Element}}
+\doxysubsubsection{\texorpdfstring{setIsUnlocked()}{setIsUnlocked()}}
+{\footnotesize\ttfamily void Element\+::set\+Is\+Unlocked (\begin{DoxyParamCaption}\item[{bool}]{is\+Unlocked }\end{DoxyParamCaption})}
+
+.Sets the is\+Unlocked to true/false
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Unlocked} & Inputed true/false \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_element_a9e63db889478fbe2033bae496832dc12}\label{class_element_a9e63db889478fbe2033bae496832dc12}} 
+\index{Element@{Element}!setPrice@{setPrice}}
+\index{setPrice@{setPrice}!Element@{Element}}
+\doxysubsubsection{\texorpdfstring{setPrice()}{setPrice()}}
+{\footnotesize\ttfamily void Element\+::set\+Price (\begin{DoxyParamCaption}\item[{int}]{price }\end{DoxyParamCaption})}
+
+.Sets tge price to a give one
+
+
+\begin{DoxyParams}{Parameters}
+{\em price} & Inputed price \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Mr Creeper/\+Desktop/\+KOH-\/\+Project/\+KOH/game/src/Element.\+h\item 
+C\+:/\+Users/\+Mr Creeper/\+Desktop/\+KOH-\/\+Project/\+KOH/game/src/Element.\+cpp\end{DoxyCompactItemize}

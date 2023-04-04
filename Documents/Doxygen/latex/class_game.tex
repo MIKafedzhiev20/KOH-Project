@@ -1,0 +1,111 @@
+\hypertarget{class_game}{}\doxysection{Game Class Reference}
+\label{class_game}\index{Game@{Game}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_a7882fecb84a76bbffa1b09f0bff89c60}{Game}} (int width, int height, int fps)
+\item 
+\mbox{\hyperlink{class_game_a125ebc68188418cfb36141db7b89fd3d}{$\sim$\+Game}} () noexcept
+\item 
+bool \mbox{\hyperlink{class_game_af9ea63c1e8b7d198e5995aa33b09e180}{Game\+Should\+Close}} () const
+\item 
+void \mbox{\hyperlink{class_game_a9f49e23a170f5a2b454d4e261de3b247}{Tick}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_game_a1c5373c68261c54aff03e6abe40fee52}{Update}} ()
+\item 
+void \mbox{\hyperlink{class_game_aad2c20e2c5529244095c50c238911e30}{Draw}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_game_a06b5a675d7c0f6a9b58d395872b1a4e7}\label{class_game_a06b5a675d7c0f6a9b58d395872b1a4e7}} 
+int {\bfseries width} = 0
+\item 
+\mbox{\Hypertarget{class_game_aa6d1743c45de5558a0ca99078df85250}\label{class_game_aa6d1743c45de5558a0ca99078df85250}} 
+int {\bfseries height} = 0
+\item 
+\mbox{\Hypertarget{class_game_a58f29c27353109e7debce439e1e4cb79}\label{class_game_a58f29c27353109e7debce439e1e4cb79}} 
+Camera2D {\bfseries camera} = \{ \{(float)width / 2, (float)height / 2\}, \{200, 200\}, 0, 2 \}
+\item 
+\mbox{\Hypertarget{class_game_a8270cd13c39f0e85ebdefbc682e74b43}\label{class_game_a8270cd13c39f0e85ebdefbc682e74b43}} 
+Vector2 {\bfseries mouse} = \{ 0,0 \}
+\item 
+\mbox{\Hypertarget{class_game_ab0d954fff71a9b9e82e0cba8ae0f8783}\label{class_game_ab0d954fff71a9b9e82e0cba8ae0f8783}} 
+\mbox{\hyperlink{class_player}{Player}} \& {\bfseries player} = \mbox{\hyperlink{class_player_abc1c5e11fa4761214b3640c2ddb2adc1}{Player\+::get\+Instance}}()
+\item 
+\mbox{\Hypertarget{class_game_ab9c1274b2128ff994fc5cd53428d312f}\label{class_game_ab9c1274b2128ff994fc5cd53428d312f}} 
+\mbox{\hyperlink{class_map}{Map}} \& {\bfseries map} = \mbox{\hyperlink{class_map_ac6c5bc6088691013bb8e53d2adf801ef}{Map\+::get\+Instance}}()
+\item 
+\mbox{\Hypertarget{class_game_a5a86c9c7e54093bfa11f4ac82384376e}\label{class_game_a5a86c9c7e54093bfa11f4ac82384376e}} 
+\mbox{\hyperlink{class_main_menu}{Main\+Menu}} \& {\bfseries main\+Menu} = \mbox{\hyperlink{class_main_menu_a32f2d41da621cf495ffc4fe8e043323d}{Main\+Menu\+::get\+Instance}}()
+\item 
+\mbox{\Hypertarget{class_game_ac6738b0642e3732926bbf672465a9b44}\label{class_game_ac6738b0642e3732926bbf672465a9b44}} 
+\mbox{\hyperlink{class_inventory}{Inventory}} \& {\bfseries inventory} = \mbox{\hyperlink{class_inventory_a00ce74493cbb45ba7da88b33fe70bf1b}{Inventory\+::get\+Instance}}()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_game_a7882fecb84a76bbffa1b09f0bff89c60}\label{class_game_a7882fecb84a76bbffa1b09f0bff89c60}} 
+\index{Game@{Game}!Game@{Game}}
+\index{Game@{Game}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Game()}{Game()}}
+{\footnotesize\ttfamily Game\+::\+Game (\begin{DoxyParamCaption}\item[{int}]{width\+In,  }\item[{int}]{height\+In,  }\item[{int}]{fps }\end{DoxyParamCaption})}
+
+.Create instance of game
+
+
+\begin{DoxyParams}{Parameters}
+{\em width\+In} & the window\textquotesingle{}s width \\
+\hline
+{\em height\+In} & the window\textquotesingle{}s height \\
+\hline
+{\em fps} & the game\textquotesingle{}s fps \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_a125ebc68188418cfb36141db7b89fd3d}\label{class_game_a125ebc68188418cfb36141db7b89fd3d}} 
+\index{Game@{Game}!````~Game@{$\sim$Game}}
+\index{````~Game@{$\sim$Game}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{$\sim$Game()}{~Game()}}
+{\footnotesize\ttfamily Game\+::$\sim$\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+.Closes the game 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_aad2c20e2c5529244095c50c238911e30}\label{class_game_aad2c20e2c5529244095c50c238911e30}} 
+\index{Game@{Game}!Draw@{Draw}}
+\index{Draw@{Draw}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void Game\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+.Draws the elements of the game \mbox{\Hypertarget{class_game_af9ea63c1e8b7d198e5995aa33b09e180}\label{class_game_af9ea63c1e8b7d198e5995aa33b09e180}} 
+\index{Game@{Game}!GameShouldClose@{GameShouldClose}}
+\index{GameShouldClose@{GameShouldClose}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{GameShouldClose()}{GameShouldClose()}}
+{\footnotesize\ttfamily bool Game\+::\+Game\+Should\+Close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+.Checks if the window should close
+
+\begin{DoxyReturn}{Returns}
+true/false depending on if the winodow should close or not 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_a9f49e23a170f5a2b454d4e261de3b247}\label{class_game_a9f49e23a170f5a2b454d4e261de3b247}} 
+\index{Game@{Game}!Tick@{Tick}}
+\index{Tick@{Tick}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Tick()}{Tick()}}
+{\footnotesize\ttfamily void Game\+::\+Tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+.Controls the game loop \mbox{\Hypertarget{class_game_a1c5373c68261c54aff03e6abe40fee52}\label{class_game_a1c5373c68261c54aff03e6abe40fee52}} 
+\index{Game@{Game}!Update@{Update}}
+\index{Update@{Update}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Game\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+.Updates the game logic 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Mr Creeper/\+Desktop/\+KOH-\/\+Project/\+KOH/game/src/Game.\+h\item 
+C\+:/\+Users/\+Mr Creeper/\+Desktop/\+KOH-\/\+Project/\+KOH/game/src/Game.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,47 @@
+\hypertarget{_inventory_8h_source}{}\doxysection{Inventory.\+h}
+\label{_inventory_8h_source}\index{C:/Users/Mr Creeper/Desktop/KOH-\/Project/KOH/game/src/Inventory.h@{C:/Users/Mr Creeper/Desktop/KOH-\/Project/KOH/game/src/Inventory.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Element.h"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_inventory}{Inventory}}}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{comment}{//\ Operators}}
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{class_inventory_a10485613fc8bfb32ee564d9b5110f8fb}{Inventory}}(\mbox{\hyperlink{class_inventory}{Inventory}}\ \textcolor{keyword}{const}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{void}\ operator=(\mbox{\hyperlink{class_inventory}{Inventory}}\ \textcolor{keyword}{const}\&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{comment}{//\ Setters\ and\ getters}}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_inventory_a7ff6c309672e3f2a66d61a59c30a4bab}{setBalance}}(\textcolor{keywordtype}{int}\ balance);}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_inventory_a4772c92a19d3752d9a3b6c7d5b3cfd0e}{getBalance}}();}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_inventory_a3f93a9c10d59dcad868fd1b55e18e232}{setSelectedSlot}}(\textcolor{keywordtype}{unsigned}\ slot);}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \mbox{\hyperlink{class_inventory_ae33ec73dfc25f7588a761f7c368bdd0a}{getSelectedSlot}}();}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ resetItems();}
+\DoxyCodeLine{00020\ \ \ \ \ std::vector<Item>\ \mbox{\hyperlink{class_inventory_af4544553779eab665e9a2086133ddf33}{getItems}}();}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//\ Public\ functions}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{class_inventory}{Inventory}}\&\ \mbox{\hyperlink{class_inventory_a00ce74493cbb45ba7da88b33fe70bf1b}{getInstance}}();}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_inventory_ab2ef5f15cbc1f0983827b498691d579d}{drawInventory}}();}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_inventory_a39a758de7efabac93b9015f275ed4c13}{DrawOutzoomed}}();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_inventory_aa7f13797715433987bb2c5cfc69f6ba6}{manageInvetory}}();}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_inventory_a1fc4b4128f095ed5bbd741dfd1e0206b}{addItem}}(\mbox{\hyperlink{class_item}{Item}}\&\ item);}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_inventory_a61a3b131007a12cba606e18c12bf9c6d}{removeItem}}();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//\ Constructor}}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_inventory_a10485613fc8bfb32ee564d9b5110f8fb}{Inventory}}();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ std::vector<Item>\ items\ =\ \{\mbox{\hyperlink{class_item}{Item}}(\textcolor{stringliteral}{"{}"{}},\ 3),\mbox{\hyperlink{class_item}{Item}}(\textcolor{stringliteral}{"{}"{}},\ 3),\mbox{\hyperlink{class_item}{Item}}(\textcolor{stringliteral}{"{}"{}},\ 3)\ \};}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ slots\ =\ 3;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ selectedSlot\ =\ 0;}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{int}\ balance\ =\ 0;}
+\DoxyCodeLine{00041\ \};}
+
+\end{DoxyCode}

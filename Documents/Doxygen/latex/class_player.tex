@@ -1,0 +1,165 @@
+\hypertarget{class_player}{}\doxysection{Player Class Reference}
+\label{class_player}\index{Player@{Player}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_player_af127061187d40cdc711b2c1775d271d9}\label{class_player_af127061187d40cdc711b2c1775d271d9}} 
+{\bfseries Player} (\mbox{\hyperlink{class_player}{Player}} const \&)=delete
+\item 
+\mbox{\Hypertarget{class_player_aae52d685a1bc3aeb1cb53d7bb86ea489}\label{class_player_aae52d685a1bc3aeb1cb53d7bb86ea489}} 
+void {\bfseries operator=} (\mbox{\hyperlink{class_player}{Player}} const \&)=delete
+\item 
+void \mbox{\hyperlink{class_player_ae02ee46d8c20dd0697b975f935b09839}{move}} ()
+\item 
+void \mbox{\hyperlink{class_player_a2f8ee4f71ca93f8c5546d06247794fdd}{draw\+Player}} ()
+\item 
+void \mbox{\hyperlink{class_player_ada2878da6ff3da0381cfc03c1df6f90f}{set\+Is\+On\+Map}} (bool is\+On\+Map)
+\item 
+bool \mbox{\hyperlink{class_player_a5ca2c6fd980a5067c9a154590c6d96f7}{get\+Is\+On\+Map}} ()
+\item 
+void \mbox{\hyperlink{class_player_a80c3c9fb36fad58f536106bd032c1ee5}{set\+Position}} (Vector2 position)
+\item 
+Vector2 \mbox{\hyperlink{class_player_ac4d11b36116592dfa1ed8c782ebd3d7b}{get\+Position}} ()
+\item 
+void \mbox{\hyperlink{class_player_abd846925e83b7be5e15f4c13b6ec95ab}{set\+Camera\+Pos}} (Vector2 camera\+Pos)
+\item 
+Vector2 \mbox{\hyperlink{class_player_ae5250814a33bcc4c79efc084231e65a7}{get\+Camera\+Pos}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_player}{Player}} \& \mbox{\hyperlink{class_player_abc1c5e11fa4761214b3640c2ddb2adc1}{get\+Instance}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_player_affe0cc3cb714f6deb4e62f0c0d3f1fd8}{Player}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_player_ae14eb0a4185f76461b2e9ca2dca4cb67}\label{class_player_ae14eb0a4185f76461b2e9ca2dca4cb67}} 
+bool {\bfseries is\+On\+Map} = false
+\item 
+\mbox{\Hypertarget{class_player_a8a1f9303649cd1a9304627ab89c3fdad}\label{class_player_a8a1f9303649cd1a9304627ab89c3fdad}} 
+Vector2 {\bfseries position} = \{ 200, 200 \}
+\item 
+\mbox{\Hypertarget{class_player_a27459436fa62fb4b44f80f124d59b1c1}\label{class_player_a27459436fa62fb4b44f80f124d59b1c1}} 
+Vector2 {\bfseries camera\+Pos} = \{ 0, 0 \}
+\item 
+\mbox{\Hypertarget{class_player_a770942101eff683b030edde9f730d537}\label{class_player_a770942101eff683b030edde9f730d537}} 
+float {\bfseries speed} = 2.\+0f
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_player_affe0cc3cb714f6deb4e62f0c0d3f1fd8}\label{class_player_affe0cc3cb714f6deb4e62f0c0d3f1fd8}} 
+\index{Player@{Player}!Player@{Player}}
+\index{Player@{Player}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Player()}{Player()}}
+{\footnotesize\ttfamily Player\+::\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+.Create instance of \mbox{\hyperlink{class_player}{Player}} 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_player_a2f8ee4f71ca93f8c5546d06247794fdd}\label{class_player_a2f8ee4f71ca93f8c5546d06247794fdd}} 
+\index{Player@{Player}!drawPlayer@{drawPlayer}}
+\index{drawPlayer@{drawPlayer}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{drawPlayer()}{drawPlayer()}}
+{\footnotesize\ttfamily void Player\+::draw\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+.Draws the player \mbox{\Hypertarget{class_player_ae5250814a33bcc4c79efc084231e65a7}\label{class_player_ae5250814a33bcc4c79efc084231e65a7}} 
+\index{Player@{Player}!getCameraPos@{getCameraPos}}
+\index{getCameraPos@{getCameraPos}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getCameraPos()}{getCameraPos()}}
+{\footnotesize\ttfamily Vector2 Player\+::get\+Camera\+Pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+.Return the camera position
+
+\begin{DoxyReturn}{Returns}
+the camera position 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_player_abc1c5e11fa4761214b3640c2ddb2adc1}\label{class_player_abc1c5e11fa4761214b3640c2ddb2adc1}} 
+\index{Player@{Player}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getInstance()}{getInstance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_player}{Player}} \& Player\+::get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+.Create static instance of \mbox{\hyperlink{class_player}{Player}}
+
+\begin{DoxyReturn}{Returns}
+static instance of \mbox{\hyperlink{class_player}{Player}} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_player_a5ca2c6fd980a5067c9a154590c6d96f7}\label{class_player_a5ca2c6fd980a5067c9a154590c6d96f7}} 
+\index{Player@{Player}!getIsOnMap@{getIsOnMap}}
+\index{getIsOnMap@{getIsOnMap}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getIsOnMap()}{getIsOnMap()}}
+{\footnotesize\ttfamily bool Player\+::get\+Is\+On\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+.Returns if the player is on the map
+
+\begin{DoxyReturn}{Returns}
+true/false if the player is on the map 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_player_ac4d11b36116592dfa1ed8c782ebd3d7b}\label{class_player_ac4d11b36116592dfa1ed8c782ebd3d7b}} 
+\index{Player@{Player}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily Vector2 Player\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+.Returns the player\textquotesingle{}s position
+
+\begin{DoxyReturn}{Returns}
+the player\textquotesingle{}s position 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_player_ae02ee46d8c20dd0697b975f935b09839}\label{class_player_ae02ee46d8c20dd0697b975f935b09839}} 
+\index{Player@{Player}!move@{move}}
+\index{move@{move}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void Player\+::move (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+.Move the player base on user input \mbox{\Hypertarget{class_player_abd846925e83b7be5e15f4c13b6ec95ab}\label{class_player_abd846925e83b7be5e15f4c13b6ec95ab}} 
+\index{Player@{Player}!setCameraPos@{setCameraPos}}
+\index{setCameraPos@{setCameraPos}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{setCameraPos()}{setCameraPos()}}
+{\footnotesize\ttfamily void Player\+::set\+Camera\+Pos (\begin{DoxyParamCaption}\item[{Vector2}]{camera\+Pos }\end{DoxyParamCaption})}
+
+.Set the camera position to a new one
+
+
+\begin{DoxyParams}{Parameters}
+{\em camera\+Pos} & the new camera\textquotesingle{}s position \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_player_ada2878da6ff3da0381cfc03c1df6f90f}\label{class_player_ada2878da6ff3da0381cfc03c1df6f90f}} 
+\index{Player@{Player}!setIsOnMap@{setIsOnMap}}
+\index{setIsOnMap@{setIsOnMap}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{setIsOnMap()}{setIsOnMap()}}
+{\footnotesize\ttfamily void Player\+::set\+Is\+On\+Map (\begin{DoxyParamCaption}\item[{bool}]{is\+On\+Map }\end{DoxyParamCaption})}
+
+.Set if the player is on the map
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+On\+Map} & true/false if the player is on the map \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_player_a80c3c9fb36fad58f536106bd032c1ee5}\label{class_player_a80c3c9fb36fad58f536106bd032c1ee5}} 
+\index{Player@{Player}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily void Player\+::set\+Position (\begin{DoxyParamCaption}\item[{Vector2}]{position }\end{DoxyParamCaption})}
+
+.Set the player\textquotesingle{}s position to a new one
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & the new position \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Mr Creeper/\+Desktop/\+KOH-\/\+Project/\+KOH/game/src/Player.\+h\item 
+C\+:/\+Users/\+Mr Creeper/\+Desktop/\+KOH-\/\+Project/\+KOH/game/src/Player.\+cpp\end{DoxyCompactItemize}

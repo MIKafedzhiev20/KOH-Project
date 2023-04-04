@@ -1,0 +1,40 @@
+\hypertarget{_reactions_8h_source}{}\doxysection{Reactions.\+h}
+\label{_reactions_8h_source}\index{C:/Users/Mr Creeper/Desktop/KOH-\/Project/KOH/game/src/Reactions.h@{C:/Users/Mr Creeper/Desktop/KOH-\/Project/KOH/game/src/Reactions.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}Item.h"{}}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_reactions}{Reactions}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_item}{Item}}}
+\DoxyCodeLine{00005\ \{}
+\DoxyCodeLine{00006\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{comment}{//\ Constructor}}
+\DoxyCodeLine{00008\ \ \ \ \ \mbox{\hyperlink{class_reactions}{Reactions}}(std::string\ name,\ \textcolor{keywordtype}{int}\ type,\ std::string\ required1,\ std::string\ required2,\ \textcolor{keywordtype}{int}\ price);}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{comment}{//\ Public\ functions}}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<Reactions>\&\ \mbox{\hyperlink{class_reactions_ad3c28e669bcd917db4b447f53c2b7ef9}{createReactions}}();}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{comment}{//\ Setters\ and\ getters}}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_reactions_a70a81c532bf11583709866f012836e3b}{setRequired1}}(std::string\ required1);}
+\DoxyCodeLine{00015\ \ \ \ \ std::string\ \mbox{\hyperlink{class_reactions_a04d9923703f082e02962c383479c39da}{getRequired1}}();}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_reactions_a3652e979bcbf7f10c24c34d6054df05d}{setRequired2}}(std::string\ required2);}
+\DoxyCodeLine{00018\ \ \ \ \ std::string\ \mbox{\hyperlink{class_reactions_a25385377e4b6b32d3951857af307f390}{getRequired2}}();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_reactions_a98656439615ffdabba5ea58cbf4d9f53}{setPrice}}(\textcolor{keywordtype}{int}\ price);}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_reactions_ad39d84b61ce465a5db6a122ee4329d1d}{getPrice}}();}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_reactions_a6be09c6f8b15b0f1739da6f4f712859c}{setIsObtained}}(\textcolor{keywordtype}{bool}\ isObtained);}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_reactions_a3516c153f09235cc7aef04bb7caf4e56}{getIsObtained}}();}
+\DoxyCodeLine{00025\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00026\ \ \ \ \ std::string\ required1\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00027\ \ \ \ \ std::string\ required2\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00028\ \ \ \ \ std::string\ name\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ price\ =\ 0;}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ isObtained\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00032\ \};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{static}\ std::vector<Reactions>\&\ reactions\ =\ \mbox{\hyperlink{class_reactions_ad3c28e669bcd917db4b447f53c2b7ef9}{Reactions::createReactions}}();}
+
+\end{DoxyCode}

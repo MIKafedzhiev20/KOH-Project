@@ -1,0 +1,49 @@
+\hypertarget{_game_8h_source}{}\doxysection{Game.\+h}
+\label{_game_8h_source}\index{C:/Users/Mr Creeper/Desktop/KOH-\/Project/KOH/game/src/Game.h@{C:/Users/Mr Creeper/Desktop/KOH-\/Project/KOH/game/src/Game.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <raylib.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <assert.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Player.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}Map.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}Inventory.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game}{Game}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{comment}{//\ Constructor\ /\ Destructor\ }}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_game}{Game}}(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keywordtype}{int}\ fps);}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_game_a125ebc68188418cfb36141db7b89fd3d}{\string~Game}}()\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{comment}{//\ Public\ functions}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_game_af9ea63c1e8b7d198e5995aa33b09e180}{GameShouldClose}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_a9f49e23a170f5a2b454d4e261de3b247}{Tick}}();}
+\DoxyCodeLine{00023\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00024\ \ \ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{comment}{//\ Private\ functions}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_a1c5373c68261c54aff03e6abe40fee52}{Update}}();}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_aad2c20e2c5529244095c50c238911e30}{Draw}}();}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{int}\ width\ =\ 0;}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ height\ =\ 0;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ Camera2D\ camera\ =\ \{\ \{(float)width\ /\ 2,\ (\textcolor{keywordtype}{float})height\ /\ 2\},\ \{200,\ 200\},\ 0,\ 2\ \};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ Vector2\ mouse\ =\ \{\ 0,0\ \};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_player}{Player}}\&\ player\ =\ \mbox{\hyperlink{class_player_abc1c5e11fa4761214b3640c2ddb2adc1}{Player::getInstance}}();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{class_map}{Map}}\&\ map\ =\ \mbox{\hyperlink{class_map_ac6c5bc6088691013bb8e53d2adf801ef}{Map::getInstance}}();}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{class_main_menu}{MainMenu}}\&\ mainMenu\ =\ \mbox{\hyperlink{class_main_menu_a32f2d41da621cf495ffc4fe8e043323d}{MainMenu::getInstance}}();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{class_inventory}{Inventory}}\&\ inventory\ =\ \mbox{\hyperlink{class_inventory_a00ce74493cbb45ba7da88b33fe70bf1b}{Inventory::getInstance}}();}
+\DoxyCodeLine{00043\ \};}
+
+\end{DoxyCode}
