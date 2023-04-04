@@ -52,6 +52,13 @@ void House::drawHouse()
 			isOnLaptop = true;
 			player.setIsOnMap(false);
 		}
+
+		for (int i = 0; i < 4; i++)
+		{
+			DrawRectangleRec(walls[i], WHITE);
+			player.checkCollision(walls[i]);
+		}
+
 		map.OpenMapMenu();
 	}
 	else

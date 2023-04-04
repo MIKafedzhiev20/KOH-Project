@@ -71,9 +71,6 @@ void Outside::DrawOutside()
 	}
 
 	map.OpenMapMenu();
-
-	DrawText(TextFormat("%f", GetMousePosition().x), 200, 200, 10, RED);
-	DrawText(TextFormat("%f", GetMousePosition().y), 300, 200, 10, RED);
 }
 
 /**

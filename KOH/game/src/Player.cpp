@@ -155,6 +155,8 @@ void Player::move()
 			isWalking = true;
 		}
 	}
+
+	fullPosition = { position.x + 5, position.y + 30, 40, 50 };
 }
 
 /**
@@ -207,7 +209,67 @@ void Player::drawPlayer()
 		}
 		break;
 	}
-	fullPosition = { position.x + 5, position.y + 30, 40, 50 };
+}
+
+void Player::checkCollision(Rectangle collision)
+{
+	Rectangle playerRect = fullPosition;
+
+	if (CheckCollisionRecs(playerRect, collision))
+	{
+		float dx = (playerRect.x + playerRect.width / 2) - (collision.x + collision.width / 2);
+		float dy = (playerRect.y + playerRect.height / 2) - (collision.y + collision.height / 2);
+		float width = (playerRect.width + collision.width) / 2;
+		float height = (playerRect.height + collision.height) / 2;
+		float overlapX = width - abs(dx);
+		float overlapY = height - abs(dy);
+
+		enum { None, Top, Bottom, Left, Right } side = None;
+
+		float directionX = dx > 0 ? 1 : -1;
+		float directionY = dy > 0 ? 1 : -1;
+
+		if (overlapX > overlapY)
+		{
+			if (directionY > 0)
+			{
+				side = Top;
+			}
+			else
+			{
+				side = Bottom;
+			}
+		}
+		else
+		{
+			if (directionX > 0)
+			{
+				side = Left;
+			}
+			else
+			{
+				side = Right;
+			}
+		}
+
+		switch (side)
+		{
+		case Top:
+			position.y += overlapY;
+			break;
+		case Bottom:
+			position.y -= overlapY;
+			break;
+		case Left:
+			position.x += overlapX;
+			break;
+		case Right:
+			position.x -= overlapX;
+			break;
+		default:
+			break;
+		}
+	}
 }
 
 void Player::DrawIdle(Texture2D Nsheet)

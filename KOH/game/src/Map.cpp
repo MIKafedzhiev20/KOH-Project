@@ -95,7 +95,7 @@ void MainMenu::DrawMainMenu()
 			isMenuOpen = false;
 			isGameStarted = true;
 			player.setIsOnMap(true);
-			map.isOutdoor = true;
+			map.isInHouse = true;
 		}
 
 		if (DrawButtonText({ 100, 800 }, 200, 100, 100, "Exit"))
@@ -226,7 +226,7 @@ void MainMenu::newGame()
 	player.setIsOnMap(true);
 	player.setPosition({ 200, 200 });
 
-	map.isOutdoor = true;
+	map.isInHouse = true;
 
 	elements[0].setIsUnlocked(true);
 	elements[1].setIsUnlocked(true);

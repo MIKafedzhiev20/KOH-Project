@@ -20,7 +20,7 @@ public:
 	void move();
 	void drawPlayer();
 
-	float getSpeed();
+	void checkCollision(Rectangle collision);
 
 	// Setters and getters
 	void setIsOnMap(bool isOnMap);
@@ -32,8 +32,9 @@ public:
 	void setCameraPos(Vector2 cameraPos);
 	Vector2 getCameraPos();
 
-	Rectangle fullPosition = { position.x + 5, position.y + 30, 40, 50 };
+	float getSpeed();
 
+	Rectangle fullPosition = { position.x + 5, position.y + 30, 40, 50 };
 private:
 	// Constructor / Destructor
 	Player();
