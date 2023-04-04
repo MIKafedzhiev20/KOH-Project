@@ -49,6 +49,7 @@ We decided to make game related mainly to chemistry and the reactions we learn i
 
 <p align = "left">
 	<img src = "https://github.com/MIKafedzhiev20/KOH-Project/blob/main/KOH/assets/README/Word.png" alt="MS Word" width=48px />
+	<img src = "https://github.com/MIKafedzhiev20/KOH-Project/blob/main/KOH/assets/README/Dox.png" alt="Doxygen" width=48px />
 	<img src = "https://github.com/MIKafedzhiev20/KOH-Project/blob/main/KOH/assets/README/PP.png" alt="MS PowerPoint" width=48px />
 	<img src = "https://github.com/MIKafedzhiev20/KOH-Project/blob/main/KOH/assets/README/MT.png" alt="MS Teams" width=48px />
 </p>
