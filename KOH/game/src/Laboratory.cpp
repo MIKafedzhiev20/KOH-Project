@@ -12,6 +12,7 @@
 Laboratory::Laboratory()
 {
 	laboratoryTexture = LoadTexture("../assets/lab.png");
+	table = LoadTexture("../assets/table.png");
 }
 
 /**
@@ -21,6 +22,7 @@ Laboratory::Laboratory()
 Laboratory::~Laboratory()
 {
 	UnloadTexture(laboratoryTexture);
+	UnloadTexture(table);
 }
 
 /**
@@ -106,6 +108,8 @@ void Laboratory::DrawTable()
 
 	static std::vector<Item> slots = { Item("",3),Item("",3) };
 	static unsigned index = 0;
+
+	DrawTexture(table, 0, 0, WHITE);
 
 	if (DrawButtonText({ 0, 0 }, 150, 44, 50, "BACK"))
 	{

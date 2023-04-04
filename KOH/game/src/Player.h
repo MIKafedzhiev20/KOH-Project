@@ -2,6 +2,12 @@
 #include <raylib.h>
 #include <vector>
 
+enum direction {
+	SIDE = 0,
+	FRONT,
+	BACK
+};
+
 class Player
 {
 public:
@@ -25,8 +31,13 @@ public:
 	Vector2 getCameraPos();
 
 private:
-	// Constructor
+	// Constructor / Destructor
 	Player();
+	~Player();
+
+	// Private functions
+	void DrawIdle(Texture2D Nsheet);
+	void DrawWalking(Texture2D Nsheet);
 
 	bool isOnMap = false;
 
@@ -34,5 +45,15 @@ private:
 
 	Vector2 cameraPos = { 0, 0 };
 
+	Texture2D backAnim;
+	Texture2D frontAnim;
+	Texture2D backWalk;
+	Texture2D frontWalk;
+	Texture2D sideAnim;
+	Texture2D sideWalk;
+
 	float speed = 3.0f;
+
+	int direction = 3;
+	bool isWalking = false;
 };

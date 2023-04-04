@@ -20,6 +20,7 @@ private:
 	void DrawExtractor();
 
 	Texture2D laboratoryTexture;
+	Texture2D table;
 
 	bool isOnTable = false;
 	bool isInStorage = false;

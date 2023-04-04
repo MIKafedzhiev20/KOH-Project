@@ -4,14 +4,6 @@
 #include <vector>
 #include <raylib.h>
 
-enum item_types
-{
-	ELEMENT = 0,
-	JUNK,
-	COMBINATIONS,
-	NONE
-};
-
 class Item
 {
 public:

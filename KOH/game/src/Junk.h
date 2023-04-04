@@ -20,7 +20,7 @@ private:
 
 	float junkSpawnTimer = GetRandomValue(50, 300);
 
-	float junkLifetime = GetRandomValue(10000, 50000);
+	float junkLifetime = GetRandomValue(10000, 30000);
 };
 
 std::vector<Junk> createJunk();
