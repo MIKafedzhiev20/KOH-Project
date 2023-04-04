@@ -213,6 +213,7 @@ void Map::OpenMapMenu()
 	}
 }
 
+
 void MainMenu::newGame()
 {
 	Map& map = Map::getInstance();

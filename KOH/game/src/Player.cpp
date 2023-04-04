@@ -8,21 +8,31 @@
 Player::Player()
 {
 	backAnim = LoadTexture("../assets/playerTextures/back.png");
-	frontAnim = LoadTexture("../assets/playerTextures/front.png");
 	backWalk = LoadTexture("../assets/playerTextures/moveDown.png");
+
+	frontAnim = LoadTexture("../assets/playerTextures/front.png");
 	frontWalk = LoadTexture("../assets/playerTextures/moveUp.png");
-	sideAnim = LoadTexture("../assets/playerTextures/side.png");
-	sideWalk = LoadTexture("../assets/playerTextures/moveSide.png");
+
+	leftAnim = LoadTexture("../assets/playerTextures/left.png");
+	leftWalk = LoadTexture("../assets/playerTextures/moveLeft.png");
+
+	rightAnim = LoadTexture("../assets/playerTextures/right.png");
+	rightWalk = LoadTexture("../assets/playerTextures/moveRight.png");
 }
 
 Player::~Player()
 {
 	UnloadTexture(backAnim);
-	UnloadTexture(frontAnim);
 	UnloadTexture(backWalk);
+
+	UnloadTexture(frontAnim);
 	UnloadTexture(frontWalk);
-	UnloadTexture(sideAnim);
-	UnloadTexture(sideWalk);
+
+	UnloadTexture(leftAnim);
+	UnloadTexture(leftWalk);
+
+	UnloadTexture(rightAnim);
+	UnloadTexture(rightWalk);
 }
 
 /**
@@ -96,6 +106,11 @@ Vector2 Player::getCameraPos()
 	return this->cameraPos;
 }
 
+float Player::getSpeed()
+{
+	return this->speed;
+}
+
 /**
  * .Move the player base on user input
  *
@@ -113,10 +128,8 @@ void Player::move()
 
 	if (isOnMap == true)
 	{
-		if (true)
-		{
-			isWalking = false;
-		}
+		isWalking = false;
+
 		if (IsKeyDown(KEY_W))
 		{
 			position.y -= speed;
@@ -150,41 +163,29 @@ void Player::move()
  */
 void Player::drawPlayer()
 {
-	if (direction == 0)
+	switch(direction)
 	{
+	case 0:
 		if (isWalking == true)
 		{
-			DrawWalking(sideWalk);
+			DrawWalking(leftWalk);
 		}
 		else
 		{
-			DrawIdle(sideAnim);
+			DrawIdle(leftAnim);
 		}
-	}
-	if (direction == 1)
-	{
+		break;
+	case 1:
 		if (isWalking == true)
 		{
-			DrawWalking(sideWalk);
+			DrawWalking(rightWalk);
 		}
 		else
 		{
-			DrawIdle(sideAnim);
+			DrawIdle(rightAnim);
 		}
-	}
-	if (direction == 3)
-	{
-		if (isWalking == true)
-		{
-			DrawWalking(backWalk);
-		}
-		else
-		{
-			DrawIdle(frontAnim);
-		}
-	}
-	if (direction == 2)
-	{
+		break;
+	case 2:
 		if (isWalking == true)
 		{
 			DrawWalking(frontWalk);
@@ -193,18 +194,24 @@ void Player::drawPlayer()
 		{
 			DrawIdle(backAnim);
 		}
-	}
+		break;
+	case 3:
 
-	//DrawRectangle(position.x+20, position.y+40, 20, 20, RED);
+		if (isWalking == true)
+		{
+			DrawWalking(backWalk);
+		}
+		else
+		{
+			DrawIdle(frontAnim);
+		}
+		break;
+	}
+	fullPosition = { position.x + 5, position.y + 30, 40, 50 };
 }
 
 void Player::DrawIdle(Texture2D Nsheet)
 {
-	if (direction == 0)
-	{
-		Nsheet.width *= -1;
-	}
-
 	static Rectangle frameRec = { 0.0f, 0.0f, (float)Nsheet.width / 2.1f, (float)Nsheet.height };
 	static int currentFrame = 0;
 	static int framesCounter = 0;
@@ -229,11 +236,6 @@ void Player::DrawIdle(Texture2D Nsheet)
 
 void Player::DrawWalking(Texture2D Nsheet)
 {
-	if (direction == 1)
-	{
-		Nsheet.width *= -1;
-	}
-
 	static Rectangle frameRec = { 0.0f, 0.0f, (float)Nsheet.width / 9.1f, (float)Nsheet.height };
 	static int currentFrame = 0;
 	static int framesCounter = 0;
@@ -250,7 +252,7 @@ void Player::DrawWalking(Texture2D Nsheet)
 			currentFrame = 0;
 		}
 
-		frameRec.x = (float)currentFrame * (float)Nsheet.width / 9.1;
+		frameRec.x = (float)currentFrame * (float)Nsheet.width / 9.1f;
 	}
 
 	DrawTextureRec(Nsheet, frameRec, position, WHITE);

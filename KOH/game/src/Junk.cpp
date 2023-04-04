@@ -12,7 +12,7 @@ Junk::Junk(std::string name, int type)
 	:
 	Item(name, type)
 {
-
+	
 }
 
 /**

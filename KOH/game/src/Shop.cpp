@@ -39,7 +39,7 @@ void Shop::drawTexture()
 
 		DrawRectangleRec(goOutdoor, BLUE);
 
-		if (CheckCollisionRecs({ player.getPosition().x, player.getPosition().y, 20, 20 }, goOutdoor) && IsKeyPressed(KEY_F))
+		if (CheckCollisionRecs(player.fullPosition, goOutdoor) && IsKeyPressed(KEY_F))
 		{
 			map.isInShop = false;
 			map.isOutdoor = true;
@@ -49,7 +49,7 @@ void Shop::drawTexture()
 
 		DrawRectangleRec(onCheckout, YELLOW);
 
-		if (CheckCollisionRecs({ player.getPosition().x, player.getPosition().y, 20, 20 }, onCheckout) && IsKeyPressed(KEY_F))
+		if (CheckCollisionRecs(player.fullPosition, onCheckout) && IsKeyPressed(KEY_F))
 		{
 			isOnCheckout = true;
 			player.setIsOnMap(false);

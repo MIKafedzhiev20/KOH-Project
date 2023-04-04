@@ -37,7 +37,7 @@ void House::drawHouse()
 
 		DrawRectangleRec(goOutdoor, BLUE);
 
-		if (CheckCollisionRecs({ player.getPosition().x, player.getPosition().y, 20, 20}, goOutdoor) && IsKeyPressed(KEY_F))
+		if (CheckCollisionRecs(player.fullPosition, goOutdoor) && IsKeyPressed(KEY_F))
 		{
 			map.isInHouse = false;
 			map.isOutdoor = true;
@@ -47,7 +47,7 @@ void House::drawHouse()
 
 		DrawRectangleRec(onLaptop, YELLOW);
 
-		if (CheckCollisionRecs({ player.getPosition().x, player.getPosition().y, 20, 20 }, onLaptop) && IsKeyPressed(KEY_F))
+		if (CheckCollisionRecs(player.fullPosition, onLaptop) && IsKeyPressed(KEY_F))
 		{
 			isOnLaptop = true;
 			player.setIsOnMap(false);

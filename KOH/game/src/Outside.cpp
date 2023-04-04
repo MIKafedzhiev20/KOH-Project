@@ -41,7 +41,7 @@ void Outside::DrawOutside()
 
 	DrawRectangleRec(LabWarp, BLUE);
 
-	if (CheckCollisionRecs({ player.getPosition().x, player.getPosition().y, 20, 20}, LabWarp) && IsKeyPressed(KEY_F))
+	if (CheckCollisionRecs(player.fullPosition, LabWarp) && IsKeyPressed(KEY_F))
 	{
 		map.isInLab = true;
 		map.isOutdoor = false;
@@ -49,7 +49,7 @@ void Outside::DrawOutside()
 
 	DrawRectangleRec(shopWarp, GREEN);
 
-	if (CheckCollisionRecs({ player.getPosition().x, player.getPosition().y, 20, 20 }, shopWarp) && IsKeyPressed(KEY_F))
+	if (CheckCollisionRecs(player.fullPosition, shopWarp) && IsKeyPressed(KEY_F))
 	{
 		map.isOutdoor = false;
 		map.isInShop = true;
@@ -57,7 +57,7 @@ void Outside::DrawOutside()
 
 	DrawRectangleRec(houseWarp, YELLOW);
 
-	if (CheckCollisionRecs({ player.getPosition().x, player.getPosition().y, 20, 20 }, houseWarp) && IsKeyPressed(KEY_F))
+	if (CheckCollisionRecs(player.fullPosition, houseWarp) && IsKeyPressed(KEY_F))
 	{
 		map.isOutdoor = false;
 		map.isInHouse = true;
@@ -65,7 +65,7 @@ void Outside::DrawOutside()
 
 	DrawRectangleRec(trashBin, ORANGE);
 
-	if (CheckCollisionRecs({ player.getPosition().x, player.getPosition().y, 20, 20 }, trashBin) && IsKeyPressed(KEY_Q))
+	if (CheckCollisionRecs(player.fullPosition, trashBin) && IsKeyPressed(KEY_Q))
 	{
 		inventory.removeItem();
 	}
@@ -90,7 +90,7 @@ void Outside::generateJunk()
 
 	Junk NewJunk = types[junkType];
 
-	float DrawX = GetRandomValue(960, 1920);
+	float DrawX = GetRandomValue(960, 1820);
 	float DrawY = GetRandomValue(340, 820);
 
 	NewJunk.setHitbox(DrawX, DrawY);
@@ -104,7 +104,7 @@ void Outside::generateJunk()
 	{
 		junk[i].setSpawnTimer(junk[i].getSpawnTimer() - 1);
 
-		if (CheckCollisionRecs({ player.getPosition().x, player.getPosition().y, 20, 20 }, junk[i].getHitbox()) && IsKeyPressed(KEY_F))
+		if (CheckCollisionRecs(player.fullPosition, junk[i].getHitbox()) && IsKeyPressed(KEY_F))
 		{
 			inventory.addItem(junk[i]);
 		}

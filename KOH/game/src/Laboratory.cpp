@@ -42,7 +42,7 @@ void Laboratory::DrawLaboratory()
 
 		DrawRectangleRec(goOutdoor, BLUE);
 
-		if (CheckCollisionRecs({ player.getPosition().x, player.getPosition().y, 20, 20 }, goOutdoor) && IsKeyPressed(KEY_F))
+		if (CheckCollisionRecs(player.fullPosition, goOutdoor) && IsKeyPressed(KEY_F))
 		{
 			map.isInLab = false;
 			map.isOutdoor = true;
@@ -52,7 +52,7 @@ void Laboratory::DrawLaboratory()
 
 		DrawRectangleRec(onTable, YELLOW);
 
-		if (CheckCollisionRecs({ player.getPosition().x, player.getPosition().y, 20, 20 }, onTable) && IsKeyPressed(KEY_F))
+		if (CheckCollisionRecs(player.fullPosition, onTable) && IsKeyPressed(KEY_F))
 		{
 			player.setIsOnMap(false);
 			isOnTable = true;
@@ -62,7 +62,7 @@ void Laboratory::DrawLaboratory()
 
 		DrawRectangleRec(inStorage, PURPLE);
 
-		if (CheckCollisionRecs({ player.getPosition().x, player.getPosition().y, 20, 20 }, inStorage) && IsKeyPressed(KEY_F))
+		if (CheckCollisionRecs(player.fullPosition, inStorage) && IsKeyPressed(KEY_F))
 		{
 			player.setIsOnMap(false);
 			isInStorage = true;
@@ -72,7 +72,7 @@ void Laboratory::DrawLaboratory()
 
 		DrawRectangleRec(onExtraxtor, DARKBROWN);
 
-		if (CheckCollisionRecs({ player.getPosition().x, player.getPosition().y, 20, 20 }, onExtraxtor) && IsKeyPressed(KEY_F))
+		if (CheckCollisionRecs(player.fullPosition, onExtraxtor) && IsKeyPressed(KEY_F))
 		{
 			player.setIsOnMap(false);
 			isOnExtractor = true;
@@ -136,15 +136,22 @@ void Laboratory::DrawTable()
 		}
 	}
 
-	DrawText(("Current task. Obtain: " + reactions[taskIndex].getName()).c_str(), 600, 100, 50, RED);
+	if (taskIndex < 17)
+	{
+		DrawText(("Current task. Obtain: " + reactions[taskIndex].getName()).c_str(), 600, 100, 50, RED);
+	}
+	else
+	{
+		DrawText("COMPLETED!", 740, 100, 50, RED);
+	}
 
 	if (DrawButtonText({ 1650, 100 }, 240, 44, 50, "COMBINE"))
 	{
 		for (int i = 0; i < 17; i++)
 		{
-			if ((slots[0].getName() == reactions[i].getRequired1() || slots[0].getName() == reactions[i].getRequired2()) && (slots[1].getName() == reactions[i].getRequired2() || slots[1].getName() == reactions[i].getRequired1()))
+			if ((slots[0].getName() == reactions[i].getRequired1() || slots[0].getName() == reactions[i].getRequired2())
+			 && (slots[1].getName() == reactions[i].getRequired2() || slots[1].getName() == reactions[i].getRequired1()))
 			{
-				inventory.addItem(Item(reactions[i].getName(), 2));
 				if (reactions[i].getIsObtained() == false && taskIndex == i)
 				{
 					inventory.setBalance(inventory.getBalance() + reactions[i].getPrice());

@@ -20,6 +20,8 @@ public:
 	void move();
 	void drawPlayer();
 
+	float getSpeed();
+
 	// Setters and getters
 	void setIsOnMap(bool isOnMap);
 	bool getIsOnMap();
@@ -29,6 +31,8 @@ public:
 
 	void setCameraPos(Vector2 cameraPos);
 	Vector2 getCameraPos();
+
+	Rectangle fullPosition = { position.x + 5, position.y + 30, 40, 50 };
 
 private:
 	// Constructor / Destructor
@@ -46,11 +50,16 @@ private:
 	Vector2 cameraPos = { 0, 0 };
 
 	Texture2D backAnim;
-	Texture2D frontAnim;
 	Texture2D backWalk;
+
+	Texture2D frontAnim;
 	Texture2D frontWalk;
-	Texture2D sideAnim;
-	Texture2D sideWalk;
+
+	Texture2D leftAnim;
+	Texture2D leftWalk;
+
+	Texture2D rightAnim;
+	Texture2D rightWalk;
 
 	float speed = 3.0f;
 
