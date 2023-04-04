@@ -53,10 +53,13 @@ public:
 	bool isGameGoing = false;
 
 private:
-	// Constructor
+	// Constructor / Destructor
 	MainMenu();
+	~MainMenu();
 
 	void newGame();
+
+	Texture2D mainMenuTexture;
 };
 
 bool DrawButtonText(Vector2 pos, int width, int height, int fontSize, const char* name);

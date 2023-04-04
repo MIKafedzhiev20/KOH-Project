@@ -13,11 +13,16 @@ Map::Map()
 
 /**
  * .Create instance of MainMenu
- * 
+ *
  */
 MainMenu::MainMenu()
 {
+	mainMenuTexture = LoadTexture("../assets/Menu.png");
+}
 
+MainMenu::~MainMenu()
+{
+	UnloadTexture(mainMenuTexture);
 }
 
 /**
@@ -81,6 +86,8 @@ void MainMenu::DrawMainMenu()
 	{
 		Player& player = Player::getInstance();
 		Map& map = Map::getInstance();
+
+		DrawTexture(mainMenuTexture, 0, 0, WHITE);
 
 		if (DrawButtonText({ 100, 200 }, 560, 100, 100, "New Game"))
 		{
