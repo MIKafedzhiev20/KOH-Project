@@ -74,7 +74,6 @@ void Outside::DrawOutside()
 
 	for (int i = 0; i < 4; i++)
 	{
-		DrawRectangleRec(walls[i], RED);
 		player.checkCollision(walls[i]);
 	}
 
@@ -102,6 +101,7 @@ void Outside::generateJunk()
 
 	if (junk.size() < 4)
 	{
+		NewJunk.setPosition({ DrawX, DrawY });
 		junk.push_back(NewJunk);
 	}
 
@@ -116,7 +116,7 @@ void Outside::generateJunk()
 
 		if (junk[i].getSpawnTimer() <= 0)
 		{
-			junk[i].DrawJunk();
+			junk[i].DrawJunk({DrawX, DrawY});
 		}
 
 		if (junk[i].getLifetimer() <= 0 || junk[i].getIsPickedUp() == true)

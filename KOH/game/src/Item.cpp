@@ -81,7 +81,7 @@ bool Item::getIsPickedUp()
  */
 void Item::setHitbox(float x, float y)
 {
-	this->hitbox = { x,y,20,20 };
+	this->hitbox = { x,y,40,35 };
 }
 
 /**
@@ -92,4 +92,14 @@ void Item::setHitbox(float x, float y)
 Rectangle Item::getHitbox()
 {
 	return this->hitbox;
+}
+
+void Item::setTexture(Texture2D texture)
+{
+	this->itemTexture = texture;
+}
+
+Texture2D Item::getTexture()
+{
+	return this->itemTexture;
 }

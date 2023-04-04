@@ -23,6 +23,9 @@ public:
 	void setHitbox(float x, float y);
 	Rectangle getHitbox();
 
+	void setTexture(Texture2D texture);
+	Texture2D getTexture();
+
 private:
 	std::string name;
 

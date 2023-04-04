@@ -46,7 +46,7 @@ void Game::Tick()
 
 	if (player.getIsOnMap())
 	{
-		//BeginMode2D(camera);
+		BeginMode2D(camera);
 	}
 
 	Update();

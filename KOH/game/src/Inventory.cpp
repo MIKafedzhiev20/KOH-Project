@@ -125,7 +125,7 @@ void Inventory::drawInventory()
 
 	for (auto i = 0; i < 3; i++)
 	{
-		DrawText(items[i].getName().c_str(), player.getCameraPos().x + drawX + 20, player.getCameraPos().y + drawY + 15, 20, RED);
+		DrawTexture(items[i].getTexture(), player.getCameraPos().x + drawX + 5, player.getCameraPos().y + drawY + 5, WHITE);
 		drawX += 65;
 	}
 
@@ -155,7 +155,7 @@ void Inventory::DrawOutzoomed()
 
 	for (auto i = 0; i < 3; i++)
 	{
-		DrawText(items[i].getName().c_str(), drawX + 20, drawY + 15, 20, RED);
+		DrawTexture(items[i].getTexture(), drawX + 5, drawY + 5,WHITE);
 		drawX += 65;
 	}
 

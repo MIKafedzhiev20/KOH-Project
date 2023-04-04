@@ -41,6 +41,23 @@ void House::drawHouse()
 		map.isOutdoor = true;
 
 		player.setPosition({ 1200, 200 });
+		Rectangle goOutdoor = { 200, 350, 30, 30 };
+
+		DrawRectangleRec(goOutdoor, BLUE);
+
+		if (CheckCollisionRecs(player.fullPosition, goOutdoor) && IsKeyPressed(KEY_F))
+		{
+			map.isInHouse = false;
+			map.isOutdoor = true;
+		}
+
+		for (int i = 0; i < 4; i++)
+		{
+			DrawRectangleRec(walls[i], WHITE);
+			//player.checkCollision(walls[i]);
+		}
+
+		map.OpenMapMenu();
 	}
 
 
